@@ -16,6 +16,11 @@ public class Bullet : PoolableMono
 
     }
 
+    void OnEnable()
+    {
+        Invoke("DestroyThis", 10f);
+    }
+
     void Awake()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -26,7 +31,6 @@ public class Bullet : PoolableMono
         rig.AddForce(dir * force);
 
         //테스트 코드 아닐지도~~
-        Invoke("DestroyThis", 10f);
     }
 
     //테스트 코드
