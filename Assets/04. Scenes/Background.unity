@@ -249,5 +249,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8da5adf3c76e7f47b2fd56b396c8214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorChangeDelay: []
-  backgroundGameObject: []
+  floorChangeDelay:
+  - 5
+  - 5
+  backgroundGameObject:
+  - {fileID: 1694149195440146105, guid: c4f5a4b85e4f4ab499a054c142d41944, type: 3}
+  - {fileID: 802315939996374507, guid: c57e1196121a42b4da9710bca88e7e77, type: 3}
