@@ -8,15 +8,17 @@ public class EnergyBall : Skill
 
     public override void Select()
     {
-        base.Select();
+        isReady = true;
+        Debug.Log("에너지볼 장착");
     }
 
     public void Update()
     {
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && isReady)
         {
             if(Input.GetMouseButtonUp(0))
             {
+                isReady = false;
                 mousePos = Input.mousePosition;
                 mousePos = Camera.ScreenToWorldPoint(mousePos);
 

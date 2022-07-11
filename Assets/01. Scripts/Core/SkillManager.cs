@@ -43,12 +43,13 @@ public class SkillManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q) && isSkill) // 첫번째 스킬
         {
             tower.GetComponent<Tower>().isSkilling = true;
-            skillArr[0].GetComponent<Skill>().Select();
+            skillArr[0].Select();
         }
 
         if(Input.GetKeyDown(KeyCode.W)) // 두번째 스킬
         {
-            tower.isSkilling = true;
+            tower.GetComponent<Tower>().isSkilling = true;
+            skillArr[1].Select();
         }
 
         if (Input.GetKeyDown(KeyCode.E)) //세번째 스킬

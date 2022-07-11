@@ -12,9 +12,6 @@ public class NormalEnemy : Enemy
 
     public override void Fire()
     {
-        Debug.Log("노말에너미파이어");
-        Debug.Log(targetTrm.position);
-        Debug.Log(transform.position);
         Vector2 dir = targetTrm.position - transform.position;
         dir.Normalize();
         Bullet bullet = PoolManager.Instance.Pop("EnemyBullet") as Bullet;
