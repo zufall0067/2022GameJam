@@ -34,9 +34,6 @@ public class BackgroundManager : MonoBehaviour
     {
         nowTime += Time.deltaTime;
 
-        Debug.Log(nowActiveBackgroundObject);
-        Debug.Log(backgroundGameObjectCount);
-
         if (backgroundGameObjectCount != nowActiveBackgroundObject + 1)
         {
             if (nowTime > floorChangeDelay[nowActiveBackgroundObject])

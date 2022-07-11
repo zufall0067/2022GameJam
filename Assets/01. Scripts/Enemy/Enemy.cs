@@ -38,6 +38,7 @@ public class Enemy : PoolableMono
     public override void Reset()
     {
         transform.DOComplete();
+        CancelInvoke();
         hp = 10; //Á¸³ª±ÍÂú³×
     }
 

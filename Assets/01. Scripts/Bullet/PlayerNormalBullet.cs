@@ -14,7 +14,6 @@ public class PlayerNormalBullet : Bullet
 
     public override void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("ºÎµúÄ§");
         if (collision.transform.CompareTag("ENEMY"))
         {
             collision.transform.GetComponent<Enemy>().hp -= atk;
