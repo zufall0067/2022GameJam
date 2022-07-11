@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BackgroundManager : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class BackgroundManager : MonoBehaviour
             nowTime = 0f;
 
             Instantiate(backgroundGameObject[nowActiveBackgroundObject], this.gameObject.transform);
-            this.gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
+            this.gameObject.transform.GetChild(0).GetComponent<Material>().DOFade(0,1);
         }
     }
 }
