@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnergyBall : Skill
 {
-    private float ChageEnegry = 0;
+    private float ChargeEnegry = 0;
 
     public override void Select()
     {
@@ -15,7 +15,6 @@ public class EnergyBall : Skill
     {
         if(Input.GetMouseButton(0))
         {
-
             if(Input.GetMouseButtonUp(0))
             {
                 mousePos = Input.mousePosition;
@@ -24,8 +23,9 @@ public class EnergyBall : Skill
                 Vector2 dir = mousePos - new Vector2(0, -1); //총알 발사 위치 /*(Vector2)transform.position*/;
                 dir.Normalize();
 
-                Bullet bullet = PoolManager.Instance.Pop("EnergyBall") as Bullet;
+                Bullet bullet = PoolManager.Instance.Pop("EnergyBullet") as Bullet;
                 bullet.dir = dir;
+                bullet.gameObject.transform.localScale = new Vector3(ChargeEnegry / 2, ChargeEnegry / 2, ChargeEnegry / 2);
                 bullet.Shoot();
             }
         }
