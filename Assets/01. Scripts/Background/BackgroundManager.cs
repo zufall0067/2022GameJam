@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 
 public class BackgroundManager : MonoBehaviour
 {
@@ -19,8 +16,8 @@ public class BackgroundManager : MonoBehaviour
     private float nowTime;
     //지금 켜져있는 배경 오브젝트
     private int nowActiveBackgroundObject;
-    
 
+    private Background background;
 
 
     private void Start()
@@ -30,20 +27,25 @@ public class BackgroundManager : MonoBehaviour
         floorCount = floorChangeDelay.Length;
         backgroundGameObjectCount = backgroundGameObject.Length;
         Instantiate(backgroundGameObject[0], this.gameObject.transform);
-        
+        background = GetComponent<Background>();
     }
 
     private void Update()
     {
         nowTime += Time.deltaTime;
 
-        if(nowTime > floorChangeDelay[nowActiveBackgroundObject] && backgroundGameObjectCount > nowActiveBackgroundObject)
-        {
-            nowActiveBackgroundObject++;
-            nowTime = 0f;
+        Debug.Log(nowActiveBackgroundObject);
+        Debug.Log(backgroundGameObjectCount);
 
-            Instantiate(backgroundGameObject[nowActiveBackgroundObject], this.gameObject.transform);
-            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        if (backgroundGameObjectCount != nowActiveBackgroundObject + 1)
+        {
+            if (nowTime > floorChangeDelay[nowActiveBackgroundObject])
+            {
+                nowActiveBackgroundObject++;
+                nowTime = 0f;
+                Instantiate(backgroundGameObject[nowActiveBackgroundObject], this.gameObject.transform);
+                this.gameObject.transform.GetChild(nowActiveBackgroundObject - 1).gameObject.SetActive(false);
+            }
         }
     }
 }
