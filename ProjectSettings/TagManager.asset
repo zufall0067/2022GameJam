@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GROUND
   - TOWER
+  - ENEMY
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - UI
   - TOWER
   - GROUND
-  - 
+  - BULLET
   - 
   - 
   - 

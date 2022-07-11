@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Bullet : PoolableMono
 {
+    public int atk;
+
     public Vector2 dir;
 
-    Rigidbody2D rig;
+    protected Rigidbody2D rig;
 
-    public Transform firePos;
 
     public override void Reset()
     {
-        transform.position = new Vector3(0,-1,0);//위치
+
     }
 
     void Awake()
@@ -24,8 +25,8 @@ public class Bullet : PoolableMono
     {
         rig.AddForce(dir * 1500);
 
-        //테스트 코드
-        Invoke("DestroyThis", 5f);
+        //테스트 코드 아닐지도~~
+        Invoke("DestroyThis", 10f);
     }
 
     //테스트 코드
@@ -34,8 +35,9 @@ public class Bullet : PoolableMono
         PoolManager.Instance.Push(this);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         
     }
+
 }
