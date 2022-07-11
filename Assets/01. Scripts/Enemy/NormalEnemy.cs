@@ -7,7 +7,7 @@ public class NormalEnemy : Enemy
     //필요한것  :  공격력, 체력 바, 히트확인, 플레이어위치, 죽었을때 연료
     public override void Shooting()
     {
-        InvokeRepeating("Fire", 3f, 1f);
+        InvokeRepeating("Fire", 1f, 1.5f);
     }
 
     public override void Fire()
