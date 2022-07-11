@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4297381167158566709}
   - component: {fileID: 4297381167158566708}
   - component: {fileID: 4297381167158566715}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NormalEnemy
   m_TagString: ENEMY
   m_Icon: {fileID: 0}
@@ -120,6 +120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   atk: 1
+  movingX: 0
+  movingY: 0
   targetTrm: {fileID: 0}
 --- !u!61 &4297381167158566715
 BoxCollider2D:

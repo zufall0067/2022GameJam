@@ -879,8 +879,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 173138891
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &720238565
 RectTransform:
@@ -1000,7 +1000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &911564134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,10 +1014,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorChangeDelay:
-  - 3
+  - 1
+  - 1000
   - 3
   backgroundGameObject:
   - {fileID: 2296747262208570966, guid: d0ebde9a7bbd70d499fa86fd5b1d6246, type: 3}
+  - {fileID: 2296747262208570966, guid: 3270035fb57f087489369284c153348f, type: 3}
   - {fileID: 7182468416935650754, guid: b666df12127b75d46bd3ee31f29842c3, type: 3}
   - {fileID: 1461245966099482734, guid: b31b1c290a7e71346acdbf6057a980b1, type: 3}
 --- !u!4 &911564135
@@ -1159,9 +1161,9 @@ GameObject:
   - component: {fileID: 1591244257}
   - component: {fileID: 1591244256}
   - component: {fileID: 1591244258}
+  - component: {fileID: 1591244261}
   - component: {fileID: 1591244259}
   - component: {fileID: 1591244260}
-  - component: {fileID: 1591244261}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
