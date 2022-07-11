@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : PoolableMono
 {
     public int atk;
-
+    public int force = 1250;
     public Vector2 dir;
 
     protected Rigidbody2D rig;
@@ -23,7 +23,7 @@ public class Bullet : PoolableMono
 
     public void Shoot()
     {
-        rig.AddForce(dir * 1250);
+        rig.AddForce(dir * force);
 
         //테스트 코드 아닐지도~~
         Invoke("DestroyThis", 10f);

@@ -11,9 +11,11 @@ public class SkillManager : MonoBehaviour
 
     public Skill[] skillArr;
 
+    public Tower tower;
+
     void Awake()
     {
-
+       // tower = GetComponent<Tower>();
     }
 
     void Start()
@@ -40,17 +42,18 @@ public class SkillManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Q) && isSkill) // 첫번째 스킬
         {
+            tower.GetComponent<Tower>().isSkilling = true;
             skillArr[0].GetComponent<Skill>().Select();
         }
 
         if(Input.GetKeyDown(KeyCode.W)) // 두번째 스킬
         {
-
+            tower.isSkilling = true;
         }
 
         if (Input.GetKeyDown(KeyCode.E)) //세번째 스킬
         {
-
+            tower.isSkilling = true;
         }
 
     }

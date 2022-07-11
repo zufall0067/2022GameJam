@@ -24,6 +24,7 @@ public class Fireball : Skill
             Bullet bullet = PoolManager.Instance.Pop("Fireball") as Bullet;
             bullet.dir = dir;
             bullet.Shoot();
+            tower.isSkilling = false;
         }
     }
 }

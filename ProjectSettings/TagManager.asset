@@ -17,8 +17,8 @@ TagManager:
   - TOWER
   - GROUND
   - BULLET
-  - 
-  - 
+  - ENEMYBULLET
+  - ENEMY
   - 
   - 
   - 

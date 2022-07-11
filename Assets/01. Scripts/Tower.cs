@@ -8,9 +8,11 @@ public class Tower : MonoBehaviour
     public float fuel;
 
     bool isGameStart;
+    public bool isSkilling;
 
     Vector2 mousePos;
     public Camera Camera;
+    
 
     void Start()
     {
@@ -20,7 +22,7 @@ public class Tower : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !isSkilling)
         {
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
