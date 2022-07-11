@@ -10,7 +10,7 @@ public class CameraManager : MonoBehaviour
 
     void Start()
     {
-        transform.position = target.transform.position + new Vector3(0f, 0f, -1f);
+        transform.position = target.transform.position + new Vector3(0f, 2f, -1f);
     }
 
     void Update()

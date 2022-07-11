@@ -8,21 +8,35 @@ public class Tower : MonoBehaviour
     public float fuel;
 
     bool isGameStart;
-    
+
+    Vector2 mousePos;
+    public Camera Camera;
+
+    void Start()
+    {
+        
+    }
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+
+        if(Input.GetMouseButtonDown(0))
         {
-            isGameStart = true;
-        }
-        if(isGameStart)
-        {
-            GameStart();
+            mousePos = Input.mousePosition;
+            mousePos = Camera.ScreenToWorldPoint(mousePos);
+
+            Vector2 dir = mousePos - (Vector2)transform.position;
+            dir.Normalize();
+
+            Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
+            bullet.dir = dir;
+            bullet.Shoot();
         }
     }
 
-    private void GameStart()
+    private void Fire()
     {
-        transform.position += new Vector3(0.1f, 0f, 0);
+
     }
+
 }
