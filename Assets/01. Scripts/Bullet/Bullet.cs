@@ -23,7 +23,7 @@ public class Bullet : PoolableMono
 
     public void Shoot()
     {
-        rig.AddForce(dir * 1500);
+        rig.AddForce(dir * 1250);
 
         //테스트 코드 아닐지도~~
         Invoke("DestroyThis", 10f);
