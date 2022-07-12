@@ -21,5 +21,8 @@ public class NormalEnemy : Enemy
         
         bullet.Shoot();
     }
-
+    public override void HPbar()
+    {
+        base.HPbar();
+    }
 }

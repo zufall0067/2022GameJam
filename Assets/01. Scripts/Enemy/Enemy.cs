@@ -3,9 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class Enemy : PoolableMono
 {
+    public Scrollbar HPBar;
+
     public int hp; //ÇÁ·ÎÆÛÆ¼·Î »©¾ßµÉµí..41¹øÁÙ
     public int atk;
 
@@ -13,16 +16,20 @@ public class Enemy : PoolableMono
     public float movingY = 0;
 
     public Transform targetTrm;
+    public Canvas canvas;
+
 
     void Start()
     {
         targetTrm = GameObject.Find("Tower").transform;
         Shooting();
         Moving();
+        HPbar();
     }
 
     void Update()
     {
+        HPbar();
         if(hp <= 0)
         {
             PoolManager.Instance.Push(this);
@@ -39,7 +46,7 @@ public class Enemy : PoolableMono
     {
         transform.DOComplete();
         CancelInvoke();
-        hp = 10; //Á¸³ª±ÍÂú³×
+        hp = 100; //Á¸³ª±ÍÂú³×
     }
 
     public virtual void Shooting()
@@ -50,5 +57,13 @@ public class Enemy : PoolableMono
     public virtual void Fire()
     {
         
+    }
+
+    public virtual void HPbar()
+    {
+        canvas = GetComponent<Canvas>();
+        canvas.worldCamera = Camera.main;
+        HPBar.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5f, 0f);
+        HPBar.image.fillAmount = hp / 100f;
     }
 }

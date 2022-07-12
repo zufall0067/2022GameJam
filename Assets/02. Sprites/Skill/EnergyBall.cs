@@ -14,13 +14,12 @@ public class EnergyBall : Skill
 
     public void Update()
     {
-        if(Input.GetMouseButton(0) && isReady || Input.GetMouseButtonUp(0))
+        if((Input.GetMouseButton(0) || Input.GetMouseButtonUp(0)) && isReady )
         {
             if(ChargeEnegry < 2.5f)
             {
                 ChargeEnegry += Time.deltaTime;
             }
-
             Debug.Log(ChargeEnegry);
             if(Input.GetMouseButtonUp(0))
             {
@@ -35,9 +34,10 @@ public class EnergyBall : Skill
                 bullet.dir = dir;
                 bullet.gameObject.transform.localScale = new Vector3(ChargeEnegry / 3, ChargeEnegry / 3, ChargeEnegry / 3);
                 bullet.atk = (int)(ChargeEnegry * 36 + 5);
-                Debug.Log(bullet.atk);
                 bullet.Shoot();
             }
         }
+        else
+            ChargeEnegry = 0;
     }
 }
