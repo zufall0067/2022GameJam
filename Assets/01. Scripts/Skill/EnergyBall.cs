@@ -20,7 +20,7 @@ public class EnergyBall : Skill
             {
                 ChargeEnegry += Time.deltaTime;
             }
-            Debug.Log(ChargeEnegry);
+
             if(Input.GetMouseButtonUp(0))
             {
                 isReady = false;

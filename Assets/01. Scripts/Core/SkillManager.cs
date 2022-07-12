@@ -77,7 +77,8 @@ public class SkillManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E)) //세번째 스킬
         {
-            tower.isSkilling = true;
+            tower.GetComponent<Tower>().isSkilling = true;
+            skillArr[2].Select();
         }
 
     }

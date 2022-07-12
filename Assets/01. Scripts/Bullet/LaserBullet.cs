@@ -44,8 +44,11 @@ public class LaserBullet : Bullet
             {
                 yield return 0;
             }
-            raserCollision.transform.GetComponent<Enemy>().hp -= atk;
-            yield return new WaitForSeconds(0.2f);
+            else
+            {
+                raserCollision.transform.GetComponent<Enemy>().hp -= atk;
+                yield return new WaitForSeconds(0.2f);
+            }
         }
     }
 
