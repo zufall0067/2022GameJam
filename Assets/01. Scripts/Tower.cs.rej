@@ -1,0 +1,9 @@
+diff a/Assets/01. Scripts/Tower.cs b/Assets/01. Scripts/Tower.cs	(rejected hunks)
+@@ -57,6 +57,7 @@
+             dir.Normalize();
+ 
+             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
++            bullet.transform.position = transform.position;
+             bullet.dir = dir;
+             bullet.Shoot();
+             bulletCount++;
