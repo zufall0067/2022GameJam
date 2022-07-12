@@ -5,10 +5,11 @@ using UnityEngine;
 public class PlayerNormalBullet : Bullet
 {
     public Transform firePos;
-
+    private Tower tower = null;
     public override void Reset()
     {
-        transform.position = new Vector3(0, -1, 0);//À§Ä¡
+        tower = FindObjectOfType<Tower>();
+        transform.position = new Vector3(0, -1, 0);//ï¿½ï¿½Ä¡
         rig.velocity = Vector2.zero;
     }
 
@@ -17,11 +18,12 @@ public class PlayerNormalBullet : Bullet
         if (collision.transform.CompareTag("ENEMY"))
         {
             collision.transform.GetComponent<Enemy>().hp -= atk;
+            tower.nowPower += tower.recoveryPower;
             DestroyThis();
         }
         if (collision.transform.CompareTag("OUTLINE"))
         {
-            Debug.Log("º®´çÇß´Ù.");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½.");
             DestroyThis();
         }
     }
