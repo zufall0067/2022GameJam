@@ -39,10 +39,11 @@ public class Tower : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
 
-            Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
+            Vector2 dir = mousePos - (Vector2)transform.position; //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
+            bullet.transform.position = transform.position;
             bullet.dir = dir;
             bullet.Shoot();
             bulletCount++;
@@ -77,7 +78,7 @@ public class Tower : MonoBehaviour
         fuel -= Time.deltaTime * 30f;
 
 
-        if (fuel < 0) Die();
+        //if (fuel < 0) Die();
     }
     private void Fire()
     {
