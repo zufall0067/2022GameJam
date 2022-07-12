@@ -6,7 +6,9 @@ using DG.Tweening;
 public class Tower : MonoBehaviour
 {
     public float fuel = 200;
-
+    public float nowPower = 0;
+    public float fullPower = 100;
+    public float recoveryPower = 2;
     bool isGameStart;
     public bool isSkilling;
 
@@ -24,6 +26,11 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
+        if (nowPower > fullPower)
+        {
+            nowPower = fullPower;
+        }
+
         FuelDecrease();
 
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading)
@@ -61,7 +68,6 @@ public class Tower : MonoBehaviour
                 isReloading = false;
             }
         }
-
         UIManager.Instance.fuelText.text = fuel.ToString();
     }
 
@@ -73,7 +79,6 @@ public class Tower : MonoBehaviour
 
         if (fuel < 0) Die();
     }
-
     private void Fire()
     {
 
