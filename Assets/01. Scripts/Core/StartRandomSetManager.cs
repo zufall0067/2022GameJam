@@ -50,7 +50,6 @@ public class StartRandomSetManager : MonoBehaviour
         
         if (backgroundGameObject[backgroundRandomIndex].CompareTag("SPACE"))
         {
-            Debug.Log("태그가 아노디요");
             if (towerGameObject[towerRandomIndex].gameObject.activeSelf == false)
             {
                 Debug.Log("스폰이 안되요");
