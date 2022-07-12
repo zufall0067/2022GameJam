@@ -19,7 +19,7 @@ public class Enemy : PoolableMono
     public Transform targetTrm;
 
 
-    protected void Awake()
+    void Start()
     {
         hpBar = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         targetTrm = GameObject.Find("Tower").transform;
@@ -50,13 +50,13 @@ public class Enemy : PoolableMono
     {
         transform.DOComplete();
         CancelInvoke();
-        
+        hp = 100; //����������
 
     }
 
     public virtual void Shooting()
     {
-        
+
     }
 
     public virtual void Fire()
