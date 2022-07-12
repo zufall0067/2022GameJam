@@ -15,13 +15,6 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            istest = true;
-        }
-        if(istest == true)
-        {
-            transform.position = Vector3.Lerp(transform.position, target.transform.position + new Vector3(2f, 0f, -1f), 7f );
-        }
-    }
+        
+    }   
 }

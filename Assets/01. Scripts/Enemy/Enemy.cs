@@ -9,8 +9,9 @@ public class Enemy : PoolableMono
 {
     public SpriteRenderer hpBar;
 
-    public int hp; //ÇÁ·ÎÆÛÆ¼·Î »©¾ßµÉµí..41¹øÁÙ
+    public int hp; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ßµÉµï¿½..41ï¿½ï¿½ï¿½ï¿½
     public int atk;
+    public float giveFuel; // ï¿½×¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½á·®
 
     public float movingX = 0;
     public float movingY = 0;
@@ -30,7 +31,11 @@ public class Enemy : PoolableMono
     {
         if(hp <= 0)
         {
-            PoolManager.Instance.Push(this);
+            //ï¿½Ì°ï¿½ fuel ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ //////////////////////////////////////////////////////////////////////////////////////
+            targetTrm.GetComponent<Tower>().fuel += giveFuel;
+            gameObject.SetActive(false);
+            Reset();
+            //PoolManager.Instance.Push(this);
         }
     }
 
@@ -44,7 +49,8 @@ public class Enemy : PoolableMono
     {
         transform.DOComplete();
         CancelInvoke();
-        hp = 100; //Á¸³ª±ÍÂú³×
+        hp = 100; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
     }
 
     public virtual void Shooting()

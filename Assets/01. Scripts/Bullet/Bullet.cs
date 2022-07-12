@@ -13,12 +13,12 @@ public class Bullet : PoolableMono
 
     public override void Reset()
     {
-
+        //CancelInvoke("DestroyThis");
     }
 
     void OnEnable()
     {
-        Invoke("DestroyThis", 10f);
+        //Invoke("DestroyThis", 0.5f);
     }
 
     void Awake()
@@ -36,6 +36,7 @@ public class Bullet : PoolableMono
     //테스트 코드
     public void DestroyThis()
     {
+        //if(gameObject.activeSelf)
         PoolManager.Instance.Push(this);
     }
 

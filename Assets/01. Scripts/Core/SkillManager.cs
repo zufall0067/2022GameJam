@@ -5,6 +5,21 @@ using DG.Tweening;
 
 public class SkillManager : MonoBehaviour
 {
+    #region ΩÃ±€≈Ê
+    private static SkillManager instance = null;
+
+    public static SkillManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    #endregion
 
     public GameObject skillPanel;
     public bool isSkill;
@@ -15,7 +30,12 @@ public class SkillManager : MonoBehaviour
 
     void Awake()
     {
-       // tower = GetComponent<Tower>();
+        if (null == instance)
+        {
+            instance = this;
+        }
+
+
     }
 
     void Start()
@@ -26,16 +46,19 @@ public class SkillManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && !isSkill)
         {
-            //skillPanel.transform.DOComplete();
-            skillPanel.transform.DOMoveY(0, 0.25f);
+            Time.timeScale = 1f;
             isSkill = true;
+            skillPanel.transform.DOComplete();
+            skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
+            Time.timeScale = 0.05f;
         }
         if (Input.GetMouseButtonUp(1))
         {
             //skillPanel.transform.DOComplete();
-            skillPanel.transform.DOMoveY(-2, 0.25f);
+            Time.timeScale = 1f;
+            skillPanel.transform.DOMoveY(-2, 0.2f);  
             isSkill = false;
         }
 

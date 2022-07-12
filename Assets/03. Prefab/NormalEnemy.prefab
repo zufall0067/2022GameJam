@@ -122,6 +122,7 @@ MonoBehaviour:
   HPBar: {fileID: 0}
   hp: 10
   atk: 1
+  giveFuel: 40
   movingX: 0
   movingY: 0
   targetTrm: {fileID: 0}
