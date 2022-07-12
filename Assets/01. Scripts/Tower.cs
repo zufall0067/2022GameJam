@@ -57,6 +57,7 @@ public class Tower : MonoBehaviour
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
+            bullet.transform.position = transform.position;
             bullet.dir = dir;
             bullet.Shoot();
             bulletCount++;
