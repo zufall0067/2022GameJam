@@ -50,7 +50,7 @@ public class Enemy : PoolableMono
     {
         transform.DOComplete();
         CancelInvoke();
-        hp = 100; //����������
+        
 
     }
 

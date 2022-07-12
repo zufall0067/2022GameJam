@@ -34,5 +34,6 @@ public class UIManager : MonoBehaviour
     #endregion
 
     public Text fuelText;
+    public GameObject GameOverPanel;
 
 }

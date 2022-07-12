@@ -32,5 +32,10 @@ public class BombEnemy : Enemy
         }
     }
 
+    public override void Reset()
+    {
+        hp = 500;
+        base.Reset();
+    }
 
 }

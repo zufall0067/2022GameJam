@@ -12,8 +12,6 @@ public class Tower : MonoBehaviour
 
     Vector2 mousePos;
     public Camera Camera;
-    
-
 
     void Start()
     {
@@ -66,11 +64,12 @@ public class Tower : MonoBehaviour
     {
         var dir = Quaternion.AngleAxis(60, Vector3.right) * Vector3.one;
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOJump(new Vector3(0, 0.5f, 0), 3, 1, 0.7f)).
+        seq.Append(transform.DOJump(new Vector3(0, 0.5f, 0), 1, 1, 0.7f)).
             Join(transform.DOMoveX(2, 0.8f)).
             Join(transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, -150), 0.7f)).
             Insert(0.3f, transform.DOMoveY(-7, 0.5f)).SetUpdate(true);
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(1.5f);
+        UIManager.Instance.GameOverPanel.transform.DOMoveY(1f, 1f).SetEase(Ease.InOutBack).SetUpdate(true);
         Debug.Log("asd");
     }
 
