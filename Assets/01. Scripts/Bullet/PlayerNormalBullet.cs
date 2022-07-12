@@ -9,7 +9,7 @@ public class PlayerNormalBullet : Bullet
     public override void Reset()
     {
         tower = FindObjectOfType<Tower>();
-        transform.position = new Vector3(0, -1, 0);//��ġ
+        //transform.position = new Vector3(0, -1, 0);//��ġ
         rig.velocity = Vector2.zero;
     }
 

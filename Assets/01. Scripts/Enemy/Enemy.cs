@@ -19,7 +19,7 @@ public class Enemy : PoolableMono
     public Transform targetTrm;
 
 
-    void Start()
+    protected void Awake()
     {
         hpBar = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         targetTrm = GameObject.Find("Tower").transform;
