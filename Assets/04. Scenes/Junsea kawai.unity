@@ -392,7 +392,7 @@ Transform:
   - {fileID: 692798277}
   - {fileID: 2018043888}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &419137374
 GameObject:
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -879,8 +879,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 173138891
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &720238565
 RectTransform:
@@ -894,6 +894,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 917658055}
+  - {fileID: 911564135}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1000,7 +1001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &911564134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,10 +1015,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floorChangeDelay:
+  - 2
   - 3
   - 3
   backgroundGameObject:
   - {fileID: 2296747262208570966, guid: d0ebde9a7bbd70d499fa86fd5b1d6246, type: 3}
+  - {fileID: 2296747262208570966, guid: 3270035fb57f087489369284c153348f, type: 3}
   - {fileID: 7182468416935650754, guid: b666df12127b75d46bd3ee31f29842c3, type: 3}
   - {fileID: 1461245966099482734, guid: b31b1c290a7e71346acdbf6057a980b1, type: 3}
 --- !u!4 &911564135
@@ -1027,12 +1030,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911564133}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -9786.96}
+  m_LocalScale: {x: 108, y: 108, z: 108}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 720238565}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &917658054
 GameObject:
@@ -1159,9 +1162,9 @@ GameObject:
   - component: {fileID: 1591244257}
   - component: {fileID: 1591244256}
   - component: {fileID: 1591244258}
+  - component: {fileID: 1591244261}
   - component: {fileID: 1591244259}
   - component: {fileID: 1591244260}
-  - component: {fileID: 1591244261}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
