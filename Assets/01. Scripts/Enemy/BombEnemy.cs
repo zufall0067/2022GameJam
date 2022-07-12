@@ -8,7 +8,7 @@ public class BombEnemy : Enemy
     {
         //InvokeRepeating("Fire", 1f, 2.5f);
 
-        Fire();
+        //Fire();
     }
 
     public override void Fire()

@@ -17,6 +17,7 @@ public class EnergyBall : Skill
     {
         if ((Input.GetMouseButton(0) || Input.GetMouseButtonUp(0)) && isReady)
         {
+            SkillManager.Instance.SkillPanelQuit();
             if (ChargeEnegry < 2.5f)
             {
                 ChargeEnegry += Time.deltaTime;

@@ -53,11 +53,11 @@ public class Tower : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
 
-            Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
+            Vector2 dir = mousePos - new Vector2(0, -1); // 쏘는 포지션 //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
-            bullet.transform.position = transform.position;
+            bullet.transform.position = new Vector2(0, -1); //얘도 쏘는 포지션으로 변경
             bullet.dir = dir;
             bullet.Shoot();
             bulletCount++;

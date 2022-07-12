@@ -15,6 +15,8 @@ public class Fireball : Skill
     {
         if (isReady && Input.GetMouseButtonDown(0))
         {
+            SkillManager.Instance.SkillPanelQuit();
+
             isReady = false;
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);

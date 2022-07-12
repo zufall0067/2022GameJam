@@ -12918,7 +12918,12 @@ MonoBehaviour:
   - {fileID: 2061192934}
   - {fileID: 45825008}
   - {fileID: 743800282}
-  enemys: []
+  enemys:
+  - {fileID: 4297381167158566708, guid: f8f1cf10e1c55b74093904b17f289e32, type: 3}
+  - {fileID: 4297381167158566708, guid: f8f1cf10e1c55b74093904b17f289e32, type: 3}
+  - {fileID: 4297381167158566708, guid: f8f1cf10e1c55b74093904b17f289e32, type: 3}
+  - {fileID: 4297381167158566708, guid: f8f1cf10e1c55b74093904b17f289e32, type: 3}
+  - {fileID: 2301008013126753911, guid: 82c6859a6eb379b40998f6787393e907, type: 3}
 --- !u!1 &1602852515
 GameObject:
   m_ObjectHideFlags: 0
@@ -13198,9 +13203,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1751774900}
   - component: {fileID: 1751774901}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Laser
-  m_TagString: Untagged
+  m_TagString: LASER
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13269,14 +13274,23 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.008350372
-        value: 0.6681824
+        time: 0.035491586
+        value: 0.32728007
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.30480167
+        value: 0.4318182
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -13542,6 +13556,7 @@ MonoBehaviour:
   tower: {fileID: 588392409}
   lineRenderer: {fileID: 1751774899}
   laserFirePoint: {fileID: 0}
+  laserDamage: 0
 --- !u!1 &1856308861
 GameObject:
   m_ObjectHideFlags: 0

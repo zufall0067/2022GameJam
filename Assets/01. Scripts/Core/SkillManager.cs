@@ -41,6 +41,13 @@ public class SkillManager : MonoBehaviour
 
     }
 
+    public void SkillPanelQuit()
+    {
+        Time.timeScale = 1f;
+        skillPanel.transform.DOMoveY(-2, 0.2f);
+        isSkill = false;
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(1))
@@ -55,9 +62,7 @@ public class SkillManager : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1f;
-                skillPanel.transform.DOMoveY(-2, 0.2f);
-                isSkill = false;
+                SkillPanelQuit();
             }
         }
         // if (Input.GetMouseButtonUp(1))
@@ -73,13 +78,13 @@ public class SkillManager : MonoBehaviour
             skillArr[0].Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.W)) // �ι�° ��ų
+        if (Input.GetKeyDown(KeyCode.W) && isSkill) // �ι�° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
             skillArr[1].Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) //����° ��ų
+        if (Input.GetKeyDown(KeyCode.E) && isSkill) //����° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
             skillArr[2].Select();
