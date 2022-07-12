@@ -8,6 +8,7 @@ public class Enemy : PoolableMono
 {
     public int hp; //프로퍼티로 빼야될듯..41번줄
     public int atk;
+    public float giveFuel; // 죽였을때 주는 연료량
 
     public float movingX = 0;
     public float movingY = 0;
@@ -25,7 +26,11 @@ public class Enemy : PoolableMono
     {
         if(hp <= 0)
         {
-            PoolManager.Instance.Push(this);
+            //이거 fuel 못찾음 고치셈 //////////////////////////////////////////////////////////////////////////////////////
+            targetTrm.GetComponent<Tower>().fuel += giveFuel;
+            gameObject.SetActive(false);
+            Reset();
+            //PoolManager.Instance.Push(this);
         }
     }
 
@@ -39,7 +44,8 @@ public class Enemy : PoolableMono
     {
         transform.DOComplete();
         CancelInvoke();
-        hp = 10; //존나귀찮네
+        hp = 4; //존나귀찮네
+        //
     }
 
     public virtual void Shooting()

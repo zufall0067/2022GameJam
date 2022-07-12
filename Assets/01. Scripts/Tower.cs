@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    public float fuel;
+    public float fuel = 200;
 
     bool isGameStart;
     public bool isSkilling;
@@ -14,6 +14,7 @@ public class Tower : MonoBehaviour
     public Camera Camera;
     
 
+
     void Start()
     {
         
@@ -21,9 +22,11 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
+        FuelDecrease();
 
-        if(Input.GetMouseButtonDown(0) && !isSkilling)
+        if (Input.GetMouseButtonDown(0) && !isSkilling)
         {
+            if (SkillManager.Instance.isSkill == true) return;
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
 
@@ -34,6 +37,16 @@ public class Tower : MonoBehaviour
             bullet.dir = dir;
             bullet.Shoot();
         }
+
+        UIManager.Instance.fuelText.text = fuel.ToString();
+    }
+
+    private void FuelDecrease()
+    {
+        if (fuel < 0) return;
+        fuel -= Time.deltaTime * 30f;
+
+        if (fuel < 0) Debug.Log("µÚÁü");
     }
 
     private void Fire()

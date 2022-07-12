@@ -20,5 +20,10 @@ public class FireballBullet : Bullet
             collision.transform.GetComponent<Enemy>().hp -= atk;
             DestroyThis();
         }
+        if (collision.transform.CompareTag("OUTLINE"))
+        {
+            Debug.Log("벽당했다.");
+            DestroyThis();
+        }
     }
 }
