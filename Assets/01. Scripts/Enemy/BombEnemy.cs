@@ -22,10 +22,7 @@ public class BombEnemy : Enemy
 
         bullet.Shoot();
     }
-    public override void HPbar()
-    {
-        //base.HPbar();
-    }
+
 
     public void OnCollisionEnter2D(Collision2D collision)
     {

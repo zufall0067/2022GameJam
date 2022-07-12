@@ -27,9 +27,10 @@ public class Enemy : PoolableMono
         Moving();
     }
 
-    void Update()
+    public virtual void Update()
     {
-        if(hp <= 0)
+        HPBar();
+        if (hp <= 0)
         {
             //�̰� fuel ��ã�� ��ġ�� //////////////////////////////////////////////////////////////////////////////////////
             targetTrm.GetComponent<Tower>().fuel += giveFuel;
