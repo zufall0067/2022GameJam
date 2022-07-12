@@ -2555,7 +2555,7 @@ GameObject:
   - component: {fileID: 1834130590}
   - component: {fileID: 1834130591}
   m_Layer: 0
-  m_Name: SKillManager
+  m_Name: SkillManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2639,6 +2639,8 @@ MonoBehaviour:
   Camera: {fileID: 519420031}
   price: 0
   tower: {fileID: 588392409}
+  lineRenderer: {fileID: 0}
+  laserFirePoint: {fileID: 0}
 --- !u!1 &1856308861
 GameObject:
   m_ObjectHideFlags: 0
