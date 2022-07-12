@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Background : MonoBehaviour
 {
-    private MeshRenderer renderer;
+    private MeshRenderer _renderer;
 
     //배경 움직이는 속도
     public float speed;
@@ -12,21 +12,21 @@ public class Background : MonoBehaviour
 
     private void Awake()
     {
-        renderer = GetComponent<MeshRenderer>();
-        renderer.sortingLayerName = "BACKGROUND";
-        renderer.sortingOrder = 0;
+        _renderer = GetComponent<MeshRenderer>();
+        _renderer.sortingLayerName = "Default";
+        _renderer.sortingOrder = 0;
     }
 
     private void Update()
     {
         offset += Time.deltaTime * speed;
-        renderer.material.mainTextureOffset = new Vector2(0, offset);
+        _renderer.material.mainTextureOffset = new Vector2(0, offset);
     }
     public void OnValidate()
     {
-        renderer = GetComponent<MeshRenderer>();
-        renderer.sortingLayerName = "BACKGROUND";
-        renderer.sortingOrder = 0;
+        _renderer = GetComponent<MeshRenderer>();
+        _renderer.sortingLayerName = "Default";
+        _renderer.sortingOrder = 0;
     }
 }
 
