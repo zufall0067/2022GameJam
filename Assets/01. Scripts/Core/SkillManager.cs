@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class SkillManager : MonoBehaviour
 {
-    #region ½Ì±ÛÅæ
+    #region ï¿½Ì±ï¿½ï¿½ï¿½
     private static SkillManager instance = null;
 
     public static SkillManager Instance
@@ -38,41 +38,48 @@ public class SkillManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1) && !isSkill)
+        if (Input.GetMouseButtonDown(1))
         {
-            Time.timeScale = 1f;
-            isSkill = true;
-            skillPanel.transform.DOComplete();
-            skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
-            Time.timeScale = 0.05f;
+            if (!isSkill)
+            {
+                Time.timeScale = 1f;
+                isSkill = true;
+                skillPanel.transform.DOComplete();
+                skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
+                Time.timeScale = 0.05f;
+            }
+            else
+            {
+                Time.timeScale = 1f;
+                skillPanel.transform.DOMoveY(-2, 0.2f);
+                isSkill = false;
+            }
         }
-        if (Input.GetMouseButtonUp(1))
-        {
-            //skillPanel.transform.DOComplete();
-            Time.timeScale = 1f;
-            skillPanel.transform.DOMoveY(-2, 0.2f);  
-            isSkill = false;
-        }
+        // if (Input.GetMouseButtonUp(1))
+        // {
+        //     //skillPanel.transform.DOComplete();
+
+        // }
 
 
-        if(Input.GetKeyDown(KeyCode.Q) && isSkill) // Ã¹¹øÂ° ½ºÅ³
+        if (Input.GetKeyDown(KeyCode.Q) && isSkill) // Ã¹ï¿½ï¿½Â° ï¿½ï¿½Å³
         {
             tower.GetComponent<Tower>().isSkilling = true;
             skillArr[0].Select();
         }
 
-        if(Input.GetKeyDown(KeyCode.W)) // µÎ¹øÂ° ½ºÅ³
+        if (Input.GetKeyDown(KeyCode.W)) // ï¿½Î¹ï¿½Â° ï¿½ï¿½Å³
         {
             tower.GetComponent<Tower>().isSkilling = true;
             skillArr[1].Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) //¼¼¹øÂ° ½ºÅ³
+        if (Input.GetKeyDown(KeyCode.E)) //ï¿½ï¿½ï¿½ï¿½Â° ï¿½ï¿½Å³
         {
             tower.GetComponent<Tower>().isSkilling = true;
             skillArr[2].Select();
