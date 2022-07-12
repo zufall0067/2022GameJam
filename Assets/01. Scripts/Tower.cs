@@ -83,7 +83,7 @@ public class Tower : MonoBehaviour
                 isReloading = false;
             }
         }
-        UIManager.Instance.fuelText.text = fuel.ToString();
+        //UIManager.Instance.fuelText.text = fuel.ToString();
 
         SetBar(fuelBar, fuel);
         SetBar(powerBar, nowPower);
@@ -107,7 +107,7 @@ public class Tower : MonoBehaviour
         fuel -= Time.deltaTime * 20f;
 
 
-        if (fuel < 0) Die();
+        //if (fuel < 0) Die();
     }
     private void Fire()
     {
