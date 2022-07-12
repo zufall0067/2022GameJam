@@ -119,14 +119,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4427b4186d6bb44f871cbc5a48f1d34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HPBar: {fileID: 0}
+  hpBar: {fileID: 0}
   hp: 10
   atk: 1
   giveFuel: 40
   movingX: 0
   movingY: 0
   targetTrm: {fileID: 0}
-  canvas: {fileID: 0}
 --- !u!61 &4297381167158566715
 BoxCollider2D:
   m_ObjectHideFlags: 0

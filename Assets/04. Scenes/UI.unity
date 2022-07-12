@@ -12416,7 +12416,6 @@ MonoBehaviour:
   - {fileID: 2061192934}
   - {fileID: 45825008}
   - {fileID: 743800282}
-  enemys: []
 --- !u!1 &1608389757
 GameObject:
   m_ObjectHideFlags: 0
@@ -12761,7 +12760,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuelText: {fileID: 1151246610}
+<<<<<<< Updated upstream
   GameOverPanel: {fileID: 0}
+=======
+>>>>>>> Stashed changes
 --- !u!4 &1699545305
 Transform:
   m_ObjectHideFlags: 0
