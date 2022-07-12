@@ -35,7 +35,7 @@ public class LaserBall : Skill
 
         if (Input.GetMouseButtonUp(0))
         {
-            lineRenderer.gameObject.SetActive(false);
+            //lineRenderer.gameObject.SetActive(false);
         }
     }
 
