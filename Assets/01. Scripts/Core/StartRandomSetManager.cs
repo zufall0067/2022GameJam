@@ -21,7 +21,6 @@ public class StartRandomSetManager : MonoBehaviour
     void Start()
     {
         AssetChange();
-        MoveTowerAsset();
     }
 
     void Update()
@@ -29,7 +28,6 @@ public class StartRandomSetManager : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             AssetChange();
-            MoveTowerAsset();
         }
     }
 
@@ -43,39 +41,65 @@ public class StartRandomSetManager : MonoBehaviour
 
         towerGameObject[towerRandomIndex].gameObject.SetActive(true);
         backgroundGameObject[backgroundRandomIndex].gameObject.SetActive(true);
-
-        
-           
-            
         
         if (backgroundGameObject[backgroundRandomIndex].CompareTag("SPACE"))
         {
-            if (towerGameObject[towerRandomIndex].gameObject.activeSelf == false)
-            {
-                Debug.Log("스폰이 안되요");
-                int XpositionMinus = 0;
-
-                if (Random.Range(0, 1) == 0)
-                {
-                    XpositionMinus = -1;
-                    Structure[structureRandomIndex].transform.rotation = Quaternion.Euler(0, 0, 0);
-                }
-                else
-                {
-                    XpositionMinus = 1;
-                    Structure[structureRandomIndex].transform.rotation = Quaternion.Euler(0, 180, 0);
-                }
-
-                structureRandomIndex = Random.Range(0, 5);
-                Structure[structureRandomIndex].transform.position = new Vector2(XpositionMinus * 10, Random.Range(0.3f, 4f));
-                Structure[structureRandomIndex].SetActive(true);
-            }
+            StartCoroutine(MoveStructureAsset());
         }
-                
+        else if(backgroundGameObject[backgroundRandomIndex].CompareTag("WILD"))
+        {
+            StartCoroutine(MoveWildStructureAsset());
+        }
+
     }
 
-    public void MoveTowerAsset()
+    public IEnumerator MoveStructureAsset()
     {
-        
+        while(true)
+        {
+            int XpositionMinus = 0;
+
+            if (Random.Range(0, 2) == 0)
+            {
+                XpositionMinus = -1;
+                Structure[structureRandomIndex].transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                XpositionMinus = 1;
+                Structure[structureRandomIndex].transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+
+            structureRandomIndex = Random.Range(0, 6);
+            Structure[structureRandomIndex].transform.position = new Vector2(XpositionMinus * 10, Random.Range(0.3f, 4f));
+            Structure[structureRandomIndex].SetActive(true);
+
+            yield return new WaitForSeconds(Random.Range(1.5f, 4f));
+        }
+    }
+
+    public IEnumerator MoveWildStructureAsset()
+    {
+        while (true)
+        {
+            int XpositionMinus = 0;
+
+            if (Random.Range(0, 2) == 0)
+            {
+                XpositionMinus = -1;
+                Structure[structureRandomIndex].transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                XpositionMinus = 1;
+                Structure[structureRandomIndex].transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+
+            structureRandomIndex = 6;
+            Structure[structureRandomIndex].transform.position = new Vector2(XpositionMinus * 10, Random.Range(0.3f, 4f));
+            Instantiate(Structure[structureRandomIndex], new Vector3(XpositionMinus * 10, Random.Range(0.3f, 4f), 0f), Quaternion.identity);
+
+            yield return new WaitForSeconds(Random.Range(1f, 2.5f));
+        }
     }
 }
