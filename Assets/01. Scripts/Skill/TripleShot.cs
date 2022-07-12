@@ -7,24 +7,27 @@ public class TripleShot : Skill
     public override void Select()
     {
         isReady = true;
-        Debug.Log("Æ®¸®ÇÃ ¼¦");
+        Debug.Log("Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½");
     }
 
     void Update()
     {
         if (isReady && Input.GetMouseButtonDown(0))
         {
-            isReady = false;
-            mousePos = Input.mousePosition;
-            mousePos = Camera.ScreenToWorldPoint(mousePos);
+            if (CheckPriceOver())
+            {
+                isReady = false;
+                mousePos = Input.mousePosition;
+                mousePos = Camera.ScreenToWorldPoint(mousePos);
 
-            Vector2 dir = mousePos - new Vector2(0, -1); //ÃÑ¾Ë ¹ß»ç À§Ä¡ /*(Vector2)transform.position*/;
-            dir.Normalize();
+                Vector2 dir = mousePos - new Vector2(0, -1); //ï¿½Ñ¾ï¿½ ï¿½ß»ï¿½ ï¿½ï¿½Ä¡ /*(Vector2)transform.position*/;
+                dir.Normalize();
 
-            Bullet bullet = PoolManager.Instance.Pop("") as Bullet;
-            bullet.dir = dir;
-            bullet.Shoot();
-            tower.isSkilling = false;
+                Bullet bullet = PoolManager.Instance.Pop("") as Bullet;
+                bullet.dir = dir;
+                bullet.Shoot();
+                tower.isSkilling = false;
+            }
         }
     }
 }

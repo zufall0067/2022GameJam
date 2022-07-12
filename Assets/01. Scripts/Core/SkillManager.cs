@@ -34,15 +34,12 @@ public class SkillManager : MonoBehaviour
         {
             instance = this;
         }
-
-
     }
 
     void Start()
     {
         
     }
-    
 
     void Update()
     {

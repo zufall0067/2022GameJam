@@ -6,7 +6,9 @@ using DG.Tweening;
 public class Tower : MonoBehaviour
 {
     public float fuel = 200;
-
+    public float nowPower = 0;
+    public float fullPower = 100;
+    public float recoveryPower = 2;
     bool isGameStart;
     public bool isSkilling;
 
@@ -24,6 +26,11 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
+        if (nowPower > fullPower)
+        {
+            nowPower = fullPower;
+        }
+
         FuelDecrease();
 
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading)
@@ -61,7 +68,6 @@ public class Tower : MonoBehaviour
                 isReloading = false;
             }
         }
-
         UIManager.Instance.fuelText.text = fuel.ToString();
     }
 
@@ -73,7 +79,6 @@ public class Tower : MonoBehaviour
 
         if (fuel < 0) Die();
     }
-
     private void Fire()
     {
 
@@ -91,11 +96,12 @@ public class Tower : MonoBehaviour
     {
         var dir = Quaternion.AngleAxis(60, Vector3.right) * Vector3.one;
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOJump(new Vector3(0, 0.5f, 0), 3, 1, 0.7f)).
+        seq.Append(transform.DOJump(new Vector3(0, 0.5f, 0), 1, 1, 0.7f)).
             Join(transform.DOMoveX(2, 0.8f)).
             Join(transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, -150), 0.7f)).
             Insert(0.3f, transform.DOMoveY(-7, 0.5f)).SetUpdate(true);
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(1.5f);
+        UIManager.Instance.GameOverPanel.transform.DOMoveY(1f, 1f).SetEase(Ease.InOutBack).SetUpdate(true);
         Debug.Log("asd");
     }
 
