@@ -28,8 +28,10 @@ public class Bullet : PoolableMono
 
     public void Shoot()
     {
+        transform.rotation = Quaternion.Euler(new Vector3(0,0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90));
+        //Debug.Log(new Vector3(0, 0, Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg));
         rig.AddForce(dir * force);
-
+        
         //테스트 코드 아닐지도~~
     }
 
@@ -40,6 +42,10 @@ public class Bullet : PoolableMono
         PoolManager.Instance.Push(this);
     }
 
+    void OnDisable()
+    {
+        Debug.Log("비활성화");
+    }
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         

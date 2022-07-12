@@ -2,13 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 public class Tower : MonoBehaviour
 {
-    public float fuel = 200;
+    public Image bulletBar_Bg;
+    public Image bulletBar_Icon;
+    public Image bulletBar_Text;
+    public Text bulletText;
+    public Image fuelBar;
+    public Image powerBar;
+
+    public float fuel = 100;
+    public float fullFuel = 100;
     public float nowPower = 0;
     public float fullPower = 100;
     public float recoveryPower = 2;
+    public float height = 0;
+    public Text heightText;
     bool isGameStart;
     public bool isSkilling;
 
@@ -18,7 +29,7 @@ public class Tower : MonoBehaviour
     public int bulletCount = 0;
     public bool isReloading = false;
     public float reloadCount = 0;
-    public float overReloadCount = 1f;
+    public float overReloadCount = 0.25f;
     void Start()
     {
 
@@ -30,7 +41,10 @@ public class Tower : MonoBehaviour
         {
             nowPower = fullPower;
         }
-
+        if (fuel > fullFuel)
+        {
+            fuel = fullFuel;
+        }
         FuelDecrease();
 
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading)
@@ -70,12 +84,27 @@ public class Tower : MonoBehaviour
             }
         }
         UIManager.Instance.fuelText.text = fuel.ToString();
+
+        SetBar(fuelBar, fuel);
+        SetBar(powerBar, nowPower);
+        SetBar(bulletBar_Bg, (10 - bulletCount) * 10);
+        SetBar(bulletBar_Text, (10 - bulletCount) * 10);
+        SetBar(bulletBar_Icon, (10 - bulletCount) * 10);
+        height += Time.deltaTime * 415;
+        heightText.text = ((int)height).ToString() + "m";
+        bulletText.text = (10 - bulletCount).ToString();
+    }
+
+    private void SetBar(Image _image, float value)
+    {
+        _image.transform.localScale =
+                new Vector3(_image.transform.localScale.x, value * 0.01f, _image.transform.localScale.z);
     }
 
     private void FuelDecrease()
     {
         if (fuel < 0) return;
-        fuel -= Time.deltaTime * 30f;
+        fuel -= Time.deltaTime * 20f;
 
 
         //if (fuel < 0) Die();
@@ -97,12 +126,11 @@ public class Tower : MonoBehaviour
     {
         var dir = Quaternion.AngleAxis(60, Vector3.right) * Vector3.one;
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOJump(new Vector3(0, 0.5f, 0), 1, 1, 0.7f)).
+        seq.Append(transform.DOJump(new Vector3(0, 0.5f, 0), 3, 1, 0.7f)).
             Join(transform.DOMoveX(2, 0.8f)).
             Join(transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, -150), 0.7f)).
             Insert(0.3f, transform.DOMoveY(-7, 0.5f)).SetUpdate(true);
-        yield return new WaitForSecondsRealtime(1.5f);
-        UIManager.Instance.GameOverPanel.transform.DOMoveY(1f, 1f).SetEase(Ease.InOutBack).SetUpdate(true);
+        yield return new WaitForSecondsRealtime(2);
         Debug.Log("asd");
     }
 

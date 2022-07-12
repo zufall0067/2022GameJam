@@ -1,28 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserBall : Skill
+public class laser : MonoBehaviour
 {
-    public LineRenderer lineRenderer;
+    public float defDistanceRay = 100;
     public Transform laserFirePoint;
-
-    public override void Select()
+    public LineRenderer lineRenderer;
+    Transform trm;
+    Vector2 mousePos;
+    public Camera Camera;
+    private void Awake()
     {
-        isReady = true;
-        Invoke("IsReadyfalse", 4f);
-        Debug.Log("∑π¿Ã¿˙ ¿Â¬¯");
+        trm = GetComponent<Transform>();
     }
-
 
     void Update()
     {
-        if (isReady && Input.GetMouseButtonDown(0))
+        ShootLaser();
+    }
+
+    void ShootLaser()
+    {
+
+        //RaycastHit2D _hit = Physics2D.Raycast(laserFirePoint.position, transform.right);
+
+        if(Input.GetMouseButtonDown(0))
         {
             lineRenderer.gameObject.SetActive(true);
         }
 
-        if(isReady && Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0))
         {
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
@@ -30,13 +39,13 @@ public class LaserBall : Skill
             dir.Normalize();
 
             Draw2DRay(laserFirePoint.position, dir * 20);
-            //tower.isSkilling = false;
         }
 
         if (Input.GetMouseButtonUp(0))
         {
             lineRenderer.gameObject.SetActive(false);
         }
+
     }
 
     private void Draw2DRay(Vector2 position, Vector2 point)
@@ -44,11 +53,5 @@ public class LaserBall : Skill
         Debug.Log(point);
         lineRenderer.SetPosition(0, position);
         lineRenderer.SetPosition(1, point);
-    }
-
-    private void IsReadyfalse()
-    {
-        isReady = false;
-        tower.isSkilling = false;
     }
 }
