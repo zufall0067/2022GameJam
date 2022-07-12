@@ -24,7 +24,7 @@ public class LaserBall : Skill
 
             Bullet bullet = PoolManager.Instance.Pop("Laser") as Bullet;
             bullet.dir = dir;
-            bullet.transform.rotation = Quaternion.Euler(dir, 0);
+            bullet.transform.localRotation = Quaternion.Euler(0,0, (dir.y * dir.x));
             tower.isSkilling = false;
         }
     }
