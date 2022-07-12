@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Enemy : PoolableMono
 {
-    public Scrollbar HPBar;
+    public SpriteRenderer hpBar;
 
     public int hp; //������Ƽ�� ���ߵɵ�..41����
     public int atk;
@@ -17,20 +17,18 @@ public class Enemy : PoolableMono
     public float movingY = 0;
 
     public Transform targetTrm;
-    public Canvas canvas;
 
 
     void Start()
     {
+        hpBar = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         targetTrm = GameObject.Find("Tower").transform;
         Shooting();
         Moving();
-        HPbar();
     }
 
     void Update()
     {
-        HPbar();
         if(hp <= 0)
         {
             //�̰� fuel ��ã�� ��ġ�� //////////////////////////////////////////////////////////////////////////////////////
@@ -62,14 +60,11 @@ public class Enemy : PoolableMono
 
     public virtual void Fire()
     {
-        
+
     }
 
-    public virtual void HPbar()
+    public virtual void HPBar()
     {
-        canvas = GetComponent<Canvas>();
-        canvas.worldCamera = Camera.main;
-        HPBar.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 5f, 0f);
-        HPBar.image.fillAmount = hp / 100f;
+
     }
 }

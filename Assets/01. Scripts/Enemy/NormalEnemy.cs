@@ -23,8 +23,14 @@ public class NormalEnemy : Enemy
         
         bullet.Shoot();
     }
-    public override void HPbar()
+
+    public override void HPBar()
     {
-        base.HPbar();
+        hpBar.transform.localScale = new Vector3(hp / 400f, 0.07f, 1);
+    }
+
+    private void Update()
+    {
+        HPBar();
     }
 }
