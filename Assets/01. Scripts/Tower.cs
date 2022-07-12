@@ -53,7 +53,7 @@ public class Tower : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
 
-            Vector2 dir = mousePos - (Vector2)transform.position; //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
+            Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
@@ -83,7 +83,7 @@ public class Tower : MonoBehaviour
                 isReloading = false;
             }
         }
-        UIManager.Instance.fuelText.text = fuel.ToString();
+        //UIManager.Instance.fuelText.text = fuel.ToString();
 
         SetBar(fuelBar, fuel);
         SetBar(powerBar, nowPower);

@@ -50,13 +50,13 @@ public class Enemy : PoolableMono
     {
         transform.DOComplete();
         CancelInvoke();
-        hp = 100; //����������
+        
 
     }
 
     public virtual void Shooting()
     {
-
+        
     }
 
     public virtual void Fire()
