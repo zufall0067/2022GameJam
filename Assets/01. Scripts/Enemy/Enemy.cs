@@ -9,7 +9,7 @@ public class Enemy : PoolableMono
 {
     public SpriteRenderer hpBar;
 
-    public int hp; //������Ƽ�� ���ߵɵ�..41����
+    public float hp; //������Ƽ�� ���ߵɵ�..41����
     public int atk;
     public float giveFuel; // �׿����� �ִ� ���ᷮ
 
@@ -23,7 +23,6 @@ public class Enemy : PoolableMono
     {
         hpBar = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         targetTrm = GameObject.Find("Tower").transform;
-        Shooting();
         Moving();
     }
 
@@ -67,5 +66,14 @@ public class Enemy : PoolableMono
     public virtual void HPBar()
     {
 
+    }
+
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.transform.CompareTag("LASER"))
+        {
+            Debug.Log("에너미 타격중");
+            hp -= collision.transform.GetComponent<LaserBall>().laserDamage;
+        }
     }
 }
