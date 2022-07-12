@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerSkillSettingManager : MonoBehaviour
 {
@@ -15,7 +16,12 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     void Start()
     {
-        randomSetManager = gameObject.transform.Find("StartRandomSetManager").GetComponent<StartRandomSetManager>();
+        
+    }
+
+    void Set()
+    {
+        randomSetManager = GameObject.Find("StartRandomSetManager").GetComponent<StartRandomSetManager>();
 
         Debug.Log(randomSetManager);
 
@@ -24,8 +30,15 @@ public class PlayerSkillSettingManager : MonoBehaviour
         Debug.Log(towerSprite.name);
     }
 
-    void Update()
+    public void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
     {
-        
+        if(scene.name == "Start")
+        {
+            Set();
+        }
+        if(scene.name == "SampleScene")
+        {
+
+        }
     }
 }

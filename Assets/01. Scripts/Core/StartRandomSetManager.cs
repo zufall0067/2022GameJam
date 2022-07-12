@@ -80,9 +80,9 @@ public class StartRandomSetManager : MonoBehaviour
 
     public IEnumerator MoveWildStructureAsset()
     {
-        Structure[7].gameObject.SetActive(true);
-        Structure[8].gameObject.SetActive(true);
-        Structure[9].gameObject.SetActive(true);
+        //Structure[7].gameObject.SetActive(true);
+        //Structure[8].gameObject.SetActive(true);
+        //Structure[9].gameObject.SetActive(true);
         while (true)
         {
             int XpositionMinus = 0;
