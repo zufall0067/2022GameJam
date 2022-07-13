@@ -26,11 +26,13 @@ public class StartButtonManager : MonoBehaviour
 
     IEnumerator DG()
     {
-        while(true)
+        Button btn = startButton.transform.GetComponent<Button>();
+        Color[] colors = { Color.red, Color.yellow, Color.green, Color.blue,  };
+        while (true)
         {
-            startButton.transform.GetComponent<Button>().image.color = new Color(Random.Range(0, 256), Random.Range(0, 256), Random.Range(0, 256), 200f);
-
-            yield return new WaitForSeconds(1f);
+            Color targetColor = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f), 1f);
+            btn.image.DOColor(targetColor, 0.2f);
+            yield return new WaitForSeconds(0.21f);
         }
     }
 }
