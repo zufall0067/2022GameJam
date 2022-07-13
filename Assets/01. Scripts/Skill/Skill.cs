@@ -5,11 +5,23 @@ using UnityEngine;
 public class Skill : MonoBehaviour
 {
     protected Vector2 mousePos;
+    //private Camera _camera;
     public Camera Camera;
+    //{
+    //    get
+    //    {
+    //        if(_camera == null)
+    //        {
+    //            _camera = Camera.main;
+    //        }
+    //        return _camera;
+    //    }
+    //}
     protected bool isReady;
     public int price = 0;
     public Tower tower;
-    public Sprite Icon;
+    public string title;
+    public Sprite icon;
     public string explain;
 
     //void Awake()
