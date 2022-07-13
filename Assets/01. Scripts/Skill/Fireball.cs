@@ -6,6 +6,7 @@ public class Fireball : Skill
 {
     public override void Select()
     {
+        price = 2;
         isReady = true;
         SetCurrentSkill(icon, title);
         Debug.Log("파이어볼 장착");
@@ -31,7 +32,7 @@ public class Fireball : Skill
             bullet.Shoot();
             tower.isSkilling = false;
 
-            
+
         }
     }
 }

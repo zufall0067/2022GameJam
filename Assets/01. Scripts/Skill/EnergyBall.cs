@@ -8,7 +8,7 @@ public class EnergyBall : Skill
     private bool chargeStart = false;
     public override void Select()
     {
-        price = 25;
+        price = 1;
         isReady = true;
         SetCurrentSkill(icon, title);
         Debug.Log("에너르기파~");

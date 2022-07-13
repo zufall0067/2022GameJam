@@ -15,11 +15,16 @@ public class Tower : MonoBehaviour
     public Image fuelBar;
     public Image powerBar;
 
+    public GameObject skillCountUI;
+    public Text skillCountText;
+
     public float fuel = 100;
     public float fullFuel = 100;
     public float nowPower = 0;
     public float fullPower = 100;
-    public float recoveryPower = 1.25f;
+    public int nowSkillCount = 0;
+    public int fullSkillCount = 5;
+    public float recoveryPower = 2.5f;
     public float height = 0;
     public Text heightText;
     bool isGameStart;
@@ -31,7 +36,7 @@ public class Tower : MonoBehaviour
     public int bulletCount = 0;
     public bool isReloading = false;
     public float reloadCount = 0;
-    public float overReloadCount = 0.15f;
+    private float overReloadCount = 0.75f;
 
     public GameObject GameOverPanel;
 
@@ -40,11 +45,12 @@ public class Tower : MonoBehaviour
     void Awake()
     {
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
+        skillCountText.text = nowSkillCount.ToString();
     }
 
     void Start()
     {
-        
+
     }
 
     void Update()
@@ -53,9 +59,15 @@ public class Tower : MonoBehaviour
         // {
         //     Die();
         // }
-        if (nowPower > fullPower)
+        if (nowPower >= fullPower)
         {
-            nowPower = fullPower;
+            nowPower = fullPower - nowPower;
+            nowSkillCount++;
+            if (nowSkillCount > fullSkillCount)
+            {
+                nowSkillCount = fullSkillCount;
+            }
+
         }
         if (fuel > fullFuel)
         {
@@ -79,7 +91,7 @@ public class Tower : MonoBehaviour
             bulletCount++;
         }
 
-        if (bulletCount >= 10 || Input.GetKeyDown(KeyCode.R))
+        if (bulletCount >= 10 || Input.GetKeyDown(KeyCode.F))
         {
             if (!isReloading)
             {
@@ -101,14 +113,15 @@ public class Tower : MonoBehaviour
         }
         //UIManager.Instance.fuelText.text = fuel.ToString();
 
-        SetBar(fuelBar, fuel);
-        SetBar(powerBar, nowPower);
+        skillCountText.text = nowSkillCount.ToString();
         SetBar(bulletBar_Bg, (10 - bulletCount) * 10);
         SetBar(bulletBar_Text, (10 - bulletCount) * 10);
         SetBar(bulletBar_Icon, (10 - bulletCount) * 10);
+        bulletText.text = (10 - bulletCount).ToString();
+        SetBar(fuelBar, fuel);
+        SetBar(powerBar, nowPower);
         height += Time.deltaTime * 215 * fuel / 100;
         heightText.text = ((int)height).ToString() + "m";
-        bulletText.text = (10 - bulletCount).ToString();
 
         speed = fuel / 10f;
         if (Input.GetKey(KeyCode.W))
@@ -169,14 +182,14 @@ public class Tower : MonoBehaviour
 
         //seq.Join(transform.DORotateQuaternion(Quaternion.Euler(0, 0, -150), 0.4f)).
         //    Append(transform.DOMoveY(-10f, 0.8f)).SetUpdate(true);
-            //Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).SetUpdate(true);
-           // Append(transform.DOMoveY(-10, 0.6f)).SetUpdate(true);
+        //Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).SetUpdate(true);
+        // Append(transform.DOMoveY(-10, 0.6f)).SetUpdate(true);
 
-            
+
 
         //seq.Append(transform.DOJump(new Vector3(0, transform.position.y + 0.5f, 0), 1, 1, 0.7f)).
         //    Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).
-            
+
         //    Insert(0.3f, transform.DOMoveY(-10f, 0.5f)).SetUpdate(true);
         yield return new WaitForSecondsRealtime(2);
 

@@ -45,13 +45,13 @@ public class Skill : MonoBehaviour
 
     public bool CheckPriceOver()
     {
-        if (tower.GetComponent<Tower>().nowPower < price)
+        if (tower.GetComponent<Tower>().nowSkillCount < price)
         {
             return false;
         }
         else
         {
-            tower.GetComponent<Tower>().nowPower -= price;
+            tower.GetComponent<Tower>().nowSkillCount -= price;
             return true;
         }
     }
