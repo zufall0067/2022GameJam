@@ -76,7 +76,7 @@ public class SkillManager : MonoBehaviour
         }
         
     }
-
+    //권준서 바보
     void Start()
     {
         SetSkillInterface(titleText1, priceText1, explainText1, iconSprite1, 0);
