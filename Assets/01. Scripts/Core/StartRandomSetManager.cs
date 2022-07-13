@@ -83,9 +83,9 @@ public class StartRandomSetManager : MonoBehaviour
 
     public IEnumerator MoveWildStructureAsset()
     {
-        //Structure[7].gameObject.SetActive(true);
-        //Structure[8].gameObject.SetActive(true);
-        //Structure[9].gameObject.SetActive(true);
+        Structure[7].gameObject.SetActive(true);
+        Structure[8].gameObject.SetActive(true);
+        Structure[9].gameObject.SetActive(true);
         while (true)
         {
             int XpositionMinus = 0;
@@ -104,6 +104,34 @@ public class StartRandomSetManager : MonoBehaviour
             structureRandomIndex = 6;
             Structure[structureRandomIndex].transform.position = new Vector2(XpositionMinus * 10, Random.Range(0.3f, 4f));
             Instantiate(Structure[structureRandomIndex], new Vector3(XpositionMinus * 10, Random.Range(2f, 5f), 0f), Quaternion.identity);
+
+            yield return new WaitForSeconds(Random.Range(1f, 2.5f));
+        }
+    }
+
+    public IEnumerator MoveCityStructureAsset()
+    {
+        Structure[7].gameObject.SetActive(true);
+        Structure[8].gameObject.SetActive(true);
+        Structure[9].gameObject.SetActive(true);
+        while (true)
+        {
+            int XpositionMinus = 0;
+
+            if (Random.Range(0, 2) == 0)
+            {
+                XpositionMinus = -1;
+                Structure[structureRandomIndex].transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else
+            {
+                XpositionMinus = 1;
+                Structure[structureRandomIndex].transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+
+            structureRandomIndex = 10;
+            Structure[structureRandomIndex].transform.position = new Vector2(XpositionMinus * 10, Random.Range(0.3f, 4f));
+            Instantiate(Structure[structureRandomIndex], new Vector3(XpositionMinus * 10, Random.Range(-1f, 2f), 0f), Quaternion.identity);
 
             yield return new WaitForSeconds(Random.Range(1f, 2.5f));
         }

@@ -12,13 +12,16 @@ public class StructureHumanMove : MonoBehaviour
 
     private IEnumerator Move()
     {
-        Transform nowRotate = this.gameObject.transform;
+        int i = 0;
+        while(true)
+        {
+            Transform nowRotate = this.gameObject.transform;
 
-        this.gameObject.transform.DORotate(new Vector3(0, nowRotate.rotation.y * -1), 0);
-
-        this.gameObject.transform.DOMoveX(this.gameObject.transform.forward.x * 1.2f, Random.Range(6f, 8f));
-        
-        yield return null;
+            gameObject.transform.DORotate(new Vector3(0, 180 * i, 0), 1).OnComplete(()
+                => { this.gameObject.transform.DOMoveX(nowRotate.position.x + Random.Range(-1.5f, 1.5f), Random.Range(6f, 8f)); });
+            i++;
+            yield return new WaitForSeconds(Random.Range(3f, 5f));
+        }
     }
 
     void Update()
