@@ -16,10 +16,10 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        int randomNum = Random.Range(0, 5); // º¯¼öÈ­ ÇØ¼­ ½ºÅ³ °¹¼ö¸¸Å­ ¸¸µé¾îµµ µÊ
-        switch(randomNum)
+        int randomNum = Random.Range(0, 5); // ï¿½ï¿½ï¿½ï¿½È­ ï¿½Ø¼ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½îµµ ï¿½ï¿½
+        switch (randomNum)
         {
-            case 0: //¿ÞÂÊ À§¿¡¼­ ¿ÞÂÊ ¾Æ·¡·Î
+            case 0: //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½
                 Enemy enemy0 = GetRandomEnemy();
                 EnemySetting(enemy0);
                 enemy0.transform.position = spawnPos[0].position;
@@ -38,9 +38,9 @@ public class EnemySpawner : MonoBehaviour
                 EnemySetting(enemy2);
                 enemy2.transform.position = spawnPos[2].position;
                 enemy2.transform.DOMoveX(11f, 7f).OnComplete(() => { PoolManager.Instance.Push(enemy2); });
-                break;//³²ÀÇ ÄÚµå¿¡ ÈÑ¹æ ³õ±â 
-                      //È÷È÷ 
-                      //¾îÂ¿ÁØ¼­ (ÀÌ°Å Ä¿¹Ô ²À ÇØÁÖ¼¼¿ä) - ±èÃ¤¿¬
+                break;//ï¿½ï¿½ï¿½ï¿½ ï¿½Úµå¿¡ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ 
+                      //ï¿½ï¿½ï¿½ï¿½ 
+                      //ï¿½ï¿½Â¿ï¿½Ø¼ï¿½ (ï¿½Ì°ï¿½ Ä¿ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½) - ï¿½ï¿½Ã¤ï¿½ï¿½
 
             case 3:
                 Enemy enemy3 = GetRandomEnemy();
@@ -64,17 +64,16 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void EnemySetting(Enemy enemy)//¿¡³Ê¹Ì°¡ ÆË (½ºÆùµÇ°í) ÇØ¾ßÇÒÀÏ
+    public void EnemySetting(Enemy enemy)//ï¿½ï¿½ï¿½Ê¹Ì°ï¿½ ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½) ï¿½Ø¾ï¿½ï¿½ï¿½ï¿½ï¿½
     {
         enemy.gameObject.SetActive(true);
         enemy.Shooting();
     }
-
     public Enemy GetRandomEnemy()
     {
         int random = Random.Range(0, enemys.Length);
         Enemy enemy;
-        switch(random)
+        switch (random)
         {
             case 0:
             case 1:
