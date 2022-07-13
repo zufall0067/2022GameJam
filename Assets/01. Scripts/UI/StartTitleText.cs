@@ -10,6 +10,8 @@ public class StartTitleText : MonoBehaviour
     [SerializeField]
     private GameObject TMPro;
 
+    Sequence sequence;
+
     void Start()
     {
         StartCoroutine(DG());
@@ -21,14 +23,15 @@ public class StartTitleText : MonoBehaviour
         {
             Debug.Log("WKFKDSK");
 
-            //TMPro.transform.DO();
+            sequence.Append(TMPro.transform.DOMove(new Vector3(0, 200, 0), 3));
+
 
             yield return new WaitForSeconds(2.2f);
         }
     }
 
-    void Update()
+    public void DestroyText()
     {
-        
+        Destroy(TMPro);
     }
 }
