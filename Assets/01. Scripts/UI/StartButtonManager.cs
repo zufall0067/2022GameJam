@@ -28,7 +28,7 @@ public class StartButtonManager : MonoBehaviour
     {
         while(true)
         {
-            startButton.transform.GetComponent<Image>().color = new Color(Random.Range(0, 256), Random.Range(0, 256), Random.Range(0, 256), 200f);
+            startButton.transform.GetComponent<Button>().image.color = new Color(Random.Range(0, 256), Random.Range(0, 256), Random.Range(0, 256), 200f);
 
             yield return new WaitForSeconds(1f);
         }
