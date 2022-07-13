@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Enemy : PoolableMono
 {
@@ -20,6 +21,10 @@ public class Enemy : PoolableMono
 
     public Transform targetTrm;
     public GameObject fuelPiece;
+
+    public Color hitColor;
+
+    public UnityEvent BulletHitFeedback;
 
     protected void Awake()
     {
