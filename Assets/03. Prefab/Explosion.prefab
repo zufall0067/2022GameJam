@@ -174,7 +174,6 @@ GameObject:
   m_Component:
   - component: {fileID: 443466}
   - component: {fileID: 9510688}
-  - component: {fileID: 823798799285393563}
   m_Layer: 0
   m_Name: ExpAnimator
   m_TagString: Untagged
@@ -219,18 +218,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &823798799285393563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 120280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3a3449e6ef35c4e88a758f89d74911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &139366
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,9 +227,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 426390}
-  - component: {fileID: 538919798590582040}
-  - component: {fileID: 3829003220978522510}
-  - component: {fileID: -3046065681990637276}
+  - component: {fileID: 2428981937852984038}
+  - component: {fileID: 7365000586255122229}
+  - component: {fileID: 5368054921008575587}
+  - component: {fileID: -1568263701908955916}
   m_Layer: 0
   m_Name: Explosion
   m_TagString: Untagged
@@ -265,7 +253,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &538919798590582040
+--- !u!114 &2428981937852984038
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,10 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f9b463ef15d4a54386dd9aab050b308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 75
-  force: 0
-  dir: {x: 0, y: 0}
---- !u!50 &3829003220978522510
+--- !u!50 &7365000586255122229
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -301,7 +286,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &-3046065681990637276
+--- !u!58 &5368054921008575587
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -316,7 +301,19 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.15
+  m_Radius: 1.97
+--- !u!114 &-1568263701908955916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd3a3449e6ef35c4e88a758f89d74911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &162364
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class FireballBullet : Bullet
             GameObject ani = Instantiate(bombAni, transform.position, Quaternion.identity);
             DestroyThis();
         }
-        if (collision.transform.CompareTag("OUTLINE"))
+        else if (collision.transform.CompareTag("OUTLINE"))
         {
             DestroyThis();
         }
