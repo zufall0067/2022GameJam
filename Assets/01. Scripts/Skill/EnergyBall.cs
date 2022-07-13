@@ -32,6 +32,7 @@ public class EnergyBall : Skill
                 dir.Normalize();
 
                 Bullet bullet = PoolManager.Instance.Pop("EnergyBullet") as Bullet;
+                bullet.transform.position = new Vector2(0, -1);
                 bullet.dir = dir;
                 bullet.gameObject.transform.localScale = new Vector3(ChargeEnegry / 3, ChargeEnegry / 3, ChargeEnegry / 3);
                 bullet.atk = (int)(ChargeEnegry * 36 + 5);
