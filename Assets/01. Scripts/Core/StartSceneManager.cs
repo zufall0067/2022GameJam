@@ -12,9 +12,6 @@ public class StartSceneManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            SceneManager.LoadScene("SampleScene");
-        }
+
     }
 }
