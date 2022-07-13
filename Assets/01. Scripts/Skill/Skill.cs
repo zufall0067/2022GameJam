@@ -13,6 +13,11 @@ public class Skill : MonoBehaviour
     public Sprite icon;
     public string explain;
 
+    //void Awake()
+    //{
+    //    DontDestroyOnLoad(this.gameObject);
+    //}
+
     public virtual void Select()
     {
 

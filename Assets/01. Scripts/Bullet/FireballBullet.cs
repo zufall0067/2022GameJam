@@ -18,8 +18,10 @@ public class FireballBullet : Bullet
     {
         if (collision.transform.CompareTag("ENEMY"))
         {
-            //collision.transform.GetComponent<Enemy>().hp -= atk;
+
             GameObject ani = Instantiate(bombAni, transform.position, Quaternion.identity);
+
+            collision.transform.GetComponent<Enemy>().hp -= atk;
             DestroyThis();
         }
         if (collision.transform.CompareTag("OUTLINE"))

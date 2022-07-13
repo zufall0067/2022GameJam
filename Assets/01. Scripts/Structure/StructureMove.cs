@@ -9,11 +9,11 @@ public class StructureMove : MonoBehaviour
     {
         if (this.gameObject.transform.position.x > 0f)
         {
-            this.gameObject.transform.DOMoveX(-12f, Random.Range(0f, 6f)).OnComplete(() => { this.gameObject.SetActive(false); });
+            this.gameObject.transform.DOMoveX(-12f, Random.Range(4f, 8f)).OnComplete(() => { this.gameObject.SetActive(false); });
         }
         else
         {
-            this.gameObject.transform.DOMoveX(12f, Random.Range(0f, 6f)).OnComplete(() => { this.gameObject.SetActive(false); });
+            this.gameObject.transform.DOMoveX(12f, Random.Range(4f, 8f)).OnComplete(() => { this.gameObject.SetActive(false); });
         }
     }
 

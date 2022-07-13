@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class Enemy : PoolableMono
 {
     public SpriteRenderer hpBar;
-
-    public float hp; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ßµÉµï¿½..41ï¿½ï¿½ï¿½ï¿½
+    //ÇÑ±ÛÀÔ´Ï´Ù
+    public float hp; //????????? ??????..41????
     public int atk;
-    public float giveFuel; // ï¿½×¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½á·®
+    public float giveFuel; // ??????? ??? ????
 
     public float movingX = 0;
     public float movingY = 0;
@@ -31,7 +31,7 @@ public class Enemy : PoolableMono
         HPBar();
         if (hp <= 0)
         {
-            //ï¿½Ì°ï¿½ fuel ï¿½ï¿½Ã£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ //////////////////////////////////////////////////////////////////////////////////////
+            //??? fuel ????? ????? //////////////////////////////////////////////////////////////////////////////////////
             targetTrm.GetComponent<Tower>().fuel += giveFuel;
             gameObject.SetActive(false);
             Reset();
@@ -49,13 +49,13 @@ public class Enemy : PoolableMono
     {
         transform.DOComplete();
         CancelInvoke();
-        
+
 
     }
 
     public virtual void Shooting()
     {
-        
+
     }
 
     public virtual void Fire()
@@ -70,9 +70,9 @@ public class Enemy : PoolableMono
 
     public void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.transform.CompareTag("LASER"))
+        if (collision.transform.CompareTag("LASER"))
         {
-            Debug.Log("ì—ë„ˆë¯¸ íƒ€ê²©ì¤‘");
+            Debug.Log("??³Ê????°İÁß");
             hp -= collision.transform.GetComponent<LaserBall>().laserDamage;
         }
     }

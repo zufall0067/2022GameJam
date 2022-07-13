@@ -80,6 +80,9 @@ public class StartRandomSetManager : MonoBehaviour
 
     public IEnumerator MoveWildStructureAsset()
     {
+        //Structure[7].gameObject.SetActive(true);
+        //Structure[8].gameObject.SetActive(true);
+        //Structure[9].gameObject.SetActive(true);
         while (true)
         {
             int XpositionMinus = 0;
@@ -97,7 +100,7 @@ public class StartRandomSetManager : MonoBehaviour
 
             structureRandomIndex = 6;
             Structure[structureRandomIndex].transform.position = new Vector2(XpositionMinus * 10, Random.Range(0.3f, 4f));
-            Instantiate(Structure[structureRandomIndex], new Vector3(XpositionMinus * 10, Random.Range(0.3f, 4f), 0f), Quaternion.identity);
+            Instantiate(Structure[structureRandomIndex], new Vector3(XpositionMinus * 10, Random.Range(2f, 5f), 0f), Quaternion.identity);
 
             yield return new WaitForSeconds(Random.Range(1f, 2.5f));
         }
