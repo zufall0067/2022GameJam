@@ -20,7 +20,8 @@ public class Skill : MonoBehaviour
     protected bool isReady;
     public int price = 0;
     public Tower tower;
-    public Sprite Icon;
+    public string title;
+    public Sprite icon;
     public string explain;
 
     //void Awake()
