@@ -47,10 +47,10 @@ public class EnemySpawner : MonoBehaviour
         int randomNum = 100;
         while (true)
         {
-            randomNum = Random.Range(0,5);
+            randomNum = Random.Range(0, 5);
             if (randomNum == beforeCase)
             {
-                
+
             }
             else
                 break;
@@ -83,7 +83,7 @@ public class EnemySpawner : MonoBehaviour
             case 2:
                 Enemy enemy2 = PoolManager.Instance.Pop(enemyMode) as Enemy;
 
-  
+
                 //enemy2.transform.position = spawnPos[2].position;
                 //enemy2.transform.DOMoveX(11f, 7f).OnComplete(() => { PoolManager.Instance.Push(enemy2); });
 
@@ -126,33 +126,41 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public void EnemySetting(Enemy enemy, string mode)//���ʹ̰� �� (�����ǰ�) �ؾ�����
-
     {
-        if (tower.height > gameManager.height_Stage4)
+        if (tower.height > gameManager.stageHeight[3])
         {
             if (mode == "NormalEnemy")
                 enemy.spriteRenderer.sprite = stage4_NormalEnemy;
             else
                 enemy.spriteRenderer.sprite = stage4_BombEnemy;
-            enemy.hp += 100;
+            enemy.hp += 175;
         }
-        else if (tower.height > gameManager.height_Stage3)
+        else
+        if (tower.height > gameManager.stageHeight[2])
+        {
+            if (mode == "NormalEnemy")
+                enemy.spriteRenderer.sprite = stage4_NormalEnemy;
+            else
+                enemy.spriteRenderer.sprite = stage4_BombEnemy;
+            enemy.hp += 150;
+        }
+        else if (tower.height > gameManager.stageHeight[1])
         {
             if (mode == "NormalEnemy")
                 enemy.spriteRenderer.sprite = stage3_NormalEnemy;
             else
                 enemy.spriteRenderer.sprite = stage3_BombEnemy;
 
-            enemy.hp += 75;
+            enemy.hp += 125;
         }
-        else if (tower.height > gameManager.height_Stage2)
+        else if (tower.height > gameManager.stageHeight[0])
         {
             if (mode == "NormalEnemy")
                 enemy.spriteRenderer.sprite = stage2_NormalEnemy;
             else
                 enemy.spriteRenderer.sprite = stage2_BombEnemy;
 
-            enemy.hp += 25;
+            enemy.hp += 50;
         }
         else
         {

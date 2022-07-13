@@ -100,7 +100,7 @@ public class SkillManager : MonoBehaviour
     private void SetSkillInterface(Text titleText, Text priceText, Text explainText, GameObject iconSprite, int index)
     {
         titleText.text = skillArr[index].title;
-        priceText.text = "[ 파워  " + skillArr[index].price + " 필요 ]";
+        priceText.text = "[ " + skillArr[index].price + " 카운???�요 ]";
         explainText.text = skillArr[index].explain;
         iconSprite.GetComponent<Image>().sprite = skillArr[index].icon;
     }
@@ -113,8 +113,8 @@ public class SkillManager : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 isSkill = true;
-                skillPanel.transform.DOComplete();
-                skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
+                //skillPanel.transform.DOComplete();
+                //skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
                 Time.timeScale = 0.05f;
             }
             else
@@ -132,9 +132,9 @@ public class SkillManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && isSkill) // ù��° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
-            if (tower.nowPower >= skillArr[0].price)
+            if (tower.nowSkillCount >= skillArr[0].price)
             {
-                tower.nowPower -= skillArr[0].price;
+                tower.nowSkillCount -= skillArr[0].price;
                 skillArr[0].Select();
             }
         }
@@ -143,9 +143,9 @@ public class SkillManager : MonoBehaviour
         {
             tower.GetComponent<Tower>().isSkilling = true;
 
-            if (tower.nowPower >= skillArr[1].price)
+            if (tower.nowSkillCount >= skillArr[1].price)
             {
-                tower.nowPower -= skillArr[1].price;
+                tower.nowSkillCount -= skillArr[1].price;
                 skillArr[1].Select();
             }
         }
@@ -153,9 +153,9 @@ public class SkillManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && isSkill) //����° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
-            if (tower.nowPower >= skillArr[2].price)
+            if (tower.nowSkillCount >= skillArr[2].price)
             {
-                tower.nowPower -= skillArr[2].price;
+                tower.nowSkillCount -= skillArr[2].price;
                 skillArr[2].Select();
             }
         }

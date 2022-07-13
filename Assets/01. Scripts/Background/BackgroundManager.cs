@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class BackgroundManager : MonoBehaviour
 {
-    [SerializeField] // ����� �����ϴµ� �ɸ��� �ð�
-    private float[] floorChangeDelay;
     //�� �迭 ũ�� �޴� ��
     private int floorCount;
 
@@ -25,7 +23,6 @@ public class BackgroundManager : MonoBehaviour
     {
         nowTime = 0f;
         nowActiveBackgroundObject = 0;
-        floorCount = floorChangeDelay.Length;
         backgroundGameObjectCount = backgroundGameObject.Length;
         Instantiate(backgroundGameObject[0], this.gameObject.transform);
         background = GetComponent<Background>();
@@ -35,7 +32,7 @@ public class BackgroundManager : MonoBehaviour
 
     private void Update()
     {
-        nowTime += Time.deltaTime;
+        //nowTime += Time.deltaTime;
 
         if (backgroundGameObjectCount != nowActiveBackgroundObject + 1)
         {
