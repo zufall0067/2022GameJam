@@ -58,12 +58,12 @@ public class SkillManager : MonoBehaviour
         {
             instance = this;
         }
-        
-        for(int i = 0; i < 3; i++)
+
+        for (int i = 0; i < 3; i++)
         {
-            if(PlayerSkillSettingManager.Instance.skillList[i] == 0)
+            if (PlayerSkillSettingManager.Instance.skillList[i] == 0)
             {
-                skillArr[i] = fireballSkill; 
+                skillArr[i] = fireballSkill;
             }
             if (PlayerSkillSettingManager.Instance.skillList[i] == 1)
             {
@@ -74,7 +74,7 @@ public class SkillManager : MonoBehaviour
                 skillArr[i] = laserballSkill;
             }
         }
-        
+
     }
     //권준서 바보
     void Start()
@@ -129,13 +129,13 @@ public class SkillManager : MonoBehaviour
             skillArr[0].Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.W) && isSkill) // �ι�° ��ų
+        if (Input.GetKeyDown(KeyCode.E) && isSkill) // �ι�° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
             skillArr[1].Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && isSkill) //����° ��ų
+        if (Input.GetKeyDown(KeyCode.R) && isSkill) //����° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
             skillArr[2].Select();

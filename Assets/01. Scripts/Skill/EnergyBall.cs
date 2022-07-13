@@ -49,7 +49,7 @@ public class EnergyBall : Skill
                 bullet.dir = dir;
                 bullet.gameObject.transform.localScale =
 
-                new Vector3(ChargeEnegry * 3, ChargeEnegry * 3, ChargeEnegry * 3);
+                new Vector3(ChargeEnegry * 2 + 1, ChargeEnegry * 2 + 1, ChargeEnegry * 3);
 
                 bullet.atk = (int)(ChargeEnegry * 48 + 5);
                 bullet.Shoot();
