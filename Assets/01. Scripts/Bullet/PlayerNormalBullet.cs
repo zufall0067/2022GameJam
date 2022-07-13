@@ -32,11 +32,11 @@ public class PlayerNormalBullet : Bullet
 
     public IEnumerator ChangeColorFeedback(Collision2D collision)
     {
-        Debug.Log(collision.transform.GetComponent<SpriteRenderer>());
-        Color temp;
-        temp = collision.transform.GetComponent<SpriteRenderer>().color;
-        collision.transform.GetComponent<SpriteRenderer>().color = Color.red;
-        yield return new WaitForSeconds(0.2f);
-        collision.transform.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
+        SpriteRenderer renderer = collision.transform.GetComponent<SpriteRenderer>();
+        renderer.color = Color.red;
+        Debug.Log("asd");
+        yield return new WaitForSecondsRealtime(0.2f);
+        Debug.Log(renderer);
+        //renderer.color = Color.white;
     }
 }

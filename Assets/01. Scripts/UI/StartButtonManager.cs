@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class StartButtonManager : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class StartButtonManager : MonoBehaviour
 
     [SerializeField]
     private GameObject titleText;
+
+    [SerializeField]
+    private GameObject Logo;
 
     [SerializeField]
     private GameObject[] gameObj;
@@ -65,10 +69,15 @@ public class StartButtonManager : MonoBehaviour
 
         titleText.SetActive(false);
         boomAni.SetActive(true);
+        Logo.SetActive(true);
 
         yield return new WaitForSeconds(0.5f);
 
         boomAni.SetActive(false);
+
+        yield return new WaitForSeconds(2.5f);
+
+        SceneManager.LoadScene("SampleScene");
         
     }
 

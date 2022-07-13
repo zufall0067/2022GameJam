@@ -35,6 +35,8 @@ public class Tower : MonoBehaviour
 
     public GameObject GameOverPanel;
 
+    bool isDead;
+
     void Awake()
     {
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
@@ -42,7 +44,7 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -61,7 +63,7 @@ public class Tower : MonoBehaviour
         }
         FuelDecrease();
 
-        if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading)
+        if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading && !isDead)
         {
             if (SkillManager.Instance.isSkill == true) return;
             mousePos = Input.mousePosition;
@@ -128,10 +130,9 @@ public class Tower : MonoBehaviour
         Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
         if (pos.x < 0f) pos.x = 0f;
         if (pos.x > 1f) pos.x = 1f;
-        if (pos.y < 0f) pos.y = 0f;
+        if (pos.y < 0f && !isDead) pos.y = 0f;
         if (pos.y > 1f) pos.y = 1f;
         transform.position = Camera.main.ViewportToWorldPoint(pos);
-        //출처: https://codingmania.tistory.com/174 [개발자의 개발 블로그:티스토리]
     }
 
     private void SetBar(Image _image, float value)
@@ -161,12 +162,22 @@ public class Tower : MonoBehaviour
 
     public IEnumerator DieDGtween()
     {
-        var dir = Quaternion.AngleAxis(60, Vector3.right) * Vector3.one;
-        Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOJump(new Vector3(0, 0.5f, 0), 1, 1, 0.7f)).
-            Join(transform.DOMoveX(2, 0.8f)).
-            Join(transform.DOLocalRotateQuaternion(Quaternion.Euler(0, 0, -150), 0.7f)).
-            Insert(0.3f, transform.DOMoveY(-10f, 0.5f)).SetUpdate(true);
+        //var dir = Quaternion.AngleAxis(60, Vector3.right) * Vector3.one;
+        isDead = true;
+
+        //Sequence seq = DOTween.Sequence();
+
+        //seq.Join(transform.DORotateQuaternion(Quaternion.Euler(0, 0, -150), 0.4f)).
+        //    Append(transform.DOMoveY(-10f, 0.8f)).SetUpdate(true);
+            //Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).SetUpdate(true);
+           // Append(transform.DOMoveY(-10, 0.6f)).SetUpdate(true);
+
+            
+
+        //seq.Append(transform.DOJump(new Vector3(0, transform.position.y + 0.5f, 0), 1, 1, 0.7f)).
+        //    Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).
+            
+        //    Insert(0.3f, transform.DOMoveY(-10f, 0.5f)).SetUpdate(true);
         yield return new WaitForSecondsRealtime(2);
 
         Debug.Log("asd");
