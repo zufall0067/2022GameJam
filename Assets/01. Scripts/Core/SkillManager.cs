@@ -48,6 +48,8 @@ public class SkillManager : MonoBehaviour
 
     public Tower tower;
 
+    public Image redPanel; // 스킬을 눌럿는데 마나가 부족하면 0.3초정도 보여줌
+
     void Awake()
     {
         fireballSkill = GetComponent<Fireball>();
@@ -82,6 +84,10 @@ public class SkillManager : MonoBehaviour
         SetSkillInterface(titleText1, priceText1, explainText1, iconSprite1, 0);
         SetSkillInterface(titleText2, priceText2, explainText2, iconSprite2, 1);
         SetSkillInterface(titleText3, priceText3, explainText3, iconSprite3, 2);
+    }
+
+    public void RedPanel()
+    {
     }
 
     public void SkillPanelQuit()

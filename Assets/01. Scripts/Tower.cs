@@ -37,6 +37,7 @@ public class Tower : MonoBehaviour
 
     public Image grayPanel;
 
+
     bool isDead;
 
     void Awake()
@@ -142,7 +143,7 @@ public class Tower : MonoBehaviour
     private void SetFuelGrayPanel()
     {
         Color color = grayPanel.color;
-        color.a = fuel / 255;
+        color.a = (101f / 255f) - (fuel / 255f);
         grayPanel.color = color;
     }
 
@@ -176,8 +177,10 @@ public class Tower : MonoBehaviour
         //var dir = Quaternion.AngleAxis(60, Vector3.right) * Vector3.one;
         isDead = true;
 
-        //Sequence seq = DOTween.Sequence();
-
+        yield return new WaitForSecondsRealtime(1);
+        Sequence seq = DOTween.Sequence();
+        seq.Append(transform.DOMoveY(-10, 2f)).
+            Join(transform.DORotateQuaternion(Quaternion.Euler(0, 0, -100), 2f)).SetUpdate(true);
         //seq.Join(transform.DORotateQuaternion(Quaternion.Euler(0, 0, -150), 0.4f)).
         //    Append(transform.DOMoveY(-10f, 0.8f)).SetUpdate(true);
             //Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).SetUpdate(true);
@@ -189,7 +192,10 @@ public class Tower : MonoBehaviour
         //    Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).
             
         //    Insert(0.3f, transform.DOMoveY(-10f, 0.5f)).SetUpdate(true);
-        yield return new WaitForSecondsRealtime(2);
+        yield return new WaitForSecondsRealtime(0.5f);
+
+        GameOverPanel.transform.DOMoveY(0, 0.5f).SetUpdate(true);
+        
 
         Debug.Log("asd");
     }

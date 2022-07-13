@@ -16,27 +16,21 @@ public class PlayerNormalBullet : Bullet
 
     public override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("ENEMY"))
-        {
-            collision.transform.GetComponent<Enemy>().hp -= atk;
-            StartCoroutine(ChangeColorFeedback(collision));
-            tower.nowPower += tower.recoveryPower;
-            DestroyThis();
-        }
-        if (collision.transform.CompareTag("OUTLINE"))
+       
+        if (collision.gameObject.transform.CompareTag("OUTLINE"))
         {
             Debug.Log("�����ߴ�.");
             DestroyThis();
         }
-    }
 
-    public IEnumerator ChangeColorFeedback(Collision2D collision)
-    {
-        SpriteRenderer renderer = collision.transform.GetComponent<SpriteRenderer>();
-        renderer.color = Color.red;
-        Debug.Log("asd");
-        yield return new WaitForSecondsRealtime(0.2f);
-        Debug.Log(renderer);
-        //renderer.color = Color.white;
+        if (collision.gameObject.transform.CompareTag("ENEMY"))
+        {
+            collision.transform.GetComponent<Enemy>().hp -= atk;
+            //StartCoroutine(ChangeColorFeedback(collision));
+            tower.nowPower += tower.recoveryPower;
+            DestroyThis();
+        }
     }
+     
+    
 }

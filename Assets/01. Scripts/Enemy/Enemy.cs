@@ -50,7 +50,7 @@ public class Enemy : PoolableMono
 
         if (isMoving)
         {
-           
+
             Debug.Log("러프중");
 
             transform.position += dir * speed * Time.deltaTime;
@@ -108,10 +108,35 @@ public class Enemy : PoolableMono
             hp -= collision.transform.GetComponent<LaserBall>().laserDamage;
         }
 
-        if(collision.transform.CompareTag("OUTLINE"))
+        if (collision.transform.CompareTag("OUTLINE"))
         {
             isMoving = false;
             PoolManager.Instance.Push(this);
         }
+
+        if (collision.gameObject.transform.CompareTag("ENEMY"))
+        {
+            //collision.transform.GetComponent<Enemy>().hp -= atk;
+            StartCoroutine(ChangeColorFeedback());
+            //tower.nowPower += tower.recoveryPower;
+            //DestroyThis();
+        }
     }
+
+
+
+    public IEnumerator ChangeColorFeedback()
+    {
+        SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
+        renderer.color = Color.red;
+        Debug.Log("야하");
+
+        yield return new WaitForSeconds(0.2f);
+
+        Debug.Log("아이 캔 시 포에버");
+
+        renderer.color = Color.white;
+
+    }
+
 }

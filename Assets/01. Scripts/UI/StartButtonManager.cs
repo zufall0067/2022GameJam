@@ -62,7 +62,7 @@ public class StartButtonManager : MonoBehaviour
     public IEnumerator StartButtonPush()
     {
         startButton.SetActive(false);
-
+        ShuffleList(skillList);
         gameObj[0].transform.DORotate(new Vector3(0f, 90f), 1f);
         gameObj[1].transform.DORotate(new Vector3(0f, 90f), 1f);
         gameObj[2].transform.DORotate(new Vector3(0f, 90f), 1f).OnComplete(() => { gameObj[2].SetActive(false); });
@@ -78,6 +78,10 @@ public class StartButtonManager : MonoBehaviour
         frame1.text.text = skillText[skillList[0]];
         frame2.text.text = skillText[skillList[1]];
         frame3.text.text = skillText[skillList[2]];
+
+        PlayerSkillSettingManager.Instance.skillList[0] = skillList[0];
+        PlayerSkillSettingManager.Instance.skillList[1] = skillList[1];
+        PlayerSkillSettingManager.Instance.skillList[2] = skillList[2];
 
         yield return new WaitForSeconds(1f);
 
@@ -120,5 +124,23 @@ public class StartButtonManager : MonoBehaviour
             startButton.transform.DOPunchScale(new Vector3(0.1f, 0.1f), 0.9f);
             yield return new WaitForSeconds(1f);
         }
+    }
+
+    private List<T> ShuffleList<T>(List<T> list)
+    {
+        int random1, random2;
+        T temp;
+
+        for (int i = 0; i < list.Count; ++i)
+        {
+            random1 = Random.Range(0, list.Count);
+            random2 = Random.Range(0, list.Count);
+
+            temp = list[random1];
+            list[random1] = list[random2];
+            list[random2] = temp;
+        }
+
+        return list;
     }
 }

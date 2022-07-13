@@ -68,7 +68,7 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
         towerSprite = randomSetManager.towerGameObject[randomSetManager.towerRandomIndex].gameObject.GetComponent<SpriteRenderer>().sprite;
 
-        ShuffleList(skillList);
+        //ShuffleList(skillList);
 
     }
 

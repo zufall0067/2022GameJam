@@ -56,7 +56,6 @@ public class EnemySpawner : MonoBehaviour
                 break;
         } // ����ȭ �ؼ� ��ų ������ŭ ���� ��
         beforeCase = randomNum;
-        Debug.Log(randomNum);
         switch (randomNum)
         {
             case 0: //���� ������ ���� �Ʒ���
