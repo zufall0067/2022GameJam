@@ -25,7 +25,6 @@ public class Tower : MonoBehaviour
     bool isGameStart;
     public bool isSkilling;
     private float speed = 5f;
-
     Vector2 mousePos;
     public Camera Camera;
 
@@ -48,10 +47,10 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D))
-        {
-            Die();
-        }
+        // if(Input.GetKeyDown(KeyCode.D))
+        // {
+        //     Die();
+        // }
         if (nowPower > fullPower)
         {
             nowPower = fullPower;
@@ -109,6 +108,7 @@ public class Tower : MonoBehaviour
         heightText.text = ((int)height).ToString() + "m";
         bulletText.text = (10 - bulletCount).ToString();
 
+        speed = fuel / 10f;
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.up * Time.deltaTime * speed);

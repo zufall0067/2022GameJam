@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Enemy : PoolableMono
 {
     public SpriteRenderer hpBar;
-    //ÇÑ±ÛÀÔ´Ï´Ù
+    //ï¿½Ñ±ï¿½ï¿½Ô´Ï´ï¿½
     public float hp; //????????? ??????..41????
     public int atk;
     public float giveFuel; // ??????? ??? ????
@@ -17,7 +17,7 @@ public class Enemy : PoolableMono
     public float movingY = 0;
 
     public Transform targetTrm;
-
+    public GameObject fuelPiece;
 
     protected void Awake()
     {
@@ -33,6 +33,9 @@ public class Enemy : PoolableMono
         {
             //??? fuel ????? ????? //////////////////////////////////////////////////////////////////////////////////////
             targetTrm.GetComponent<Tower>().fuel += giveFuel;
+            GameObject _fuelPiece = fuelPiece;
+            _fuelPiece = Instantiate(_fuelPiece, transform.position, Quaternion.identity);
+            _fuelPiece.GetComponent<FuelPiece>().SetGiveFuel(giveFuel);
             gameObject.SetActive(false);
             Reset();
             //PoolManager.Instance.Push(this);
@@ -72,7 +75,7 @@ public class Enemy : PoolableMono
     {
         if (collision.transform.CompareTag("LASER"))
         {
-            Debug.Log("??³Ê????°ÝÁß");
+            Debug.Log("??ï¿½ï¿½????ï¿½ï¿½ï¿½ï¿½");
             hp -= collision.transform.GetComponent<LaserBall>().laserDamage;
         }
     }
