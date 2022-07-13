@@ -50,7 +50,10 @@ public class StartRandomSetManager : MonoBehaviour
         {
             StartCoroutine(MoveWildStructureAsset());
         }
-
+        else if (backgroundGameObject[backgroundRandomIndex].CompareTag("CITY"))
+        {
+            StartCoroutine(MoveWildStructureAsset());
+        }
     }
 
     public IEnumerator MoveStructureAsset()
