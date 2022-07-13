@@ -8,4 +8,11 @@ public class FireballAni : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    public void ColliderFalse()
+    {
+        Collider2D col;
+        col = transform.parent.GetComponent<Collider2D>();
+        col.enabled = false;
+    }
 }
