@@ -19,6 +19,7 @@ public class PlayerNormalBullet : Bullet
         if (collision.transform.CompareTag("ENEMY"))
         {
             collision.transform.GetComponent<Enemy>().hp -= atk;
+            StartCoroutine(ChangeColorFeedback(collision));
             tower.nowPower += tower.recoveryPower;
             DestroyThis();
         }
@@ -27,5 +28,15 @@ public class PlayerNormalBullet : Bullet
             Debug.Log("�����ߴ�.");
             DestroyThis();
         }
+    }
+
+    public IEnumerator ChangeColorFeedback(Collision2D collision)
+    {
+        Debug.Log(collision.transform.GetComponent<SpriteRenderer>());
+        Color temp;
+        temp = collision.transform.GetComponent<SpriteRenderer>().color;
+        collision.transform.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        collision.transform.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
     }
 }
