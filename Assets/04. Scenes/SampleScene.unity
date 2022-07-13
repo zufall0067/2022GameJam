@@ -9512,7 +9512,7 @@ MonoBehaviour:
   tower: {fileID: 588392409}
   icon: {fileID: 21300000, guid: 34e5ab7a43733d249aa894ec81295016, type: 3}
   temp: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  title: 
+  title: "\uD30C\uC774\uC5B4"
   explain: "\uB2FF\uC73C\uBA74 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294 \uD30C\uC774\uC5B4\uBCFC\uC744
     \uBC1C\uC0AC\uD569\uB2C8\uB2E4"
   currentSkill: {fileID: 1387579850}
@@ -9564,7 +9564,7 @@ MonoBehaviour:
   tower: {fileID: 588392409}
   icon: {fileID: 21300000, guid: 625360f3318f075409c890f9c573cd5c, type: 3}
   temp: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  title: 
+  title: "\uC5D0\uB108\uC9C0"
   explain: "\uCDA9\uC804\uD558\uC5EC \uBC1C\uC0AC\uAC00\uB2A5\uD55C \uC5D0\uB108\uC9C0\uBCFC\uC744
     \uC7A5\uCC29\uD569\uB2C8\uB2E4"
   currentSkill: {fileID: 1387579850}
@@ -9585,7 +9585,7 @@ MonoBehaviour:
   tower: {fileID: 588392409}
   icon: {fileID: 21300000, guid: 1e651102bdc53464cab129bbcb30f15a, type: 3}
   temp: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  title: 
+  title: "\uB808\uC774\uC800"
   explain: "\uC7A0\uC2DC\uB3D9\uC548 \uB300\uD3EC\uAC00 \uB808\uC774\uC800\uB85C
     \uBCC0\uACBD\uB429\uB2C8\uB2E4"
   currentSkill: {fileID: 1387579850}
