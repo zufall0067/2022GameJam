@@ -60,6 +60,12 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(PlayerPrefs.GetFloat("Top1"));
+        Debug.Log(PlayerPrefs.GetFloat("Top2"));
+        Debug.Log(PlayerPrefs.GetFloat("Top3"));
+
+
+
         SetFuelGrayPanel(); // ì²´ë ¥ ?†ì„???Œìƒ‰?”ë©´ ?˜ëŠ”ê±?ê´€ë¦¬í•˜???¨ìˆ˜
 
         // if(Input.GetKeyDown(KeyCode.D))
@@ -186,13 +192,13 @@ public class Tower : MonoBehaviour
         if(height > TopScore1)
         {
             PlayerPrefs.SetFloat("Top1", height);
-            PlayerPrefs.SetFloat("Top3",PlayerPrefs.GetFloat("Top2"));
-            PlayerPrefs.SetFloat("Top2", PlayerPrefs.GetFloat("Top1"));
+            PlayerPrefs.SetFloat("Top3", TopScore2);
+            PlayerPrefs.SetFloat("Top2", TopScore1);
         }
         else if(height > TopScore2)
         {
             PlayerPrefs.SetFloat("Top2", height);
-            PlayerPrefs.SetFloat("Top3", PlayerPrefs.GetFloat("Top2"));
+            PlayerPrefs.SetFloat("Top3", TopScore2);
         }
         else if(height > TopScore3)
         {

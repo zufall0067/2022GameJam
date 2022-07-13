@@ -6409,7 +6409,7 @@ MonoBehaviour:
   TopScore1: 0
   TopScore2: 0
   TopScore3: 0
-  GameOverPanel: {fileID: 0}
+  GameOverPanel: {fileID: 982391241}
   grayPanel: {fileID: 1745259422}
   nowSkillCount: 0
 --- !u!61 &588392410
