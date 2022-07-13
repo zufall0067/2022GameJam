@@ -79,10 +79,11 @@ public class EnemySpawner : MonoBehaviour
             case 0:
             case 1:
             case 2:
+            case 3:
                 enemy = PoolManager.Instance.Pop("NormalEnemy") as Enemy;
                 break;
 
-            case 3:
+            case 4:
                 enemy = PoolManager.Instance.Pop("BombEnemy") as Enemy;
                 break;
 

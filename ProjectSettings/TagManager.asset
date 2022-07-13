@@ -12,6 +12,7 @@ TagManager:
   - CITY
   - WILD
   - SPACE
+  - LASER
   layers:
   - Default
   - TransparentFX

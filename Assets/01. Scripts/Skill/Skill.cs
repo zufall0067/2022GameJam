@@ -9,6 +9,13 @@ public class Skill : MonoBehaviour
     protected bool isReady;
     public int price = 0;
     public Tower tower;
+    public Sprite Icon;
+    public string explain;
+
+    //void Awake()
+    //{
+    //    DontDestroyOnLoad(this.gameObject);
+    //}
 
     public virtual void Select()
     {
