@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6732240682023168747}
   - component: {fileID: 61354170484097256}
   - component: {fileID: 733434687341268339}
+  - component: {fileID: 1023537191535264092}
   m_Layer: 8
   m_Name: Fireball
   m_TagString: BULLET
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8688380608173152922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c9573adb61c43fe47b691a9c36bc15ec, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 1baa148edad341a429c5c26805376cef, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -113,7 +114,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8688380608173152922}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -123,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.54, y: 4.69}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 3.54, y: 4.69}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -144,7 +145,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd73c38fdae5734488a7aca209621cb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atk: 1
+  atk: 75
   force: 900
   dir: {x: 0, y: 0}
   firePos: {fileID: 0}
+  bombAni: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
+--- !u!58 &1023537191535264092
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8688380608173152922}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.45}
+  serializedVersion: 2
+  m_Radius: 0.44
