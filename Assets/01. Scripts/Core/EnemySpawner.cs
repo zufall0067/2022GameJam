@@ -10,11 +10,14 @@ public class EnemySpawner : MonoBehaviour
 
     public Enemy[] enemys;
 
+    Tower tower;
+
     int beforeCase = 0;
     void Start()
     {
-        InvokeRepeating("SpawnNormalEnemy", 1.5f, 1.6f);
-        InvokeRepeating("SpawnBombEnemy", 2.5f, 2.3f);
+        tower = FindObjectOfType<Tower>();
+        InvokeRepeating("SpawnNormalEnemy", 1f, 1.6f);
+        InvokeRepeating("SpawnBombEnemy", 2f, 2.3f);
     }
 
     public void SpawnNormalEnemy()
@@ -86,6 +89,19 @@ public class EnemySpawner : MonoBehaviour
 
     public void EnemySetting(Enemy enemy)//���ʹ̰� �� (�����ǰ�) �ؾ�����
     {
+        if (tower.height > 52500)
+        {
+            enemy.hp += 100;
+        }
+        else if (tower.height > 9250)
+        {
+            enemy.hp += 75;
+        }
+        else if (tower.height > 3750)
+        {
+            enemy.hp += 25;
+        }
+        else { }
         enemy.gameObject.SetActive(true);
         enemy.Shooting();
     }
