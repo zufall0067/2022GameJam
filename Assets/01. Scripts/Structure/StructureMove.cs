@@ -17,6 +17,11 @@ public class StructureMove : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        this.gameObject.transform.DOKill();
+    }
+
     void Update()
     {
         

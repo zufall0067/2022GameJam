@@ -21,6 +21,10 @@ public class StartUIManager : MonoBehaviour
 
     public Button HightscoreQuitButton;
 
+    public Text TopOneScore;
+    public Text TopTwoScore;
+    public Text TopThreeScore;
+
     public void PutSettingButton()
     {
         SettingPanel.transform.DOMoveY(0, 1f);
@@ -55,4 +59,8 @@ public class StartUIManager : MonoBehaviour
         HighscorePanel.transform.DOMoveY(10, 1f).OnComplete(() => { HighscoreButton.gameObject.SetActive(true); SettingButton.gameObject.SetActive(true); });
     }
 
+    public void CouponButtonClick()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }

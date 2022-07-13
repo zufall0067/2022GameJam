@@ -33,6 +33,10 @@ public class Tower : MonoBehaviour
     public float reloadCount = 0;
     public float overReloadCount = 0.15f;
 
+    public float TopScore1;
+    public float TopScore2;
+    public float TopScore3;
+
     public GameObject GameOverPanel;
 
     public Image grayPanel;
@@ -46,12 +50,14 @@ public class Tower : MonoBehaviour
 
     void Start()
     {
-        
+        TopScore1 = PlayerPrefs.GetFloat("Top1");
+        TopScore2 = PlayerPrefs.GetFloat("Top2");
+        TopScore3 = PlayerPrefs.GetFloat("Top3");
     }
 
     void Update()
     {
-        SetFuelGrayPanel(); // 체력 없을때 회색화면 되는거 관리하는 함수
+        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
         // if(Input.GetKeyDown(KeyCode.D))
         // {
@@ -77,7 +83,7 @@ public class Tower : MonoBehaviour
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
+            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
             bulletCount++;
@@ -168,7 +174,28 @@ public class Tower : MonoBehaviour
     public void Die()
     {
         Time.timeScale = 0;
+        HighScoreCheck();
         StartCoroutine(DieDGtween());
+    }
+
+    public void HighScoreCheck()
+    {
+        if(height > TopScore1)
+        {
+            PlayerPrefs.SetFloat("Top1", height);
+            PlayerPrefs.SetFloat("Top3",PlayerPrefs.GetFloat("Top2"));
+            PlayerPrefs.SetFloat("Top2", PlayerPrefs.GetFloat("Top1"));
+        }
+        else if(height > TopScore2)
+        {
+            PlayerPrefs.SetFloat("Top2", height);
+            PlayerPrefs.SetFloat("Top3", PlayerPrefs.GetFloat("Top2"));
+        }
+        else if(height > TopScore3)
+        {
+            PlayerPrefs.SetFloat("Top3", height);
+        }
+        
     }
 
     public IEnumerator DieDGtween()
