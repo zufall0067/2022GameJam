@@ -107,7 +107,7 @@ public class StartButtonManager : MonoBehaviour
         frame2.transform.DOMoveX(0, 0.25f);
         yield return new WaitForSeconds(0.5f);
         frame3.transform.DOMoveX(5, 0.25f);
-        ClickToStartText.transform.DOMoveX(8, 0.25f);
+        ClickToStartText.transform.DOMoveX(5.75f, 0.25f);
         yield return new WaitForSeconds(0.5f);
 
         isCanStart = true;        

@@ -35,6 +35,8 @@ public class Tower : MonoBehaviour
 
     public GameObject GameOverPanel;
 
+    public Image grayPanel;
+
     bool isDead;
 
     void Awake()
@@ -49,6 +51,8 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
+        SetFuelGrayPanel(); // 체력 없을때 회색화면 되는거 관리하는 함수
+
         // if(Input.GetKeyDown(KeyCode.D))
         // {
         //     Die();
@@ -133,6 +137,13 @@ public class Tower : MonoBehaviour
         if (pos.y < 0f && !isDead) pos.y = 0f;
         if (pos.y > 1f) pos.y = 1f;
         transform.position = Camera.main.ViewportToWorldPoint(pos);
+    }
+
+    private void SetFuelGrayPanel()
+    {
+        Color color = grayPanel.color;
+        color.a = fuel / 255;
+        grayPanel.color = color;
     }
 
     private void SetBar(Image _image, float value)
