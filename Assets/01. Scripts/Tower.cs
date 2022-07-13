@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class Tower : MonoBehaviour
 {
+    public GameObject skillCountUI;
+    public Text skillCountText;
     public SpriteRenderer sprite;
 
     public Image bulletBar_Bg;
@@ -19,7 +21,7 @@ public class Tower : MonoBehaviour
     public float fullFuel = 100;
     public float nowPower = 0;
     public float fullPower = 100;
-    public float recoveryPower = 1.25f;
+    public float recoveryPower = 2.5f;
     public float height = 0;
     public Text heightText;
     bool isGameStart;
@@ -45,10 +47,11 @@ public class Tower : MonoBehaviour
     bool isDead;
 
     public int nowSkillCount;
-
+    public int fullSkillCount = 5;
     void Awake()
     {
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
+        skillCountText.text = nowSkillCount.ToString();
     }
 
     void Start()
@@ -66,16 +69,22 @@ public class Tower : MonoBehaviour
 
 
 
-        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
+        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
         // if(Input.GetKeyDown(KeyCode.D))
         // {
         //     Die();
         // }
-        if (nowPower > fullPower)
+        if (nowPower >= fullPower)
         {
-            nowPower = fullPower;
+            nowPower = fullPower - nowPower;
+            nowSkillCount++;
+            if (nowSkillCount > fullSkillCount)
+            {
+                nowSkillCount = fullSkillCount;
+            }
         }
+        skillCountText.text = nowSkillCount.ToString();
         if (fuel > fullFuel)
         {
             fuel = fullFuel;
@@ -92,7 +101,7 @@ public class Tower : MonoBehaviour
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
+            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
             bulletCount++;
@@ -189,22 +198,22 @@ public class Tower : MonoBehaviour
 
     public void HighScoreCheck()
     {
-        if(height > TopScore1)
+        if (height > TopScore1)
         {
             PlayerPrefs.SetFloat("Top1", height);
             PlayerPrefs.SetFloat("Top3", TopScore2);
             PlayerPrefs.SetFloat("Top2", TopScore1);
         }
-        else if(height > TopScore2)
+        else if (height > TopScore2)
         {
             PlayerPrefs.SetFloat("Top2", height);
             PlayerPrefs.SetFloat("Top3", TopScore2);
         }
-        else if(height > TopScore3)
+        else if (height > TopScore3)
         {
             PlayerPrefs.SetFloat("Top3", height);
         }
-        
+
     }
 
     public IEnumerator DieDGtween()
@@ -218,19 +227,19 @@ public class Tower : MonoBehaviour
             Join(transform.DORotateQuaternion(Quaternion.Euler(0, 0, -100), 2f)).SetUpdate(true);
         //seq.Join(transform.DORotateQuaternion(Quaternion.Euler(0, 0, -150), 0.4f)).
         //    Append(transform.DOMoveY(-10f, 0.8f)).SetUpdate(true);
-            //Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).SetUpdate(true);
-           // Append(transform.DOMoveY(-10, 0.6f)).SetUpdate(true);
+        //Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).SetUpdate(true);
+        // Append(transform.DOMoveY(-10, 0.6f)).SetUpdate(true);
 
-            
+
 
         //seq.Append(transform.DOJump(new Vector3(0, transform.position.y + 0.5f, 0), 1, 1, 0.7f)).
         //    Join(transform.DOMoveX(transform.position.x + 1, 0.8f)).
-            
+
         //    Insert(0.3f, transform.DOMoveY(-10f, 0.5f)).SetUpdate(true);
         yield return new WaitForSecondsRealtime(0.5f);
 
         GameOverPanel.transform.DOMoveY(0, 0.5f).SetUpdate(true);
-        
+
 
         Debug.Log("asd");
     }
