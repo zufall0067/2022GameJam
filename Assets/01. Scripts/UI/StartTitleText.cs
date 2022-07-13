@@ -21,14 +21,14 @@ public class StartTitleText : MonoBehaviour
         {
             Debug.Log("WKFKDSK");
 
-            //TMPro.transform.DO();
+            TMPro.transform.DOPunchPosition(TMPro.transform.position, 2);
 
             yield return new WaitForSeconds(2.2f);
         }
     }
 
-    void Update()
+    public void DestroyText()
     {
-        
+        Destroy(TMPro);
     }
 }
