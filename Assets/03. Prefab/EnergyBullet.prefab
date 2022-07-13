@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 7945706512513688665}
   - component: {fileID: 4901328118013765809}
   - component: {fileID: 1851335157156741810}
-
   - component: {fileID: 4687132691908117675}
-
   m_Layer: 8
   m_Name: EnergyBullet
   m_TagString: BULLET
@@ -31,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7060499547008080064}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -121,7 +119,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0038105845, y: 0.027782679}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -132,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.54, y: 4.69}
+  m_Size: {x: 0.63643324, y: 0.6266738}
   m_EdgeRadius: 0
 --- !u!114 &4687132691908117675
 MonoBehaviour:
@@ -147,6 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atk: 0
-  force: 1200
+  force: 500
   dir: {x: 0, y: 0}
   firePos: {fileID: 0}
