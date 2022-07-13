@@ -6,5 +6,5 @@ using UnityEngine;
 public class SkillInfoSO : ScriptableObject
 {
     public List<Sprite> skillSprite;
-    public List<string> skillText;
-}
+    public List<string> skillText;  
+}           

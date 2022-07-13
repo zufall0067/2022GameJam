@@ -8622,7 +8622,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerSprite: {fileID: 0}
+  skillSprite:
+  - {fileID: 21300000, guid: 34e5ab7a43733d249aa894ec81295016, type: 3}
+  - {fileID: 21300000, guid: 625360f3318f075409c890f9c573cd5c, type: 3}
+  - {fileID: 21300000, guid: 1e651102bdc53464cab129bbcb30f15a, type: 3}
+  skillText:
+  - "\uD30C\uC774\uC5B4\uBCFC"
+  - "\uC5D0\uB108\uC9C0\uBCFC"
+  - "\uB808\uC774\uC800\uBE54"
   skillList: 000000000100000002000000
+  Frame: {fileID: 0}
 --- !u!4 &1784622447
 Transform:
   m_ObjectHideFlags: 0
