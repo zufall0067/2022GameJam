@@ -14145,9 +14145,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 519420031}
-  price: 0
+  price: 25
   tower: {fileID: 588392409}
-  Icon: {fileID: 21300000, guid: 34e5ab7a43733d249aa894ec81295016, type: 3}
+  icon: {fileID: 21300000, guid: 34e5ab7a43733d249aa894ec81295016, type: 3}
+  title: 
   explain: "\uB2FF\uC73C\uBA74 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294 \uD30C\uC774\uC5B4\uBCFC\uC744
     \uBC1C\uC0AC\uD569\uB2C8\uB2E4"
 --- !u!114 &1834130589
@@ -14162,6 +14163,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72380a0db0639cd45a98539d5547eafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleText1: {fileID: 1527143390}
+  priceText1: {fileID: 941711364}
+  explainText1: {fileID: 1688687767}
+  iconSprite1: {fileID: 1543244721}
+  titleText2: {fileID: 1457309585}
+  priceText2: {fileID: 237459031}
+  explainText2: {fileID: 616309604}
+  iconSprite2: {fileID: 131188279}
+  titleText3: {fileID: 801938655}
+  priceText3: {fileID: 131319020}
+  explainText3: {fileID: 1564227511}
+  iconSprite3: {fileID: 833635799}
   skillPanel: {fileID: 917658054}
   isSkill: 0
   skillArr:
@@ -14182,9 +14195,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 519420031}
-  price: 0
+  price: 25
   tower: {fileID: 588392409}
-  Icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 625360f3318f075409c890f9c573cd5c, type: 3}
+  title: 
   explain: "\uCDA9\uC804\uD558\uC5EC \uBC1C\uC0AC\uAC00\uB2A5\uD55C \uC5D0\uB108\uC9C0\uBCFC\uC744
     \uC7A5\uCC29\uD569\uB2C8\uB2E4"
 --- !u!114 &1834130591
@@ -14200,9 +14214,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 519420031}
-  price: 0
+  price: 55
   tower: {fileID: 588392409}
-  Icon: {fileID: 21300000, guid: 1e651102bdc53464cab129bbcb30f15a, type: 3}
+  icon: {fileID: 21300000, guid: 1e651102bdc53464cab129bbcb30f15a, type: 3}
+  title: 
   explain: "\uC7A0\uC2DC\uB3D9\uC548 \uB300\uD3EC\uAC00 \uB808\uC774\uC800\uB85C
     \uBCC0\uACBD\uB429\uB2C8\uB2E4"
   lineRenderer: {fileID: 1751774899}
