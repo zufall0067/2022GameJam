@@ -26,15 +26,39 @@ public class SkillManager : MonoBehaviour
 
     public Skill[] skillArr;
 
+    private Fireball fireballSkill;
+    private EnergyBall energyballSkill;
+    private LaserBall laserballSkill;
+
     public Tower tower;
 
     void Awake()
     {
+        fireballSkill = GetComponent<Fireball>();
+        energyballSkill = GetComponent<EnergyBall>();
+        laserballSkill = GetComponent<LaserBall>();
+
         if (null == instance)
         {
             instance = this;
         }
-        DontDestroyOnLoad(this.gameObject);
+        
+        for(int i = 0; i < 3; i++)
+        {
+            if(PlayerSkillSettingManager.Instance.skillList[i] == 0)
+            {
+                skillArr[i] = fireballSkill; 
+            }
+            if (PlayerSkillSettingManager.Instance.skillList[i] == 1)
+            {
+                skillArr[i] = energyballSkill;
+            }
+            if (PlayerSkillSettingManager.Instance.skillList[i] == 2)
+            {
+                skillArr[i] = laserballSkill;
+            }
+        }
+        
     }
 
     void Start()
