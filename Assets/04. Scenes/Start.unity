@@ -8956,8 +8956,8 @@ MonoBehaviour:
   - "\uC5D0\uB108\uC9C0\uBCFC"
   - "\uB808\uC774\uC800\uBE54"
   skillList: 000000000100000002000000
-  Frame: {fileID: 0}
-  frameParent: {fileID: 0}
+  Frame: {fileID: 3779031838684698801, guid: 1fb25cf68b428fa4481da7df76ae97a1, type: 3}
+  frameParent: {fileID: 1629442672}
 --- !u!4 &1784622447
 Transform:
   m_ObjectHideFlags: 0

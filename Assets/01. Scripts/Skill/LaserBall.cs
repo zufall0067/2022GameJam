@@ -37,10 +37,10 @@ public class LaserBall : Skill
             //Vector2 dir = mousePos - (Vector2)transform.position; // /*(Vector2)transform.position*/;
             //dir.Normalize();
 
-            Draw2DRay(lineRenderer.transform.position, dir * 80);
+            Draw2DRay(tower.transform.position, dir * 80);
 
-            RaycastHit2D[] hits = Physics2D.RaycastAll(new Vector2(0, -1), dir, 30);
-            Debug.DrawRay(new Vector2(0, -1), dir * 30, Color.red);
+            RaycastHit2D[] hits = Physics2D.RaycastAll(tower.transform.position, dir, 30);
+            Debug.DrawRay(tower.transform.position, dir * 30, Color.red);
             //Debug.Log(hit.collider);
             for(int i = 0; i < hits.Length; i++)
             {
@@ -63,7 +63,7 @@ public class LaserBall : Skill
 
     private void Draw2DRay(Vector2 position, Vector2 point)
     {
-        lineRenderer.GetComponent<LineRenderer>().SetPosition(0,new Vector2(0,-1));
+        lineRenderer.GetComponent<LineRenderer>().SetPosition(0,position);
         lineRenderer.GetComponent<LineRenderer>().SetPosition(1, point);
     }
 

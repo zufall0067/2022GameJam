@@ -17,7 +17,7 @@ public class Enemy : PoolableMono
     public float movingX = 0;
     public float movingY = 0;
 
-    public float speed;
+    public float speed = 3f;
 
     public Transform targetTrm;
     public GameObject fuelPiece;
@@ -26,16 +26,34 @@ public class Enemy : PoolableMono
 
     public UnityEvent BulletHitFeedback;
 
+    private Rigidbody2D _rigid;
+
+    private Vector3 dir;
+
+
+    Transform startTrm;
+    Transform endTrm;
+    bool isMoving;
     protected void Awake()
     {
         hpBar = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         targetTrm = GameObject.Find("Tower").transform;
-        Moving();
+        _rigid = GetComponent<Rigidbody2D>();
     }
 
     public virtual void Update()
     {
+
         HPBar();
+
+        if (isMoving)
+        {
+           
+            Debug.Log("러프중");
+
+            transform.position += dir * speed * Time.deltaTime;
+        }
+
         if (hp <= 0)
         {
             //??? fuel ????? ????? //////////////////////////////////////////////////////////////////////////////////////
@@ -49,18 +67,20 @@ public class Enemy : PoolableMono
         }
     }
 
-    protected void Moving()
+    public void Moving(Transform start, Vector2 getdir)
     {
-        //movingY += 0.1f;
-        //transform.position = new Vector2(movingX, movingY);
+        dir.Normalize();
+        transform.position = start.position;
+        dir.z = 0;
+        dir = getdir;
+
+        isMoving = true;
     }
 
     public override void Reset()
     {
         transform.DOComplete();
         CancelInvoke();
-
-
     }
 
     public virtual void Shooting()
@@ -84,6 +104,12 @@ public class Enemy : PoolableMono
         {
             Debug.Log("??��????����");
             hp -= collision.transform.GetComponent<LaserBall>().laserDamage;
+        }
+
+        if(collision.transform.CompareTag("OUTLINE"))
+        {
+            isMoving = false;
+            PoolManager.Instance.Push(this);
         }
     }
 }
