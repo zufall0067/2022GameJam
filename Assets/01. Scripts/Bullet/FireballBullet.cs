@@ -6,27 +6,23 @@ public class FireballBullet : Bullet
 {
     public Transform firePos;
 
-    public GameObject bombAni;
-
     public override void Reset()
     {
-        transform.position = new Vector3(0, -1, 0);//ï¿½ï¿½Ä¡
+        transform.position = new Vector3(0, -1, 0);//À§Ä¡
         rig.velocity = Vector2.zero;
     }
 
     public override void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("ºÎµúÄ§");
         if (collision.transform.CompareTag("ENEMY"))
         {
-
-            GameObject ani = Instantiate(bombAni, transform.position, Quaternion.identity);
-
             collision.transform.GetComponent<Enemy>().hp -= atk;
             DestroyThis();
         }
         if (collision.transform.CompareTag("OUTLINE"))
         {
-            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½.");
+            Debug.Log("º®´çÇß´Ù.");
             DestroyThis();
         }
     }
