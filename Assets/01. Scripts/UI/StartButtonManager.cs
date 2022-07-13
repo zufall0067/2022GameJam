@@ -28,6 +28,17 @@ public class StartButtonManager : MonoBehaviour
     [SerializeField]
     private GameObject[] gameObj;
 
+    public List<Sprite> skillSprite;
+    public List<string> skillText;
+    public List<int> skillList;
+
+    public Frame Frame;
+    public Transform frameParent;
+    public GameObject framePanel;
+    public GameObject ClickToStartText;
+
+    private bool isCanStart;
+
     void Start()
     {
         Button btn = startButton.transform.GetComponent<Button>();
@@ -37,7 +48,10 @@ public class StartButtonManager : MonoBehaviour
 
     void Update()
     {
-        
+        if(isCanStart && Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 
     public void ButtonPush()
@@ -54,6 +68,16 @@ public class StartButtonManager : MonoBehaviour
         gameObj[2].transform.DORotate(new Vector3(0f, 90f), 1f).OnComplete(() => { gameObj[2].SetActive(false); });
         gameObj[3].transform.DORotate(new Vector3(0f, 90f), 1f).OnComplete(() => { gameObj[3].SetActive(false); });
         gameObj[4].transform.DORotate(new Vector3(0f, 90f), 1f).OnComplete(() => { gameObj[4].SetActive(false); });
+
+        Frame frame1 = Instantiate(Frame, new Vector3(50, -3.25f, 0), Quaternion.identity, frameParent);
+        Frame frame2 = Instantiate(Frame, new Vector3(50, -3.25f, 0), Quaternion.identity, frameParent);
+        Frame frame3 = Instantiate(Frame, new Vector3(50, -3.25f, 0), Quaternion.identity, frameParent);
+        frame1.sprite.sprite = skillSprite[skillList[0]];
+        frame2.sprite.sprite = skillSprite[skillList[1]];
+        frame3.sprite.sprite = skillSprite[skillList[2]];
+        frame1.text.text = skillText[skillList[0]];
+        frame2.text.text = skillText[skillList[1]];
+        frame3.text.text = skillText[skillList[2]];
 
         yield return new WaitForSeconds(1f);
 
@@ -75,10 +99,18 @@ public class StartButtonManager : MonoBehaviour
 
         boomAni.SetActive(false);
 
-        yield return new WaitForSeconds(2.5f);
+        framePanel.transform.DOMoveX(0, 0.25f);
+        yield return new WaitForSeconds(0.5f);
 
-        SceneManager.LoadScene("SampleScene");
-        
+        frame1.transform.DOMoveX(-5, 0.25f);
+        yield return new WaitForSeconds(0.5f);
+        frame2.transform.DOMoveX(0, 0.25f);
+        yield return new WaitForSeconds(0.5f);
+        frame3.transform.DOMoveX(5, 0.25f);
+        ClickToStartText.transform.DOMoveX(8, 0.25f);
+        yield return new WaitForSeconds(0.5f);
+
+        isCanStart = true;        
     }
 
     IEnumerator DG()

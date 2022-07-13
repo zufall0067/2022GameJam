@@ -2,24 +2,25 @@ using UnityEngine;
 
 public class BackgroundManager : MonoBehaviour
 {
-    [SerializeField] // ¹è°æÀ» º¯°æÇÏ´Âµ¥ °É¸®´Â ½Ã°£
+    [SerializeField] // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´Âµï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
     private float[] floorChangeDelay;
-    //À§ ¹è¿­ Å©±â ¹Þ´Â ¾Ö
+    //ï¿½ï¿½ ï¿½è¿­ Å©ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½
     private int floorCount;
 
-    [SerializeField] //¹è°æ °ÔÀÓ ¿ÀºêÁ§Æ® 
+    [SerializeField] //ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® 
     private GameObject[] backgroundGameObject;
-    //À§ ¹è¿­ Å©±â ¹Þ´Â ¾Ö
+    //ï¿½ï¿½ ï¿½è¿­ Å©ï¿½ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½
     private int backgroundGameObjectCount;
 
-    //Áö³ª°£ ½Ã°£
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
     private float nowTime;
-    //Áö±Ý ÄÑÁ®ÀÖ´Â ¹è°æ ¿ÀºêÁ§Æ®
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     private int nowActiveBackgroundObject;
 
     private Background background;
-
-
+    private GameManager gameManager;
+    private Tower tower;
+    private int idx = 0;
     private void Start()
     {
         nowTime = 0f;
@@ -28,6 +29,8 @@ public class BackgroundManager : MonoBehaviour
         backgroundGameObjectCount = backgroundGameObject.Length;
         Instantiate(backgroundGameObject[0], this.gameObject.transform);
         background = GetComponent<Background>();
+        gameManager = FindObjectOfType<GameManager>();
+        tower = FindObjectOfType<Tower>();
     }
 
     private void Update()
@@ -36,8 +39,9 @@ public class BackgroundManager : MonoBehaviour
 
         if (backgroundGameObjectCount != nowActiveBackgroundObject + 1)
         {
-            if (nowTime > floorChangeDelay[nowActiveBackgroundObject])
+            if (tower.height >= gameManager.stageHeight[idx])
             {
+                idx++;
                 nowActiveBackgroundObject++;
                 nowTime = 0f;
                 Instantiate(backgroundGameObject[nowActiveBackgroundObject], this.gameObject.transform);
