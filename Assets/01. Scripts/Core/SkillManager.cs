@@ -76,7 +76,7 @@ public class SkillManager : MonoBehaviour
         }
 
     }
-    //권준서 바보
+    //권�???바보
     void Start()
     {
         SetSkillInterface(titleText1, priceText1, explainText1, iconSprite1, 0);
@@ -94,7 +94,7 @@ public class SkillManager : MonoBehaviour
     private void SetSkillInterface(Text titleText, Text priceText, Text explainText, GameObject iconSprite, int index)
     {
         titleText.text = skillArr[index].title;
-        priceText.text = "[ 파워 " + skillArr[index].price + " 필요 ]";
+        priceText.text = "[ ?�워 " + skillArr[index].price + " ?�요 ]";
         explainText.text = skillArr[index].explain;
         iconSprite.GetComponent<Image>().sprite = skillArr[index].icon;
     }
