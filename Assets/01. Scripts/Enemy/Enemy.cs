@@ -39,7 +39,7 @@ public class Enemy : PoolableMono
         if (hp <= 0)
         {
             //??? fuel ????? ????? //////////////////////////////////////////////////////////////////////////////////////
-            targetTrm.GetComponent<Tower>().fuel += giveFuel;
+            //targetTrm.GetComponent<Tower>().fuel += giveFuel;
             GameObject _fuelPiece = fuelPiece;
             _fuelPiece = Instantiate(_fuelPiece, transform.position, Quaternion.identity);
             _fuelPiece.GetComponent<FuelPiece>().SetGiveFuel(giveFuel);
