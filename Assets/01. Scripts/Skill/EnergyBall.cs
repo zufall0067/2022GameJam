@@ -36,7 +36,6 @@ public class EnergyBall : Skill
                 bullet.gameObject.transform.localScale = new Vector3(ChargeEnegry / 3, ChargeEnegry / 3, ChargeEnegry / 3);
                 bullet.atk = (int)(ChargeEnegry * 36 + 5);
                 bullet.Shoot();
-                tower.isSkilling = false;
             }
         }
         else
