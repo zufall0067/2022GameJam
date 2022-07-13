@@ -5,6 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSkillSettingManager : MonoBehaviour
 {
+    #region singleton
+
+    private static PlayerSkillSettingManager instance = null;
+
+    public static PlayerSkillSettingManager Instance
+    {
+        get
+        {
+            if (null == instance)
+            {
+                return null;
+            }
+            return instance;
+        }
+    }
+    #endregion
+
     StartRandomSetManager randomSetManager;
 
     public Sprite towerSprite;
@@ -32,6 +49,7 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     public void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
     {
+
         if(scene.name == "Start")
         {
             Set();
