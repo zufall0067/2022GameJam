@@ -8054,8 +8054,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD0D1 \uD0A4\uC6B0\uAE30"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 984e15c77adb9ef48a9ee847c7cdc39d, type: 2}
-  m_sharedMaterial: {fileID: 5961764756008356427, guid: 984e15c77adb9ef48a9ee847c7cdc39d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7d90068c77a81d74fb42287993adda41, type: 2}
+  m_sharedMaterial: {fileID: 8766523598300718299, guid: 7d90068c77a81d74fb42287993adda41, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8781,6 +8781,7 @@ MonoBehaviour:
   - "\uB808\uC774\uC800\uBE54"
   skillList: 000000000100000002000000
   Frame: {fileID: 0}
+  frameParent: {fileID: 0}
 --- !u!4 &1784622447
 Transform:
   m_ObjectHideFlags: 0
