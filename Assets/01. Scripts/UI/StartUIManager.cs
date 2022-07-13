@@ -11,11 +11,15 @@ public class StartUIManager : MonoBehaviour
 
     public Button SettingQuitButton; //세팅 패널에서 돌아가는 버튼
 
+    public Button couponButton; //쿠폰 패널 여는 버튼
+    public GameObject couponPanel;
+
+    public Button couponQuitButton; //쿠폰 패널 닫는 버튼
 
     public Button HighscoreButton;
     public GameObject HighscorePanel;
 
-    public Button HightscoreQuitButton;
+    //public Button HightscoreQuitButton;
 
     public void PutSettingButton()
     {
