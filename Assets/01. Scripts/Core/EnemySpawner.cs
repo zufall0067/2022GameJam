@@ -6,6 +6,7 @@ using DG.Tweening;
 public class EnemySpawner : MonoBehaviour
 {
     public Transform[] spawnPos;
+    public Transform[] finalPos;
 
     public Enemy[] enemys;
 
@@ -16,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        int randomNum = Random.Range(0, 5); // ����ȭ �ؼ� ��ų ������ŭ ���� ��
+        int randomNum = Random.Range(0, 7); // ����ȭ �ؼ� ��ų ������ŭ ���� ��
         switch (randomNum)
         {
             case 0: //���� ������ ���� �Ʒ���
@@ -79,10 +80,12 @@ public class EnemySpawner : MonoBehaviour
             case 1:
             case 2:
             case 3:
+            case 4:
+            case 5:
                 enemy = PoolManager.Instance.Pop("NormalEnemy") as Enemy;
                 break;
 
-            case 4:
+            case 6:
                 enemy = PoolManager.Instance.Pop("BombEnemy") as Enemy;
                 break;
 

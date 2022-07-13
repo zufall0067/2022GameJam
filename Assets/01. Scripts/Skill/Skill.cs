@@ -21,9 +21,17 @@ public class Skill : MonoBehaviour
     public int price = 0;
     public Tower tower;
     public Sprite icon;
+    public Sprite temp;
     public string title;
     public string explain;
 
+    public Frame currentSkill;
+
+    public virtual void SetCurrentSkill(Sprite sprite, string text)
+    {
+        currentSkill.sprite.sprite = sprite;
+        currentSkill.text.text = text;
+    }
 
     //void Awake()
     //{

@@ -128,8 +128,6 @@ public class Tower : MonoBehaviour
 
     }
 
-
-
     public void Die()
     {
         Time.timeScale = 0;

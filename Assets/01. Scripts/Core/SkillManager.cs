@@ -126,19 +126,32 @@ public class SkillManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q) && isSkill) // ù��° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
-            skillArr[0].Select();
+            if (tower.nowPower >= skillArr[0].price)
+            {
+                tower.nowPower -= skillArr[0].price;
+                skillArr[0].Select();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.W) && isSkill) // �ι�° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
-            skillArr[1].Select();
+
+            if(tower.nowPower >= skillArr[1].price)
+            {
+                tower.nowPower -= skillArr[1].price;
+                skillArr[1].Select() ;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.E) && isSkill) //����° ��ų
         {
             tower.GetComponent<Tower>().isSkilling = true;
-            skillArr[2].Select();
+            if (tower.nowPower >= skillArr[2].price)
+            {
+                tower.nowPower -= skillArr[2].price;
+                skillArr[2].Select();
+            }
         }
 
     }
