@@ -15,44 +15,50 @@ public class EnergyBall : Skill
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isReady)
         {
-            Debug.Log("Charge Start");
-            chargeStart = true;
-        }
-        if (chargeStart)
-        {
-            ChargeEnegry += Time.deltaTime;
-        }
-
-        if (Input.GetMouseButtonUp(0))
-        {
-            Debug.Log("Charge End");
-            chargeStart = false;
-            if (ChargeEnegry > 1)
+            if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Charge Reset");
-                ChargeEnegry = 1;
+                Debug.Log("Charge Start");
+                chargeStart = true;
             }
-            ChargeEnegry *= 2.5f;
-            isReady = false;
-            mousePos = Input.mousePosition;
-            mousePos = Camera.ScreenToWorldPoint(mousePos);
+            if (chargeStart)
+            {
+                ChargeEnegry += Time.deltaTime;
+            }
 
-            Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
-            dir.Normalize();
+            if (Input.GetMouseButtonUp(0))
+            {
+                Debug.Log("Charge End");
+                chargeStart = false;
+                if (ChargeEnegry > 1)
+                {
+                    Debug.Log("Charge Reset");
+                    ChargeEnegry = 1;
+                }
+                ChargeEnegry *= 2.5f;
+                isReady = false;
+                mousePos = Input.mousePosition;
+                mousePos = Camera.ScreenToWorldPoint(mousePos);
 
-            Bullet bullet = PoolManager.Instance.Pop("EnergyBullet") as Bullet;
-            bullet.transform.position = new Vector2(0, -1);
-            bullet.dir = dir;
-            bullet.gameObject.transform.localScale =
+                Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
+                dir.Normalize();
 
-            new Vector3(ChargeEnegry * 3, ChargeEnegry * 3, ChargeEnegry * 3);
+                Bullet bullet = PoolManager.Instance.Pop("EnergyBullet") as Bullet;
+                bullet.transform.position = new Vector2(0, -1);
+                bullet.dir = dir;
+                bullet.gameObject.transform.localScale =
 
-            bullet.atk = (int)(ChargeEnegry * 48 + 5);
-            bullet.Shoot();
-            ChargeEnegry = 0;
+                new Vector3(ChargeEnegry * 3, ChargeEnegry * 3, ChargeEnegry * 3);
+
+                bullet.atk = (int)(ChargeEnegry * 48 + 5);
+                bullet.Shoot();
+                ChargeEnegry = 0;
+                isReady = false;
+                tower.isSkilling = false;
+            }
         }
+
 
         // if ((Input.GetMouseButton(0) || Input.GetMouseButtonUp(0)) && isReady)
         // {
