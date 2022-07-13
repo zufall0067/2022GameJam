@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public float[] stageHeight;
+
+    public float height_Stage2 = 3750;
+
+    public float height_Stage3 = 9750;
+
+    public float height_Stage4 = 52500;
+
     [SerializeField] private PoolingListSO _initList = null;
 
     void Awake()

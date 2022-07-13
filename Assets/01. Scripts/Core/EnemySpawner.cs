@@ -19,22 +19,26 @@ public class EnemySpawner : MonoBehaviour
     public Sprite stage4_BombEnemy = null;
     public Sprite stage4_NormalEnemy = null;
 
-    Tower tower;
+    private Tower tower;
+    public GameManager gameManager;
 
     int beforeCase = 0;
     void Start()
     {
         tower = FindObjectOfType<Tower>();
+        gameManager = FindObjectOfType<GameManager>();
         InvokeRepeating("SpawnNormalEnemy", 1f, 1.6f);
         InvokeRepeating("SpawnBombEnemy", 2f, 2.3f);
     }
 
     public void SpawnNormalEnemy()
     {
+        Debug.Log("Start Enemy");
         SpawnEnemy("NormalEnemy");
     }
     public void SpawnBombEnemy()
     {
+        Debug.Log("Start Enemy");
         SpawnEnemy("BombEnemy");
     }
 
@@ -98,7 +102,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void EnemySetting(Enemy enemy, string mode)//���ʹ̰� �� (�����ǰ�) �ؾ�����
     {
-        if (tower.height > 52500)
+        if (tower.height > gameManager.height_Stage4)
         {
             if (mode == "NormalEnemy")
                 enemy.spriteRenderer.sprite = stage4_NormalEnemy;
@@ -106,7 +110,7 @@ public class EnemySpawner : MonoBehaviour
                 enemy.spriteRenderer.sprite = stage4_BombEnemy;
             enemy.hp += 100;
         }
-        else if (tower.height > 9250)
+        else if (tower.height > gameManager.height_Stage3)
         {
             if (mode == "NormalEnemy")
                 enemy.spriteRenderer.sprite = stage3_NormalEnemy;
@@ -115,7 +119,7 @@ public class EnemySpawner : MonoBehaviour
 
             enemy.hp += 75;
         }
-        else if (tower.height > 3750)
+        else if (tower.height > gameManager.height_Stage2)
         {
             if (mode == "NormalEnemy")
                 enemy.spriteRenderer.sprite = stage2_NormalEnemy;

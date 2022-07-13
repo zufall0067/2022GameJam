@@ -8712,6 +8712,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d03e6d281461045a001274d9ad4770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageHeight:
+  - 3750
+  - 9750
+  - 52500
+  - 1e+10
+  height_Stage2: 3750
+  height_Stage3: 9750
+  height_Stage4: 52500
   _initList: {fileID: 11400000, guid: 4e52bd93a0de0fc40917d6f72173c965, type: 2}
 --- !u!4 &1591244257
 Transform:
@@ -8762,6 +8770,7 @@ MonoBehaviour:
   stage3_NormalEnemy: {fileID: 21300000, guid: 1673c1e25d0764f44b2bb2d3e33cbbe2, type: 3}
   stage4_BombEnemy: {fileID: 21300000, guid: 82b47390ea04fc44abb1bb1a15da4094, type: 3}
   stage4_NormalEnemy: {fileID: 21300000, guid: c44876aa23883c44d8dd618ca098b38a, type: 3}
+  gameManager: {fileID: 0}
 --- !u!1 &1602852515
 GameObject:
   m_ObjectHideFlags: 0
