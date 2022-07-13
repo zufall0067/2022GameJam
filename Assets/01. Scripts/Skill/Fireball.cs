@@ -7,8 +7,9 @@ public class Fireball : Skill
     public override void Select()
     {
         isReady = true;
+        SetCurrentSkill(icon, title);
         Debug.Log("파이어볼 장착");
-        price = 25;
+        //price = 25;
     }
 
     void Update()
@@ -24,15 +25,13 @@ public class Fireball : Skill
             Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
             dir.Normalize();
 
+            SetCurrentSkill(temp, " ");
             Bullet bullet = PoolManager.Instance.Pop("Fireball") as Bullet;
             bullet.dir = dir;
             bullet.Shoot();
             tower.isSkilling = false;
 
-            if (CheckPriceOver()) // 여기에서 해주면 안됨
-            {
-                
-            }
+            
         }
     }
 }

@@ -16,6 +16,8 @@ public class Enemy : PoolableMono
     public float movingX = 0;
     public float movingY = 0;
 
+    public float speed;
+
     public Transform targetTrm;
     public GameObject fuelPiece;
 

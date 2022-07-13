@@ -10,6 +10,7 @@ public class EnergyBall : Skill
     {
         price = 25;
         isReady = true;
+        SetCurrentSkill(icon, title);
         Debug.Log("에너르기파~");
     }
 
@@ -43,7 +44,7 @@ public class EnergyBall : Skill
 
                 Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
                 dir.Normalize();
-
+                SetCurrentSkill(temp, " ");
                 Bullet bullet = PoolManager.Instance.Pop("EnergyBullet") as Bullet;
                 bullet.transform.position = new Vector2(0, -1);
                 bullet.dir = dir;
