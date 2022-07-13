@@ -89,15 +89,15 @@ public class EnemySpawner : MonoBehaviour
 
     public void EnemySetting(Enemy enemy)//���ʹ̰� �� (�����ǰ�) �ؾ�����
     {
-        if (tower.height > 45000)
-        {
-            enemy.hp += 125;
-        }
-        else if (tower.height > 8500)
+        if (tower.height > 52500)
         {
             enemy.hp += 100;
         }
-        else if (tower.height > 2500)
+        else if (tower.height > 9250)
+        {
+            enemy.hp += 75;
+        }
+        else if (tower.height > 3750)
         {
             enemy.hp += 25;
         }
