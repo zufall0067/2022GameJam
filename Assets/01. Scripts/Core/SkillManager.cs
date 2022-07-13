@@ -94,7 +94,7 @@ public class SkillManager : MonoBehaviour
     private void SetSkillInterface(Text titleText, Text priceText, Text explainText, GameObject iconSprite, int index)
     {
         titleText.text = skillArr[index].title;
-        priceText.text = "[ " + skillArr[index].price + " 카운트 필요 ]";
+        priceText.text = "[ " + skillArr[index].price + " 카운???�요 ]";
         explainText.text = skillArr[index].explain;
         iconSprite.GetComponent<Image>().sprite = skillArr[index].icon;
     }
@@ -107,8 +107,8 @@ public class SkillManager : MonoBehaviour
             {
                 Time.timeScale = 1f;
                 isSkill = true;
-                skillPanel.transform.DOComplete();
-                skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
+                //skillPanel.transform.DOComplete();
+                //skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
                 Time.timeScale = 0.05f;
             }
             else

@@ -6393,14 +6393,10 @@ MonoBehaviour:
   bulletText: {fileID: 1402774590}
   fuelBar: {fileID: 1532457223}
   powerBar: {fileID: 616787864}
-  skillCountUI: {fileID: 1956914994}
-  skillCountText: {fileID: 103094941}
   fuel: 200
   fullFuel: 100
   nowPower: 0
   fullPower: 100
-  nowSkillCount: 0
-  fullSkillCount: 5
   recoveryPower: 2
   height: 0
   heightText: {fileID: 790962043}
@@ -6409,8 +6405,13 @@ MonoBehaviour:
   bulletCount: 0
   isReloading: 0
   reloadCount: 0
+  overReloadCount: 0.15
+  TopScore1: 0
+  TopScore2: 0
+  TopScore3: 0
   GameOverPanel: {fileID: 0}
-  grayPanel: {fileID: 0}
+  grayPanel: {fileID: 1745259422}
+  nowSkillCount: 0
 --- !u!61 &588392410
 BoxCollider2D:
   m_ObjectHideFlags: 0

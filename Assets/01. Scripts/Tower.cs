@@ -43,6 +43,8 @@ public class Tower : MonoBehaviour
 
     bool isDead;
 
+    public int nowSkillCount;
+
     void Awake()
     {
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
