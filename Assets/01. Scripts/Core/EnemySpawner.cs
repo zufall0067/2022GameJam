@@ -13,8 +13,8 @@ public class EnemySpawner : MonoBehaviour
     int beforeCase = 0;
     void Start()
     {
-        InvokeRepeating("SpawnNormalEnemy", 1.5f, 1.6f);
-        InvokeRepeating("SpawnBombEnemy", 2.5f, 2.3f);
+        InvokeRepeating("SpawnNormalEnemy", 1f, 1.6f);
+        InvokeRepeating("SpawnBombEnemy", 2f, 2.3f);
     }
 
     public void SpawnNormalEnemy()
