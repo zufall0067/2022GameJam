@@ -19,7 +19,7 @@ public class StartUIManager : MonoBehaviour
     public Button HighscoreButton;
     public GameObject HighscorePanel;
 
-    //public Button HightscoreQuitButton;
+    public Button HightscoreQuitButton;
 
     public void PutSettingButton()
     {
@@ -31,6 +31,16 @@ public class StartUIManager : MonoBehaviour
     public void PutSettingQuitButton()
     {
         SettingPanel.transform.DOMoveY(10, 1f).OnComplete(() => { HighscoreButton.gameObject.SetActive(true); SettingButton.gameObject.SetActive(true); });
+    }
+
+    public void PutCouponButton()
+    {
+        couponPanel.SetActive(true);
+    }
+
+    public void PutCouponQuitButton()
+    {
+        couponPanel.SetActive(false);
     }
 
     public void PutHighscoreButton()
