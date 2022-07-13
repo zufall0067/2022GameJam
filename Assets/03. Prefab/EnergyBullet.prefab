@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 7945706512513688665}
   - component: {fileID: 4901328118013765809}
   - component: {fileID: 1851335157156741810}
+
+  - component: {fileID: 4687132691908117675}
+
   m_Layer: 8
   m_Name: EnergyBullet
   m_TagString: BULLET
@@ -131,3 +134,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.54, y: 4.69}
   m_EdgeRadius: 0
+--- !u!114 &4687132691908117675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7060499547008080064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1ddcf4a825c3346baa96c8a24b45e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atk: 0
+  force: 1200
+  dir: {x: 0, y: 0}
+  firePos: {fileID: 0}
