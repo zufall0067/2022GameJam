@@ -44,7 +44,7 @@ public class Bullet : PoolableMono
 
     void OnDisable()
     {
-        Debug.Log("비활성화");
+        
     }
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {

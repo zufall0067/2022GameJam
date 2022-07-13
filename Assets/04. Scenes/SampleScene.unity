@@ -5988,6 +5988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528d13fe8c58d442be33445f8c4a3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite: {fileID: 588392407}
   bulletBar_Bg: {fileID: 1026388750}
   bulletBar_Icon: {fileID: 1876947837}
   bulletBar_Text: {fileID: 1117314750}

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class Tower : MonoBehaviour
 {
+    public SpriteRenderer sprite;
+
     public Image bulletBar_Bg;
     public Image bulletBar_Icon;
     public Image bulletBar_Text;
@@ -30,6 +32,12 @@ public class Tower : MonoBehaviour
     public bool isReloading = false;
     public float reloadCount = 0;
     public float overReloadCount = 0.25f;
+
+    void Awake()
+    {
+        sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
+    }
+
     void Start()
     {
 

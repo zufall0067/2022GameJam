@@ -5881,6 +5881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerSprite: {fileID: 0}
+  skillList: 000000000100000002000000
 --- !u!4 &1784622447
 Transform:
   m_ObjectHideFlags: 0

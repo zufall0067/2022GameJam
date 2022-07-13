@@ -18,7 +18,6 @@ public class FireballBullet : Bullet
         if (collision.transform.CompareTag("ENEMY"))
         {
             collision.transform.GetComponent<Enemy>().hp -= atk;
-            ///collision.transform.GetComponent<Enemy>().
             DestroyThis();
         }
         if (collision.transform.CompareTag("OUTLINE"))
