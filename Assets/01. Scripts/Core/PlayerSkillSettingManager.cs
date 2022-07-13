@@ -22,7 +22,6 @@ public class PlayerSkillSettingManager : MonoBehaviour
         }
     }
     #endregion
-
     StartRandomSetManager randomSetManager;
 
     public Sprite towerSprite;
@@ -59,7 +58,7 @@ public class PlayerSkillSettingManager : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.L))
         {
-            StartCoroutine(SetFrame());
+            //StartCoroutine(SetFrame());
         }
     }
 
@@ -104,25 +103,10 @@ public class PlayerSkillSettingManager : MonoBehaviour
         }
     }
 
-    public IEnumerator SetFrame()
-    {
-        Frame frame1 = Instantiate(Frame, new Vector3(50, 0, 0), Quaternion.identity, frameParent);
-        Frame frame2 = Instantiate(Frame, new Vector3(50, 0, 0), Quaternion.identity, frameParent);
-        Frame frame3 = Instantiate(Frame, new Vector3(50, 0, 0), Quaternion.identity, frameParent);
-        frame1.sprite.sprite = skillSprite[skillList[0]];
-        frame2.sprite.sprite = skillSprite[skillList[1]];
-        frame3.sprite.sprite = skillSprite[skillList[2]];
-        frame1.text.text = skillText[skillList[0]];
-        frame2.text.text = skillText[skillList[1]];
-        frame3.text.text = skillText[skillList[2]];
-
-        frame1.transform.DOMoveX(-5, 0.25f);
-        yield return new WaitForSeconds(0.5f);
-        frame2.transform.DOMoveX(0, 0.25f);
-        yield return new WaitForSeconds(0.5f);   
-        frame3.transform.DOMoveX(5, 0.25f);
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("¾Àº¯°æ");
-    }
+    //public IEnumerator SetFrame()
+    //{
+        
+    //    Debug.Log("¾Àº¯°æ");
+    //}
 
 }
