@@ -24,9 +24,13 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     StartRandomSetManager randomSetManager;
 
+
+
     public Sprite towerSprite;
 
     public List<int> skillList;
+
+    public Frame Frame;
 
     void Awake()
     {
@@ -85,5 +89,13 @@ public class PlayerSkillSettingManager : MonoBehaviour
         {
 
         }
+    }
+
+    public void FrameEffect()
+    {
+        Frame frame1 = Instantiate(Frame, new Vector3(0, -10, 0), Quaternion.identity);
+        Frame frame2 = Instantiate(Frame, new Vector3(0, -10, 0), Quaternion.identity);
+        Frame frame3 = Instantiate(Frame, new Vector3(0, -10, 0), Quaternion.identity);
+        frame1.sprite = 
     }
 }
