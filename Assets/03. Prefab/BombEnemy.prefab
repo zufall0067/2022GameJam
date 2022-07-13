@@ -151,8 +151,13 @@ MonoBehaviour:
   giveFuel: 100
   movingX: 0
   movingY: 0
+  speed: 0
   targetTrm: {fileID: 0}
   fuelPiece: {fileID: 5036970461693676285, guid: 0fca952c387b9f64f856f328c470f99e, type: 3}
+  hitColor: {r: 0.9716981, g: 0.7654414, b: 0.7654414, a: 0}
+  BulletHitFeedback:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6333204333951297516
 GameObject:
   m_ObjectHideFlags: 0
