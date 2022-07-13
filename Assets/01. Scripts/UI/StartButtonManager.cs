@@ -11,6 +11,8 @@ public class StartButtonManager : MonoBehaviour
 
     void Start()
     {
+        Button btn = startButton.transform.GetComponent<Button>();
+
         StartCoroutine(DG());
     }
 
@@ -25,14 +27,11 @@ public class StartButtonManager : MonoBehaviour
     }
 
     IEnumerator DG()
-    {
-        Button btn = startButton.transform.GetComponent<Button>();
-        Color[] colors = { Color.red, Color.yellow, Color.green, Color.blue,  };
-        while (true)
+    { 
+        while(true)
         {
-            Color targetColor = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f), 1f);
-            btn.image.DOColor(targetColor, 0.2f);
-            yield return new WaitForSeconds(0.21f);
+            startButton.transform.DOPunchScale(new Vector3(0.1f, 0.1f), 0.9f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }
