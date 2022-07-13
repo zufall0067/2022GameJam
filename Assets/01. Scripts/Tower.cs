@@ -67,11 +67,11 @@ public class Tower : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
 
-            Vector2 dir = mousePos - new Vector2(0, -1); // ?�는 ?��???//�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
+            Vector2 dir = mousePos - new Vector2(transform.position.x, transform.position.y - 1); // ?�는 ?��???//�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y); //?�도 ?�는 ?��??�으�?변�?
+            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
             bulletCount++;
@@ -104,7 +104,7 @@ public class Tower : MonoBehaviour
         SetBar(bulletBar_Bg, (10 - bulletCount) * 10);
         SetBar(bulletBar_Text, (10 - bulletCount) * 10);
         SetBar(bulletBar_Icon, (10 - bulletCount) * 10);
-        height += Time.deltaTime * 415;
+        height += Time.deltaTime * 215 * fuel / 100;
         heightText.text = ((int)height).ToString() + "m";
         bulletText.text = (10 - bulletCount).ToString();
 
@@ -143,7 +143,7 @@ public class Tower : MonoBehaviour
     private void FuelDecrease()
     {
         if (fuel < 0) return;
-        fuel -= Time.deltaTime * 20f;
+        fuel -= Time.deltaTime * 15f;
 
 
         //if (fuel < 0) Die();
