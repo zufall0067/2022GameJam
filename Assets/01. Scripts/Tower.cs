@@ -142,8 +142,8 @@ public class Tower : MonoBehaviour
 
     private void FuelDecrease()
     {
-        if (fuel < 0) return;
-        fuel -= Time.deltaTime * 15f;
+        if (fuel < 0) Die();
+        fuel -= Time.deltaTime * 12.5f;
 
 
         //if (fuel < 0) Die();
