@@ -24,7 +24,6 @@ public class FireballBullet : Bullet
         }
         if (collision.transform.CompareTag("OUTLINE"))
         {
-            Debug.Log("�����ߴ�.");
             DestroyThis();
         }
     }
