@@ -11,6 +11,7 @@ public class LaserBall : Skill
 
     public override void Select()
     {
+        price = 2;
         CancelInvoke("IsReadyfalse");
         isReady = true;
         SetCurrentSkill(icon, title);
@@ -27,7 +28,7 @@ public class LaserBall : Skill
             lineRenderer.SetActive(true);
         }
 
-        if(isReady && Input.GetMouseButton(0))
+        if (isReady && Input.GetMouseButton(0))
         {
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
@@ -42,7 +43,7 @@ public class LaserBall : Skill
             RaycastHit2D[] hits = Physics2D.RaycastAll(tower.transform.position, dir, 30);
             Debug.DrawRay(tower.transform.position, dir * 30, Color.red);
             //Debug.Log(hit.collider);
-            for(int i = 0; i < hits.Length; i++)
+            for (int i = 0; i < hits.Length; i++)
             {
                 RaycastHit2D hit = hits[i];
                 if (hit.collider.transform.CompareTag("ENEMY"))
@@ -63,7 +64,7 @@ public class LaserBall : Skill
 
     private void Draw2DRay(Vector2 position, Vector2 point)
     {
-        lineRenderer.GetComponent<LineRenderer>().SetPosition(0,position);
+        lineRenderer.GetComponent<LineRenderer>().SetPosition(0, position);
         lineRenderer.GetComponent<LineRenderer>().SetPosition(1, point);
     }
 
@@ -76,7 +77,7 @@ public class LaserBall : Skill
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        if(collision.transform.CompareTag("ENEMY"))
+        if (collision.transform.CompareTag("ENEMY"))
         {
 
         }
