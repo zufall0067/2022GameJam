@@ -11,6 +11,10 @@ public class StartUIManager : MonoBehaviour
 
     public Button SettingQuitButton; //세팅 패널에서 돌아가는 버튼
 
+    public Button couponButton; //쿠폰 패널 여는 버튼
+    public GameObject couponPanel;
+
+    public Button couponQuitButton; //쿠폰 패널 닫는 버튼
 
     public Button HighscoreButton;
     public GameObject HighscorePanel;
@@ -27,6 +31,16 @@ public class StartUIManager : MonoBehaviour
     public void PutSettingQuitButton()
     {
         SettingPanel.transform.DOMoveY(10, 1f).OnComplete(() => { HighscoreButton.gameObject.SetActive(true); SettingButton.gameObject.SetActive(true); });
+    }
+
+    public void PutCouponButton()
+    {
+        couponPanel.SetActive(true);
+    }
+
+    public void PutCouponQuitButton()
+    {
+        couponPanel.SetActive(false);
     }
 
     public void PutHighscoreButton()

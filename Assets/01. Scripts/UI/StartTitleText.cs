@@ -20,8 +20,6 @@ public class StartTitleText : MonoBehaviour
     {
         while(true)
         {
-            Debug.Log("WKFKDSK");
-
             TMPro.transform.DOLocalJump(new Vector3(0, 200f), 40, 1, 1f);
 
             TMPro.transform.DOPunchRotation(new Vector3(Random.Range(-80f, 80), 0), 1f);
