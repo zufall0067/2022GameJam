@@ -19,17 +19,15 @@ public class FireballExplosionBullet : Bullet
         {
             Debug.Log("Fireball Damaaged");
             other.transform.GetComponent<Enemy>().hp -= atk;
-            DestroyThis();
+            //Destroy(gameObject);
         }
     }
 
-    private void Update()
-    {
-        if (nowCount >= colCount) { ColliderFalse(); }
-    }
+    // private void Update()
+    // {
+    //     nowCount += Time.deltaTime;
+    //     if (nowCount >= colCount) { ColliderFalse(); }
+    // }
 
-    public void ColliderFalse()
-    {
-        col.enabled = false;
-    }
+
 }
