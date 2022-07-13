@@ -10,6 +10,15 @@ public class EnemySpawner : MonoBehaviour
 
     public Enemy[] enemys;
 
+    public Sprite stage1_BombEnemy = null;
+    public Sprite stage1_NormalEnemy = null;
+    public Sprite stage2_BombEnemy = null;
+    public Sprite stage2_NormalEnemy = null;
+    public Sprite stage3_BombEnemy = null;
+    public Sprite stage3_NormalEnemy = null;
+    public Sprite stage4_BombEnemy = null;
+    public Sprite stage4_NormalEnemy = null;
+
     Tower tower;
 
     int beforeCase = 0;
@@ -45,21 +54,21 @@ public class EnemySpawner : MonoBehaviour
         {
             case 0: //���� ������ ���� �Ʒ���
                 Enemy enemy0 = PoolManager.Instance.Pop(enemyMode) as Enemy;
-                EnemySetting(enemy0);
+                EnemySetting(enemy0, enemyMode);
                 enemy0.transform.position = spawnPos[0].position;
                 enemy0.transform.DOMoveY(-8, 7f).OnComplete(() => { PoolManager.Instance.Push(enemy0); });
                 break;
 
             case 1:
                 Enemy enemy1 = PoolManager.Instance.Pop(enemyMode) as Enemy;
-                EnemySetting(enemy1);
+                EnemySetting(enemy1, enemyMode);
                 enemy1.transform.position = spawnPos[1].position;
                 enemy1.transform.DOMoveY(-8, 7f).OnComplete(() => { PoolManager.Instance.Push(enemy1); });
                 break;
 
             case 2:
                 Enemy enemy2 = PoolManager.Instance.Pop(enemyMode) as Enemy;
-                EnemySetting(enemy2);
+                EnemySetting(enemy2, enemyMode);
                 enemy2.transform.position = spawnPos[2].position;
                 enemy2.transform.DOMoveX(11f, 7f).OnComplete(() => { PoolManager.Instance.Push(enemy2); });
                 break;//���� �ڵ忡 �ѹ� ���� 
@@ -68,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
 
             case 3:
                 Enemy enemy3 = PoolManager.Instance.Pop(enemyMode) as Enemy;
-                EnemySetting(enemy3);
+                EnemySetting(enemy3, enemyMode);
                 enemy3.transform.position = spawnPos[3].position;
                 enemy3.transform.DOMoveX(12, 5f).SetEase(Ease.OutQuad);
                 enemy3.transform.DOMoveY(10, 5f).SetEase(Ease.InQuad).OnComplete(() => { PoolManager.Instance.Push(enemy3); });
@@ -76,7 +85,7 @@ public class EnemySpawner : MonoBehaviour
 
             case 4:
                 Enemy enemy4 = PoolManager.Instance.Pop(enemyMode) as Enemy;
-                EnemySetting(enemy4);
+                EnemySetting(enemy4, enemyMode);
                 enemy4.transform.position = spawnPos[4].position;
                 enemy4.transform.DOMoveX(-12, 5f).SetEase(Ease.OutQuad);
                 enemy4.transform.DOMoveY(10, 5f).SetEase(Ease.InQuad).OnComplete(() => { PoolManager.Instance.Push(enemy4); });
@@ -87,21 +96,41 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    public void EnemySetting(Enemy enemy)//���ʹ̰� �� (�����ǰ�) �ؾ�����
+    public void EnemySetting(Enemy enemy, string mode)//���ʹ̰� �� (�����ǰ�) �ؾ�����
     {
         if (tower.height > 52500)
         {
+            if (mode == "NormalEnemy")
+                enemy.spriteRenderer.sprite = stage4_NormalEnemy;
+            else
+                enemy.spriteRenderer.sprite = stage4_BombEnemy;
             enemy.hp += 100;
         }
         else if (tower.height > 9250)
         {
+            if (mode == "NormalEnemy")
+                enemy.spriteRenderer.sprite = stage3_NormalEnemy;
+            else
+                enemy.spriteRenderer.sprite = stage3_BombEnemy;
+
             enemy.hp += 75;
         }
         else if (tower.height > 3750)
         {
+            if (mode == "NormalEnemy")
+                enemy.spriteRenderer.sprite = stage2_NormalEnemy;
+            else
+                enemy.spriteRenderer.sprite = stage2_BombEnemy;
+
             enemy.hp += 25;
         }
-        else { }
+        else
+        {
+            if (mode == "NormalEnemy")
+                enemy.spriteRenderer.sprite = stage1_NormalEnemy;
+            else
+                enemy.spriteRenderer.sprite = stage1_BombEnemy;
+        }
         enemy.gameObject.SetActive(true);
         enemy.Shooting();
     }

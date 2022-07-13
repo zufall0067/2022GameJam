@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class Enemy : PoolableMono
 {
     public SpriteRenderer hpBar;
+    public SpriteRenderer spriteRenderer;
     //�ѱ��Դϴ�
     public float hp; //????????? ??????..41????
     public int atk;
@@ -29,6 +30,7 @@ public class Enemy : PoolableMono
     protected void Awake()
     {
         hpBar = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         targetTrm = GameObject.Find("Tower").transform;
         Moving();
     }
