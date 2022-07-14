@@ -15,7 +15,7 @@ public class LaserBall : Skill
         CancelInvoke("IsReadyfalse");
         isReady = true;
         SetCurrentSkill(icon, title);
-        Invoke("IsReadyfalse", 4f);
+        Invoke("IsReadyfalse", 5f);
         Debug.Log("레이저 장착");
     }
 

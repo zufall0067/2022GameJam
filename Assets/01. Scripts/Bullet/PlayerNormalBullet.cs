@@ -26,6 +26,8 @@ public class PlayerNormalBullet : Bullet
         if (collision.gameObject.transform.CompareTag("ENEMY"))
         {
             collision.transform.GetComponent<Enemy>().hp -= atk;
+            collision.transform.GetComponent<Enemy>().StartChangeColorCor();
+            
             //StartCoroutine(ChangeColorFeedback(collision));
             tower.nowPower += tower.recoveryPower;
             DestroyThis();
