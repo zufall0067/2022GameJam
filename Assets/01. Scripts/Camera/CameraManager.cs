@@ -45,18 +45,23 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if(isLaser && Input.GetMouseButton(0))
+        if (isLaser && Input.GetMouseButton(0))
         {
             transform.localPosition = (Vector3)Random.insideUnitCircle * 0.15f + originPos;
         }
-        
+
     }
 
     Vector3 originPos;
 
     public void ShakeVoid(float _amount, float _duration)
     {
-        StartCoroutine( Shake(_amount, _duration));
+        StartCoroutine(Shake(_amount, _duration));
+    }
+
+    public void FuncShakeVoid(float _amount, float _duration)
+    {
+        StartCoroutine(FuncShake(_amount, _duration));
     }
 
     public IEnumerator Shake(float _amount, float _duration)
@@ -70,8 +75,20 @@ public class CameraManager : MonoBehaviour
             yield return null;
         }
         transform.localPosition = originPos;
-
     }
 
+    public IEnumerator FuncShake(float _amount, float _duration)
+    {
+        float timer = 0;
+        float orAmount = _amount;
+        while (timer <= _duration)
+        {
+            transform.localPosition = (Vector3)Random.insideUnitCircle * _amount + originPos;
+            timer += Time.deltaTime;
+            _amount = orAmount / timer / _duration;
 
+            yield return null;
+        }
+        transform.localPosition = originPos;
+    }
 }
