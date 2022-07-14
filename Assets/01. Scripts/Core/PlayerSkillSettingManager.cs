@@ -36,7 +36,10 @@ public class PlayerSkillSettingManager : MonoBehaviour
     public bool isFirstStart = false;
     public bool isSettingButtonFirstPush = false;
 
+    public GameObject buttonGroup;
     public GameObject tutorialButton;
+    public GameObject tutorialButton2;
+
     void Awake()
     {
         if (null == instance)
@@ -79,12 +82,18 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     void Set()
     {
-        if(isFirstStart == false)
+        buttonGroup = GameObject.Find("ButtonGroup");
+        tutorialButton = buttonGroup.transform.Find("SettingButton").gameObject; 
+        tutorialButton2 = buttonGroup.transform.Find("HighscoreButton").gameObject;
+
+        if (isFirstStart == false)
         {
+            tutorialButton2.SetActive(false);
             tutorialButton.SetActive(false);
         }
         else
         {
+            tutorialButton2.SetActive(true);
             tutorialButton.SetActive(true);
         }
 
