@@ -53,15 +53,25 @@ public class Tower : MonoBehaviour
 
     public int nowSkillCount;
     public int fullSkillCount = 5;
+    public AudioClip[] clips; // 0 총쏘기  1 히트  2 재장전  3 뒤질때
+    public AudioSource audioSource;
     void Awake()
     {
-        col = GetComponent<Collider2D>();
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
         skillCountText.text = nowSkillCount.ToString();
     }
 
+    public void PlayEffect(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.PlayOneShot(clips[num]);
+    }
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
+
         TopScore1 = PlayerPrefs.GetFloat("Top1");
         TopScore2 = PlayerPrefs.GetFloat("Top2");
         TopScore3 = PlayerPrefs.GetFloat("Top3");
@@ -105,6 +115,7 @@ public class Tower : MonoBehaviour
             bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
+            PlayEffect(0);
             bulletCount++;
         }
 

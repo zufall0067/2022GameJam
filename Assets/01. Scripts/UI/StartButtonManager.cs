@@ -50,6 +50,9 @@ public class StartButtonManager : MonoBehaviour
     {
         if(isCanStart && Input.GetMouseButtonDown(0))
         {
+            StopAllCoroutines();
+            startButton.transform.DOKill();
+            DOTween.KillAll();
             SceneManager.LoadScene("SampleScene");
         }
     }
@@ -146,7 +149,6 @@ public class StartButtonManager : MonoBehaviour
 
     private void OnDisable()
     {
-        StopAllCoroutines();
-        startButton.transform.DOKill();
+       
     }
 }
