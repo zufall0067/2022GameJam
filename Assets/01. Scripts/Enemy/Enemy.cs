@@ -40,12 +40,15 @@ public class Enemy : PoolableMono
     Transform startTrm;
     Transform endTrm;
     bool isMoving;
+
+    public GameObject HitParticleTrm;
     protected void Awake()
     {
         hpBar = transform.GetChild(0).gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         targetTrm = GameObject.Find("Tower").transform;
         _rigid = GetComponent<Rigidbody2D>();
+        HitParticleTrm = GameObject.Find("Canvas");
     }
 
     public virtual void Update()
@@ -67,14 +70,19 @@ public class Enemy : PoolableMono
             //targetTrm.GetComponent<Tower>().fuel += giveFuel;
             int random = Random.Range(0, 180);
             GameObject deadParticle = Instantiate(DeadParticle, transform.position, Quaternion.Euler(0, 0, random));
+            deadParticle.transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+
             deadParticle.transform.DORotate(new Vector3(0, 0, random), 5).OnComplete(() => { Destroy(deadParticle); });
+
+
 
             GameObject _fuelPiece = fuelPiece;
             _fuelPiece = Instantiate(_fuelPiece, transform.position, Quaternion.identity);
             _fuelPiece.GetComponent<FuelPiece>().SetGiveFuel(giveFuel);
-            gameObject.SetActive(false);
-            Reset();
+            Reset(); 
             PoolManager.Instance.Push(this);
+
+
         }
     }
 
@@ -90,6 +98,8 @@ public class Enemy : PoolableMono
 
     public override void Reset()
     {
+        SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
+        renderer.color = Color.white;
         transform.DOComplete();
         CancelInvoke();
     }
