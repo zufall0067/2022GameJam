@@ -164,7 +164,55 @@ public class StartButtonManager : MonoBehaviour
         }
         else
         {
+            startButton.SetActive(false);
+            ShuffleList(skillList);
+            gameObj[0].transform.DORotate(new Vector3(0f, 90f), 1f);
+            gameObj[1].transform.DORotate(new Vector3(0f, 90f), 1f);
+            gameObj[2].transform.DORotate(new Vector3(0f, 90f), 1f).OnComplete(() => { gameObj[2].SetActive(false); });
+            gameObj[3].transform.DORotate(new Vector3(0f, 90f), 1f).OnComplete(() => { gameObj[3].SetActive(false); });
+            gameObj[4].transform.DORotate(new Vector3(0f, 90f), 1f).OnComplete(() => { gameObj[4].SetActive(false); });
 
+            Frame frame1 = Instantiate(Frame, new Vector3(50, -3.25f, 0), Quaternion.identity, frameParent);
+            Frame frame2 = Instantiate(Frame, new Vector3(50, -3.25f, 0), Quaternion.identity, frameParent);
+            Frame frame3 = Instantiate(Frame, new Vector3(50, -3.25f, 0), Quaternion.identity, frameParent);
+            frame1.sprite.sprite = skillSprite[skillList[0]];
+            frame2.sprite.sprite = skillSprite[skillList[1]];
+            frame3.sprite.sprite = skillSprite[skillList[2]];
+            frame1.text.text = skillText[skillList[0]];
+            frame2.text.text = skillText[skillList[1]];
+            frame3.text.text = skillText[skillList[2]];
+
+            PlayerSkillSettingManager.Instance.skillList[0] = skillList[0];
+            PlayerSkillSettingManager.Instance.skillList[1] = skillList[1];
+            PlayerSkillSettingManager.Instance.skillList[2] = skillList[2];
+
+            yield return new WaitForSeconds(1f);
+            backGroundMusic.StopMusic();
+            titleText.SetActive(false);
+            PlayEffect(1);
+            boomAni.SetActive(true);
+            Logo.SetActive(true);
+
+            yield return new WaitForSeconds(0.5f);
+
+            boomAni.SetActive(false);
+
+
+            framePanel.transform.DOMoveX(0, 0.25f);
+            yield return new WaitForSeconds(0.5f);
+            PlayEffect(2);
+            frame1.transform.DOMoveX(-5, 0.25f);
+            yield return new WaitForSeconds(0.5f);
+            PlayEffect(2);
+            frame2.transform.DOMoveX(0, 0.25f);
+            yield return new WaitForSeconds(0.5f);
+            PlayEffect(2);
+            frame3.transform.DOMoveX(5, 0.25f);
+            ClickToStartText.transform.DOMoveX(5.75f, 0.25f);
+            yield return new WaitForSeconds(0.5f);
+
+            isCanStart = true;
+            PlayerSkillSettingManager.Instance.isFirstStart = true;
         }
     }
 
