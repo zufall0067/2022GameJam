@@ -48,7 +48,7 @@ public class SkillManager : MonoBehaviour
 
     public Tower tower;
 
-    public Image redPanel; // 스킬을 눌럿는데 마나가 부족하면 0.3초정도 보여줌
+    public Image redPanel; // ?�킬???�럿?�데 마나가 부족하�?0.3초정??보여�?
 
     void Awake()
     {
@@ -93,8 +93,8 @@ public class SkillManager : MonoBehaviour
     public void SkillPanelQuit()
     {
         Time.timeScale = 1f;
-        skillPanel.transform.DOMoveY(-2, 0.2f);
-        isSkill = false;
+        skillPanel.transform.DOMoveY(-2, 0.2f).OnComplete(()=> { isSkill = false; });
+        
     }
 
     private void SetSkillInterface(Text titleText, Text priceText, Text explainText, GameObject iconSprite, int index)
@@ -114,19 +114,16 @@ public class SkillManager : MonoBehaviour
                 Time.timeScale = 1f;
                 isSkill = true;
                 //skillPanel.transform.DOComplete();
-                //skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
+                skillPanel.transform.DOMoveY(0, 0.02f).OnComplete(() => { });
                 Time.timeScale = 0.05f;
             }
-            else
-            {
-                SkillPanelQuit();
-            }
+            
         }
-        // if (Input.GetMouseButtonUp(1))
-        // {
-        //     //skillPanel.transform.DOComplete();
+        if (Input.GetMouseButtonUp(1))
+        {
+            SkillPanelQuit();
 
-        // }
+        }
 
 
         if (Input.GetKeyDown(KeyCode.Q) && isSkill) // ù��° ��ų

@@ -5,14 +5,14 @@ public class BackgroundManager : MonoBehaviour
     //�� �迭 ũ�� �޴� ��
     private int floorCount;
 
-    [SerializeField] //��� ���� ������Ʈ 
+    [SerializeField] //���?���� ������Ʈ 
     private GameObject[] backgroundGameObject;
     //�� �迭 ũ�� �޴� ��
     private int backgroundGameObjectCount;
 
     //������ �ð�
     private float nowTime;
-    //���� �����ִ� ��� ������Ʈ
+    //���� �����ִ� ���?������Ʈ
     private int nowActiveBackgroundObject;
 
     private Background background;
