@@ -11,14 +11,16 @@ public class FuelPiece : MonoBehaviour
     public void PlayEffect(int num)
     {
         Debug.Log("playsound start");
-        audioSource.clip = clips[num];
-        audioSource.PlayOneShot(clips[num]);
+        Debug.Log(audioSource);
+        //audioSource.clip = clips[num];
+        Debug.Log(clips[num]);
+        FuelSound.Instance.PlayEffect(0);
         Debug.Log("playsound end");
     }
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(audioSource);
+
         audioSource = GetComponent<AudioSource>();
 
     }

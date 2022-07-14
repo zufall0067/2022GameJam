@@ -38,17 +38,23 @@ public class StartButtonManager : MonoBehaviour
     public GameObject ClickToStartText;
 
     private bool isCanStart;
-
+    public AudioClip[] clips; // 0 총쏘기  1 히트  2 재장전  3 뒤질때
+    public AudioSource audioSource;
+    public void PlayEffect(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.PlayOneShot(clips[num]);
+    }
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         Button btn = startButton.transform.GetComponent<Button>();
-
         StartCoroutine(DG());
     }
 
     void Update()
     {
-        if(isCanStart && Input.GetMouseButtonDown(0))
+        if (isCanStart && Input.GetMouseButtonDown(0))
         {
             SceneManager.LoadScene("SampleScene");
         }
@@ -85,6 +91,7 @@ public class StartButtonManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        PlayEffect(0);
         particle.SetActive(true);
         particle.GetComponent<Renderer>().sortingLayerName = "CHARACTER";
         particle.GetComponent<Renderer>().sortingOrder = 6;
@@ -93,9 +100,10 @@ public class StartButtonManager : MonoBehaviour
 
         tower.transform.DOMoveY(12.5f, 5f);
 
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(10f);
 
         titleText.SetActive(false);
+        PlayEffect(1);
         boomAni.SetActive(true);
         Logo.SetActive(true);
 
@@ -103,23 +111,26 @@ public class StartButtonManager : MonoBehaviour
 
         boomAni.SetActive(false);
 
+
         framePanel.transform.DOMoveX(0, 0.25f);
         yield return new WaitForSeconds(0.5f);
-
+        PlayEffect(2);
         frame1.transform.DOMoveX(-5, 0.25f);
         yield return new WaitForSeconds(0.5f);
+        PlayEffect(2);
         frame2.transform.DOMoveX(0, 0.25f);
         yield return new WaitForSeconds(0.5f);
+        PlayEffect(2);
         frame3.transform.DOMoveX(5, 0.25f);
         ClickToStartText.transform.DOMoveX(5.75f, 0.25f);
         yield return new WaitForSeconds(0.5f);
 
-        isCanStart = true;        
+        isCanStart = true;
     }
 
     IEnumerator DG()
-    { 
-        while(true)
+    {
+        while (true)
         {
             startButton.transform.DOPunchScale(new Vector3(0.1f, 0.1f), 0.9f);
             yield return new WaitForSeconds(1f);

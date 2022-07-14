@@ -53,9 +53,11 @@ public class Tower : MonoBehaviour
     private Collider2D col;
     bool isDead;
 
+    bool isReloadSound;
+
     public int nowSkillCount;
     public int fullSkillCount = 5;
-    public AudioClip[] clips; // 0 총쏘�? 1 ?�트  2 ?�장?? 3 ?�질??
+    public AudioClip[] clips; // 0 총쏘�? 1 ?�트  2 ?�장?? 3 ?�질??
     public AudioSource audioSource;
 
     public Text TopscoreText1;
@@ -134,6 +136,11 @@ public class Tower : MonoBehaviour
         {
             if (!isReloading)
             {
+                if (!isReloadSound)
+                {
+                    PlayEffect(2);
+                    isReloadSound = true;
+                }
                 isReloading = true;
             }
         }
@@ -142,10 +149,11 @@ public class Tower : MonoBehaviour
         {
             reloadCount += Time.deltaTime;
             if (reloadCount >= overReloadCount)
-            { 
+            {
                 bulletCount = 0;
                 reloadCount = 0;
                 isReloading = false;
+                isReloadSound = false;
             }
         }
         //UIManager.Instance.fuelText.text = fuel.ToString();

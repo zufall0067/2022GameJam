@@ -42,7 +42,7 @@ public class LaserBall : Skill
         {
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
-            Vector2 dir = mousePos - new Vector2(0, -1); //*(Vector2)transform.position*/;
+            Vector2 dir = mousePos - (Vector2)tower.transform.position; //*(Vector2)transform.position*/;
             dir.Normalize();
 
             //Vector2 dir = mousePos - (Vector2)transform.position; // /*(Vector2)transform.position*/;

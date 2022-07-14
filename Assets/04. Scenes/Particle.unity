@@ -5612,6 +5612,13 @@ MonoBehaviour:
   Camera: {fileID: 0}
   price: 0
   tower: {fileID: 0}
+  icon: {fileID: 0}
+  temp: {fileID: 0}
+  title: 
+  explain: 
+  currentSkill: {fileID: 0}
+  clips: []
+  audioSource: {fileID: 0}
 --- !u!114 &520105347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5624,6 +5631,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72380a0db0639cd45a98539d5547eafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleText1: {fileID: 0}
+  priceText1: {fileID: 0}
+  explainText1: {fileID: 0}
+  iconSprite1: {fileID: 0}
+  titleText2: {fileID: 0}
+  priceText2: {fileID: 0}
+  explainText2: {fileID: 0}
+  iconSprite2: {fileID: 0}
+  titleText3: {fileID: 0}
+  priceText3: {fileID: 0}
+  explainText3: {fileID: 0}
+  iconSprite3: {fileID: 0}
   skillPanel: {fileID: 2089717963}
   isSkill: 0
   skillArr:
@@ -5631,6 +5650,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   tower: {fileID: 0}
+  redPanel: {fileID: 0}
 --- !u!114 &520105348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5643,6 +5663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d03e6d281461045a001274d9ad4770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageHeight: []
   _initList: {fileID: 11400000, guid: 4e52bd93a0de0fc40917d6f72173c965, type: 2}
 --- !u!4 &520105349
 Transform:
@@ -5766,6 +5787,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528d13fe8c58d442be33445f8c4a3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillCountUI: {fileID: 0}
+  skillCountText: {fileID: 0}
+  sprite: {fileID: 0}
   bulletBar_Bg: {fileID: 0}
   bulletBar_Icon: {fileID: 0}
   bulletBar_Text: {fileID: 0}
@@ -5785,6 +5809,18 @@ MonoBehaviour:
   isReloading: 0
   reloadCount: 0
   overReloadCount: 1
+  TopScore1: 0
+  TopScore2: 0
+  TopScore3: 0
+  GameOverPanel: {fileID: 0}
+  grayPanel: {fileID: 0}
+  nowSkillCount: 0
+  fullSkillCount: 5
+  clips: []
+  audioSource: {fileID: 0}
+  TopscoreText1: {fileID: 0}
+  TopscoreText2: {fileID: 0}
+  TopscoreText3: {fileID: 0}
 --- !u!61 &718585502
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5959,12 +5995,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBar: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  fullhp: 0
   hp: 10
   atk: 1
   giveFuel: 0
   movingX: 0
   movingY: 0
+  speed: 3
   targetTrm: {fileID: 0}
+  fuelPiece: {fileID: 0}
+  hitColor: {r: 0, g: 0, b: 0, a: 0}
+  hitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  isHitted: 0
 --- !u!50 &849486064
 Rigidbody2D:
   serializedVersion: 4
@@ -6247,6 +6292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528d13fe8c58d442be33445f8c4a3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillCountUI: {fileID: 0}
+  skillCountText: {fileID: 0}
+  sprite: {fileID: 0}
   bulletBar_Bg: {fileID: 0}
   bulletBar_Icon: {fileID: 0}
   bulletBar_Text: {fileID: 0}
@@ -6266,6 +6314,18 @@ MonoBehaviour:
   isReloading: 0
   reloadCount: 0
   overReloadCount: 1
+  TopScore1: 0
+  TopScore2: 0
+  TopScore3: 0
+  GameOverPanel: {fileID: 0}
+  grayPanel: {fileID: 0}
+  nowSkillCount: 0
+  fullSkillCount: 5
+  clips: []
+  audioSource: {fileID: 0}
+  TopscoreText1: {fileID: 0}
+  TopscoreText2: {fileID: 0}
+  TopscoreText3: {fileID: 0}
 --- !u!61 &937454198
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11386,7 +11446,7 @@ Transform:
   m_GameObject: {fileID: 1415947960}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.48000002, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 718585505}
   m_RootOrder: 2
@@ -11540,7 +11600,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -11709,7 +11769,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -12290,7 +12350,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 500
+      scalar: 250
       minScalar: 10
       maxCurve:
         serializedVersion: 2
