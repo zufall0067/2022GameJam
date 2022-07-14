@@ -2234,6 +2234,7 @@ GameObject:
   - component: {fileID: 677478559}
   - component: {fileID: 677478558}
   - component: {fileID: 677478557}
+  - component: {fileID: 677478560}
   m_Layer: 5
   m_Name: SettingButton
   m_TagString: Untagged
@@ -2354,6 +2355,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677478555}
   m_CullTransparentMesh: 1
+--- !u!114 &677478560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677478555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12c790b0b202493459a89faf6f7ea8c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSkillSettingManager: {fileID: 1784622446}
 --- !u!1 &688657787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,7 +2847,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 844466b1e78d59c4789f8cbbcbf6143f, type: 3}
   - {fileID: 8300000, guid: 47b809fd15f5c5f41bc701cb940572db, type: 3}
   - {fileID: 8300000, guid: 2920fba53fe76407a83bbe9dc7eeeb53, type: 3}
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 738998908}
   backGroundMusic: {fileID: 0}
 --- !u!4 &738998907
 Transform:
@@ -6828,7 +6842,7 @@ MonoBehaviour:
   TopThreeScore: {fileID: 1415005931}
   Coupon: {fileID: 1907346226}
   CouponCheckText: {fileID: 1459522118}
-  CouponName: 
+  CouponName: .
 --- !u!4 &1368957849
 Transform:
   m_ObjectHideFlags: 0
@@ -9271,6 +9285,8 @@ MonoBehaviour:
   Frame: {fileID: 3779031838684698801, guid: 1fb25cf68b428fa4481da7df76ae97a1, type: 3}
   frameParent: {fileID: 1629442672}
   isFirstStart: 0
+  isSettingButtonFirstPush: 0
+  tutorialButton: {fileID: 677478555}
 --- !u!4 &1784622447
 Transform:
   m_ObjectHideFlags: 0

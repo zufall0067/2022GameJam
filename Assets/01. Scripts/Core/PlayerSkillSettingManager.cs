@@ -33,7 +33,10 @@ public class PlayerSkillSettingManager : MonoBehaviour
     public Frame Frame;
     public Transform frameParent;
 
-    public bool isFirstStart;
+    public bool isFirstStart = false;
+    public bool isSettingButtonFirstPush = false;
+
+    public GameObject tutorialButton;
     void Awake()
     {
         if (null == instance)
@@ -66,7 +69,7 @@ public class PlayerSkillSettingManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            SceneManager.LoadScene("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -76,6 +79,15 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     void Set()
     {
+        if(isFirstStart == false)
+        {
+            tutorialButton.SetActive(false);
+        }
+        else
+        {
+            tutorialButton.SetActive(true);
+        }
+
         randomSetManager = GameObject.Find("StartRandomSetManager").GetComponent<StartRandomSetManager>();
 
         towerSprite = randomSetManager.towerGameObject[randomSetManager.towerRandomIndex].gameObject.GetComponent<SpriteRenderer>().sprite;
