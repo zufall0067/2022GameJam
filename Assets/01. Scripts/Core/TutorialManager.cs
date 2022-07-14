@@ -35,7 +35,6 @@ public class TutorialManager : MonoBehaviour
         }
         else if(i >= 0)
         {
-            Debug.Log("´­·¶¾î¤¿¤¿¤¿¤¿¤¿´õ¤¿");
             tutorialGameObject[i - 1].SetActive(false);
         }
     }
@@ -49,14 +48,12 @@ public class TutorialManager : MonoBehaviour
         }
         else if (i > 0)
         {
-            Debug.Log("´­·¶¾î¤¿¤¿¤¿¤¿¤¿´õ¤¿");
             tutorialGameObject[i + 1].SetActive(false);
         }
     }
 
     void Update()
     {
-        Debug.Log(i);
         tutorialGameObject[i].gameObject.SetActive(true);
     }
 }
