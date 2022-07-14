@@ -91,7 +91,7 @@ public class Tower : MonoBehaviour
         {
             fuel = fullFuel;
         }
-        if(isDieActionComplete) FuelDecrease();
+        FuelDecrease();
 
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading && !isDead)
         {
@@ -180,7 +180,7 @@ public class Tower : MonoBehaviour
 
     private void FuelDecrease()
     {
-        if (fuel < 0)
+        if (fuel < 0 && isDieActionComplete)
         {
             Die();
         }
