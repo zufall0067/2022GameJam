@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  fullhp: 0
   hp: 10
   atk: 1
   giveFuel: 40
@@ -133,6 +134,7 @@ MonoBehaviour:
   hitEvent:
     m_PersistentCalls:
       m_Calls: []
+  DeadParticle: {fileID: 8909182145362303312, guid: 8fab0635d2bbb9f49a59b40ea6c7e073, type: 3}
 --- !u!61 &4297381167158566715
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5385507288851839477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.09, y: 3.41, z: 0}
+  m_LocalPosition: {x: -0.05, y: 3.31, z: 0}
   m_LocalScale: {x: 0.5, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 4297381167158566711}
