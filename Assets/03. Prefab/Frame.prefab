@@ -142,8 +142,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uD30C\uC774\uC5B4\uBCFC"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 984e15c77adb9ef48a9ee847c7cdc39d, type: 2}
-  m_sharedMaterial: {fileID: 5961764756008356427, guid: 984e15c77adb9ef48a9ee847c7cdc39d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7d90068c77a81d74fb42287993adda41, type: 2}
+  m_sharedMaterial: {fileID: 8766523598300718299, guid: 7d90068c77a81d74fb42287993adda41, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

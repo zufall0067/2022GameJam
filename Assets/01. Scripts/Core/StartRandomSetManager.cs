@@ -137,4 +137,9 @@ public class StartRandomSetManager : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(1f, 2.5f));
         }
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
 }
