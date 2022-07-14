@@ -69,11 +69,6 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(PlayerPrefs.GetFloat("Top1"));
-        Debug.Log(PlayerPrefs.GetFloat("Top2"));
-        Debug.Log(PlayerPrefs.GetFloat("Top3"));
-
-
 
         SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
@@ -95,8 +90,8 @@ public class Tower : MonoBehaviour
         {
             fuel = fullFuel;
         }
-        if (isDieActionComplete) FuelDecrease();
-
+        
+        FuelDecrease();
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading && !isDead)
         {
             if (SkillManager.Instance.isSkill == true) return;
@@ -184,12 +179,18 @@ public class Tower : MonoBehaviour
 
     private void FuelDecrease()
     {
-        if (isDieActionComplete) return;
-        if (fuel < 0)
+        if (fuel < 0 && !isDieActionComplete)
         {
             Die();
         }
-        fuel -= Time.deltaTime * 12.5f;
+        if (!isDieActionComplete)
+        {
+            fuel -= Time.deltaTime * 12.5f;
+            return;
+        }
+        
+        
+        
 
 
         //if (fuel < 0) Die();

@@ -129,12 +129,12 @@ public class Enemy : PoolableMono
 
     public IEnumerator ChangeColorFeedback()
     {
-        CameraManager.Instance.ShakeVoid(2, 0.075f);
+        CameraManager.Instance.ShakeVoid(0.35f,0.075f);
         SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
         renderer.color = Color.red;
         Debug.Log("?�하");
 
-        yield return new WaitForSeconds(0.075f);
+        yield return new WaitForSeconds(0.06f);
 
         renderer.color = Color.white;
     }

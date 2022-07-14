@@ -143,4 +143,10 @@ public class StartButtonManager : MonoBehaviour
 
         return list;
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        startButton.transform.DOKill();
+    }
 }

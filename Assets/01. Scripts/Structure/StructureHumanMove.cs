@@ -28,4 +28,10 @@ public class StructureHumanMove : MonoBehaviour
     {
         
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        this.gameObject.transform.DOKill();
+    }
 }

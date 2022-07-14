@@ -32,4 +32,10 @@ public class StartLogo : MonoBehaviour
     {
         Destroy(TMPro);
     }
+
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+        this.gameObject.transform.DOKill();
+    }
 }

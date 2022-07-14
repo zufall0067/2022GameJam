@@ -18,6 +18,7 @@ public class StartRandomSetManager : MonoBehaviour
     [SerializeField]
     public GameObject[] Structure;
 
+    GameObject cloud;
     void Start()
     {
         AssetChange();
@@ -103,7 +104,7 @@ public class StartRandomSetManager : MonoBehaviour
 
             structureRandomIndex = 6;
             //Structure[structureRandomIndex].transform.position = new Vector2(XpositionMinus * 10, Random.Range(0.3f, 4f));
-            GameObject cloud = Instantiate(Structure[structureRandomIndex], new Vector3(XpositionMinus * 10, Random.Range(2f, 5f), 0f), Quaternion.identity);
+            cloud = Instantiate(Structure[structureRandomIndex], new Vector3(XpositionMinus * 10, Random.Range(2f, 5f), 0f), Quaternion.identity);
             cloud.transform.position = new Vector2(XpositionMinus * 10, Random.Range(0.3f, 4f));
             yield return new WaitForSeconds(Random.Range(1f, 2.5f));
         }

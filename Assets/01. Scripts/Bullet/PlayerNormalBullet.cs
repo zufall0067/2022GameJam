@@ -19,7 +19,6 @@ public class PlayerNormalBullet : Bullet
        
         if (collision.gameObject.transform.CompareTag("OUTLINE"))
         {
-            Debug.Log("�����ߴ�.");
             DestroyThis();
         }
 
@@ -33,6 +32,8 @@ public class PlayerNormalBullet : Bullet
             DestroyThis();
         }
     }
+
+    
      
     
 }
