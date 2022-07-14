@@ -34,12 +34,13 @@ public class BombEnemy : Enemy
 
     public override void HPBar()
     {
-        hpBar.transform.localScale = new Vector3(hp / 1000f, 0.1f, 1);
+        hpBar.transform.localScale = new Vector3(hp / fullhp / 2f, 0.07f, 1);
     }
 
     public override void Reset()
     {
-        hp = 500;
+        fullhp = 500;
+        hp = fullhp;
         base.Reset();
     }
 

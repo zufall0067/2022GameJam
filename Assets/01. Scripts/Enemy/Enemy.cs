@@ -11,6 +11,7 @@ public class Enemy : PoolableMono
     public SpriteRenderer hpBar;
     public SpriteRenderer spriteRenderer;
     //�ѱ��Դϴ�
+    public float fullhp;
     public float hp; //????????? ??????..41????
     public int atk;
     public float giveFuel; // ??????? ??? ????
@@ -128,10 +129,10 @@ public class Enemy : PoolableMono
 
     public IEnumerator ChangeColorFeedback()
     {
-        CameraManager.Instance.ShakeVoid(2,0.075f);
+        CameraManager.Instance.ShakeVoid(2, 0.075f);
         SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
         renderer.color = Color.red;
-        Debug.Log("?�하");
+        Debug.Log("?�하");
 
         yield return new WaitForSeconds(0.075f);
 

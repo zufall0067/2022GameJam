@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NormalEnemy : Enemy
 {
-    //ÇÊ¿äÇÑ°Í  :  °ø°Ý·Â, Ã¼·Â ¹Ù, È÷Æ®È®ÀÎ, ÇÃ·¹ÀÌ¾îÀ§Ä¡, Á×¾úÀ»¶§ ¿¬·á
+    //ï¿½Ê¿ï¿½ï¿½Ñ°ï¿½  :  ï¿½ï¿½ï¿½Ý·ï¿½, Ã¼ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½Æ®È®ï¿½ï¿½, ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½Ä¡, ï¿½×¾ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public override void Shooting()
     {
         //InvokeRepeating("Fire", 1f, 2.5f);
@@ -20,18 +20,19 @@ public class NormalEnemy : Enemy
         Bullet bullet = PoolManager.Instance.Pop("EnemyBullet") as Bullet;
         bullet.transform.position = transform.position;
         bullet.dir = dir;
-        
+
         bullet.Shoot();
     }
 
     public override void HPBar()
     {
-        hpBar.transform.localScale = new Vector3(hp / 200f, 0.07f, 1);
+        hpBar.transform.localScale = new Vector3(hp / fullhp / 2f, 0.07f, 1);
     }
 
     public override void Reset()
     {
-        hp = 100;
+        fullhp = 100;
+        hp = fullhp;
         base.Reset();
     }
 
