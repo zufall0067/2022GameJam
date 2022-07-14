@@ -20,6 +20,7 @@ public class StructureMove : MonoBehaviour
     private void OnDisable()
     {
         this.gameObject.transform.DOKill();
+        Destroy(this.gameObject);
     }
 
     void Update()
