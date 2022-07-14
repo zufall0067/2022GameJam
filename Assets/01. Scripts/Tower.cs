@@ -30,6 +30,8 @@ public class Tower : MonoBehaviour
     Vector2 mousePos;
     public Camera Camera;
 
+    bool isDieActionComplete;
+
     public int bulletCount = 0;
     public bool isReloading = false;
     public float reloadCount = 0;
@@ -89,7 +91,7 @@ public class Tower : MonoBehaviour
         {
             fuel = fullFuel;
         }
-        FuelDecrease();
+        if(isDieActionComplete) FuelDecrease();
 
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading && !isDead)
         {
@@ -178,7 +180,10 @@ public class Tower : MonoBehaviour
 
     private void FuelDecrease()
     {
-        if (fuel < 0) Die();
+        if (fuel < 0)
+        {
+            Die();
+        }
         fuel -= Time.deltaTime * 12.5f;
 
 
@@ -194,6 +199,7 @@ public class Tower : MonoBehaviour
         Time.timeScale = 0;
         HighScoreCheck();
         StartCoroutine(DieDGtween());
+        isDieActionComplete = true;
     }
 
     public void HighScoreCheck()
