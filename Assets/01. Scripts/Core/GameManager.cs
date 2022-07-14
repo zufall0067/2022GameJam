@@ -9,11 +9,30 @@ public class GameManager : MonoBehaviour
     public float[] stageHeight;
 
     [SerializeField] private PoolingListSO _initList = null;
+    public GameObject BlackImage;
 
     void Awake()
     {
+
         PoolManager.Instance = new PoolManager(transform);
         CreatePool();
+    }
+
+
+    void Update()
+    {
+        
+    }
+    void Start()
+    {
+
+        Invoke("PanelUP",1f);
+    }
+
+    public void PanelUP()
+    {
+        Time.timeScale = 0f;
+        BlackImage.transform.DOMoveY(12, 0.5f).SetUpdate(true).OnComplete(() => { Time.timeScale = 1f; Destroy(BlackImage); });
     }
 
     private void CreatePool()
@@ -27,4 +46,6 @@ public class GameManager : MonoBehaviour
         DOTween.KillAll();
         SceneManager.LoadScene("Start");
     }
+
+
 }

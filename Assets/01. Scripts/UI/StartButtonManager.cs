@@ -43,6 +43,8 @@ public class StartButtonManager : MonoBehaviour
     public AudioClip[] clips; // 0 총쏘기  1 히트  2 재장전  3 뒤질때
     public AudioSource audioSource;
     public BackGroundMusic backGroundMusic;
+
+    public GameObject BlackImage;
     public void PlayEffect(int num)
     {
         audioSource.clip = clips[num];
@@ -65,7 +67,7 @@ public class StartButtonManager : MonoBehaviour
     {
         if (isCanStart && Input.GetMouseButtonDown(0))
         {
-            SceneManager.LoadScene("SampleScene");
+            BlackImage.transform.DOMoveY(0, 0.5f).OnComplete(() => { SceneManager.LoadScene("SampleScene"); });
         }
     }
 
