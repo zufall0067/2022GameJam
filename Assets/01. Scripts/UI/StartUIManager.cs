@@ -56,7 +56,7 @@ public class StartUIManager : MonoBehaviour
                 break;
 
             case "권준서":
-                StartCoroutine(TextInOut("킹갓제네럴울트라하이퍼초고교급슈퍼노바개발자"));
+                StartCoroutine(TextInOut("이딴게 사람"));
                 break;
 
             case "심규영":

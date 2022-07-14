@@ -39,7 +39,7 @@ public class StartButtonManager : MonoBehaviour
 
     public Text announceText;
     public GameObject announceObject;
-    private bool isCanStart;
+    public bool isCanStart;
     public AudioClip[] clips; // 0 총쏘기  1 히트  2 재장전  3 뒤질때
     public AudioSource audioSource;
     public BackGroundMusic backGroundMusic;
