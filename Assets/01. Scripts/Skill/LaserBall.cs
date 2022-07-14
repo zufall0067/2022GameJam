@@ -16,7 +16,6 @@ public class LaserBall : Skill
         isReady = true;
         SetCurrentSkill(icon, title);
         Invoke("IsReadyfalse", 5f);
-        Debug.Log("레이저 장착");
     }
 
 
@@ -49,7 +48,13 @@ public class LaserBall : Skill
                 RaycastHit2D hit = hits[i];
                 if (hit.collider.transform.CompareTag("ENEMY"))
                 {
-                    Debug.Log("에너미잇어요!");
+                    if(hit.collider.GetComponent<Enemy>().isHitted == false)
+                    {
+                        hit.collider.GetComponent<Enemy>().isHitted = true;
+                    }
+                    
+                    Debug.Log("레이저 스크립트 에너미 레이캐스트 함");
+                    Debug.Log(hit.collider.GetComponent<Enemy>().hp);
                     hit.collider.GetComponent<Enemy>().hp -= 1f;
                 }
             }

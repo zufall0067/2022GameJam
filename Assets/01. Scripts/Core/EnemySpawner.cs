@@ -33,12 +33,10 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnNormalEnemy()
     {
-        Debug.Log("Start Enemy");
         SpawnEnemy("NormalEnemy");
     }
     public void SpawnBombEnemy()
     {
-        Debug.Log("Start Enemy");
         SpawnEnemy("BombEnemy");
     }
 
@@ -61,7 +59,6 @@ public class EnemySpawner : MonoBehaviour
             case 0: //���� ������ ���� �Ʒ���
                 Enemy enemy0 = PoolManager.Instance.Pop(enemyMode) as Enemy;
 
-                Debug.Log("에너미 세팅 완료");
                 EnemySetting(enemy0, enemyMode);
                 enemy0.Moving(spawnPos[0], Vector2.right);
                 //enemy0.transform.position = spawnPos[0].position;

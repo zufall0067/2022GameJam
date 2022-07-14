@@ -9,7 +9,6 @@ public class Fireball : Skill
         price = 2;
         isReady = true;
         SetCurrentSkill(icon, title);
-        Debug.Log("파이어볼 장착");
         //price = 25;
     }
 
@@ -32,8 +31,6 @@ public class Fireball : Skill
             bullet.dir = dir;
             bullet.Shoot();
             tower.isSkilling = false;
-
-
         }
     }
 }

@@ -32,7 +32,7 @@ public class Enemy : PoolableMono
 
     public UnityEvent hitEvent;
 
-    private bool isHitted = false;
+    public bool isHitted = false;
 
     Transform startTrm;
     Transform endTrm;
@@ -106,7 +106,7 @@ public class Enemy : PoolableMono
     {
         if (collision.transform.CompareTag("LASER"))
         {
-            Debug.Log("??��????����");
+            Debug.Log("레이저 맞고있어용!");
             hp -= collision.transform.GetComponent<LaserBall>().laserDamage;
         }
 
@@ -138,7 +138,6 @@ public class Enemy : PoolableMono
         CameraManager.Instance.ShakeVoid(0.35f, 0.075f);
         SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
         renderer.color = Color.red;
-        Debug.Log("?�하");
 
         yield return new WaitForSeconds(0.06f);
 

@@ -130,7 +130,6 @@ public class Tower : MonoBehaviour
         {
             if (!isReloading)
             {
-                Debug.Log("Reload Start");
                 isReloading = true;
             }
         }
@@ -139,8 +138,7 @@ public class Tower : MonoBehaviour
         {
             reloadCount += Time.deltaTime;
             if (reloadCount >= overReloadCount)
-            {
-                Debug.Log("Reload end");
+            { 
                 bulletCount = 0;
                 reloadCount = 0;
                 isReloading = false;

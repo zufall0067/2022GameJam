@@ -11,7 +11,6 @@ public class EnergyBall : Skill
         price = 1;
         isReady = true;
         SetCurrentSkill(icon, title);
-        Debug.Log("에너르기파~");
     }
 
     public void Update()
@@ -20,7 +19,6 @@ public class EnergyBall : Skill
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Charge Start");
                 chargeStart = true;
             }
             if (chargeStart)
@@ -30,12 +28,10 @@ public class EnergyBall : Skill
 
             if (Input.GetMouseButtonUp(0))
             {
-                Debug.Log("Charge End");
                 SkillManager.Instance.SkillPanelQuit();
                 chargeStart = false;
                 if (ChargeEnegry > 1)
                 {
-                    Debug.Log("Charge Reset");
                     ChargeEnegry = 1;
                 }
                 ChargeEnegry *= 2.5f;

@@ -56,7 +56,6 @@ public class CameraManager : MonoBehaviour
 
     public void ShakeVoid(float _amount, float _duration)
     {
-        Debug.Log("카메라 피드백");
         StartCoroutine( Shake(_amount, _duration));
     }
 
@@ -70,7 +69,6 @@ public class CameraManager : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        Debug.Log("카메라 와일 끝");
         transform.localPosition = originPos;
 
     }
