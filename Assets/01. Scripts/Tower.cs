@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
+
 public class Tower : MonoBehaviour
 {
     public GameObject skillCountUI;
@@ -80,7 +82,12 @@ public class Tower : MonoBehaviour
     void Update()
     {
 
-        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
+        if(Input.GetKey(KeyCode.Space))
+        {
+            SceneManager.LoadScene("Start");
+        }
+
+        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
         // if(Input.GetKeyDown(KeyCode.D))
         // {
@@ -100,7 +107,7 @@ public class Tower : MonoBehaviour
         {
             fuel = fullFuel;
         }
-        
+
         FuelDecrease();
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading && !isDead)
         {
@@ -112,7 +119,7 @@ public class Tower : MonoBehaviour
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
+            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
             PlayEffect(0);
@@ -199,9 +206,9 @@ public class Tower : MonoBehaviour
             fuel -= Time.deltaTime * 12.5f;
             return;
         }
-        
-        
-        
+
+
+
 
 
         //if (fuel < 0) Die();
@@ -236,7 +243,6 @@ public class Tower : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Top3", height);
         }
-
     }
 
     public IEnumerator DieDGtween()

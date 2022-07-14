@@ -41,7 +41,7 @@ public class PlayerSkillSettingManager : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
     }
 
@@ -102,7 +102,7 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-
+        Time.timeScale = 1f;
         if(scene.name == "Start")
         {
             Set();

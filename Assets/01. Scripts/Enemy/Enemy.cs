@@ -32,6 +32,7 @@ public class Enemy : PoolableMono
 
     public UnityEvent hitEvent;
 
+    private bool isHitted = false;
 
     Transform startTrm;
     Transform endTrm;
@@ -48,7 +49,10 @@ public class Enemy : PoolableMono
     {
 
         HPBar();
-
+        if (!isHitted)
+        {
+            hp = fullhp;
+        }
         if (isMoving)
         {
             transform.position += dir * speed * Time.deltaTime;
@@ -114,6 +118,7 @@ public class Enemy : PoolableMono
 
         if (collision.transform.CompareTag("BULLET"))
         {
+
             //collision.transform.GetComponent<Enemy>().hp -= atk;
             //Debug.Log("총알 맞음");
             //StartCoroutine(ChangeColorFeedback());
@@ -129,7 +134,8 @@ public class Enemy : PoolableMono
 
     public IEnumerator ChangeColorFeedback()
     {
-        CameraManager.Instance.ShakeVoid(0.35f,0.075f);
+        isHitted = true;
+        CameraManager.Instance.ShakeVoid(0.35f, 0.075f);
         SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
         renderer.color = Color.red;
         Debug.Log("?�하");
