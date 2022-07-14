@@ -101,7 +101,7 @@ public class SkillManager : MonoBehaviour
     private void SetSkillInterface(Text titleText, Text priceText, Text explainText, GameObject iconSprite, int index)
     {
         titleText.text = skillArr[index].title;
-        priceText.text = "[ " + skillArr[index].price + " ì¹´ìš´???„ìš” ]";
+        priceText.text = "[ " + skillArr[index].price + " ÄÚ½ºÆ® ÇÊ¿ä ]";
         explainText.text = skillArr[index].explain;
         iconSprite.GetComponent<Image>().sprite = skillArr[index].icon;
     }

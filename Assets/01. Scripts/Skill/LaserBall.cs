@@ -48,10 +48,10 @@ public class LaserBall : Skill
                 RaycastHit2D hit = hits[i];
                 if (hit.collider.transform.CompareTag("ENEMY"))
                 {
-                    if(hit.collider.GetComponent<Enemy>().isHitted == false)
-                    {
-                        hit.collider.GetComponent<Enemy>().isHitted = true;
-                    }
+                    //if(hit.collider.GetComponent<Enemy>().isHitted == false)
+                    //{
+                    //    hit.collider.GetComponent<Enemy>().isHitted = true;
+                    //}
                     
                     Debug.Log("레이저 스크립트 에너미 레이캐스트 함");
                     Debug.Log(hit.collider.GetComponent<Enemy>().hp);

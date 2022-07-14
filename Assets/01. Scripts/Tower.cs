@@ -86,10 +86,10 @@ public class Tower : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.Space))
-        {
-            SceneManager.LoadScene("Start");
-        }
+        //if(Input.GetKey(KeyCode.Space))
+        //{
+        //    SceneManager.LoadScene("Start");
+        //}
 
         SetFuelGrayPanel(); // ì²´ë ¥ ?ï¿½ì„???ï¿½ìƒ‰?ï¿½ë©´ ?ï¿½ëŠ”ï¿?ê´€ë¦¬í•˜???ï¿½ìˆ˜
 
@@ -123,7 +123,9 @@ public class Tower : MonoBehaviour
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
+
             bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?ï¿½ë„ ?ï¿½ëŠ” ?ï¿½ï¿½??ï¿½ìœ¼ï¿?ë³€ï¿?
+            bullet.gameObject.SetActive(true);
             bullet.dir = dir;
             bullet.Shoot();
             PlayEffect(0);
@@ -222,6 +224,7 @@ public class Tower : MonoBehaviour
 
     public void Die()
     {
+        SkillManager.Instance.isSkill = false;
         Time.timeScale = 0;
         HighScoreCheck();
         StartCoroutine(DieDGtween());
@@ -286,12 +289,13 @@ public class Tower : MonoBehaviour
         Debug.Log("asd");
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("ENEMY"))
+        if(collision.transform.CompareTag("ENEMY"))
         {
-            CrashHit();
+            Debug.Log("¿¡³Ê¹Ì Èı");
         }
+
     }
 
     private IEnumerator CrashHit()

@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class Enemy : PoolableMono
 {
@@ -32,7 +33,9 @@ public class Enemy : PoolableMono
 
     public UnityEvent hitEvent;
 
-    public bool isHitted = false;
+    //public bool isHitted = false;
+
+    public GameObject DeadParticle;
 
     Transform startTrm;
     Transform endTrm;
@@ -49,10 +52,10 @@ public class Enemy : PoolableMono
     {
 
         HPBar();
-        if (!isHitted)
-        {
-            hp = fullhp;
-        }
+        //if (!isHitted)
+        //{
+        //    hp = fullhp;
+        //}
         if (isMoving)
         {
             transform.position += dir * speed * Time.deltaTime;
@@ -62,12 +65,16 @@ public class Enemy : PoolableMono
         {
             //??? fuel ????? ????? //////////////////////////////////////////////////////////////////////////////////////
             //targetTrm.GetComponent<Tower>().fuel += giveFuel;
+            int random = Random.Range(0, 180);
+            GameObject deadParticle = Instantiate(DeadParticle, transform.position, Quaternion.Euler(0, 0, random));
+            deadParticle.transform.DORotate(new Vector3(0, 0, random), 5).OnComplete(() => { Destroy(deadParticle); });
+
             GameObject _fuelPiece = fuelPiece;
             _fuelPiece = Instantiate(_fuelPiece, transform.position, Quaternion.identity);
             _fuelPiece.GetComponent<FuelPiece>().SetGiveFuel(giveFuel);
             gameObject.SetActive(false);
             Reset();
-            //PoolManager.Instance.Push(this);
+            PoolManager.Instance.Push(this);
         }
     }
 
@@ -134,7 +141,7 @@ public class Enemy : PoolableMono
 
     public IEnumerator ChangeColorFeedback()
     {
-        isHitted = true;
+        //isHitted = true;
         CameraManager.Instance.ShakeVoid(0.35f, 0.075f);
         SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
         renderer.color = Color.red;

@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  fullhp: 0
   hp: 10
   atk: 1
   giveFuel: 40
@@ -133,6 +134,7 @@ MonoBehaviour:
   hitEvent:
     m_PersistentCalls:
       m_Calls: []
+  DeadParticle: {fileID: 8909182145362303312, guid: 8fab0635d2bbb9f49a59b40ea6c7e073, type: 3}
 --- !u!61 &4297381167158566715
 BoxCollider2D:
   m_ObjectHideFlags: 0
