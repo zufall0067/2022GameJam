@@ -6386,6 +6386,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7528d13fe8c58d442be33445f8c4a3f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillCountUI: {fileID: 1956914994}
+  skillCountText: {fileID: 103094941}
   sprite: {fileID: 588392407}
   bulletBar_Bg: {fileID: 1026388750}
   bulletBar_Icon: {fileID: 1876947837}
@@ -6412,6 +6414,7 @@ MonoBehaviour:
   GameOverPanel: {fileID: 982391241}
   grayPanel: {fileID: 1745259422}
   nowSkillCount: 0
+  fullSkillCount: 5
 --- !u!61 &588392410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9654,9 +9657,6 @@ MonoBehaviour:
   - 9750
   - 15500
   - 17500
-  height_Stage2: 3750
-  height_Stage3: 9750
-  height_Stage4: 52500
   _initList: {fileID: 11400000, guid: 4e52bd93a0de0fc40917d6f72173c965, type: 2}
 --- !u!4 &1591244257
 Transform:
