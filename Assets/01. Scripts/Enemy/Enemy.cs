@@ -142,6 +142,11 @@ public class Enemy : PoolableMono
             //tower.nowPower += tower.recoveryPower;
             //DestroyThis();
         }
+
+        if(collision.transform.CompareTag("TOWER"))
+        {
+            Debug.Log("타워 힛트");
+        }
     }
 
     public void StartChangeColorCor()
