@@ -26,6 +26,7 @@ public class LaserBall : Skill
         {
             SkillManager.Instance.SkillPanelQuit();
             lineRenderer.SetActive(true);
+            CameraManager.Instance.isLaser = true;
         }
 
         if (isReady && Input.GetMouseButton(0))
@@ -57,6 +58,7 @@ public class LaserBall : Skill
 
         if (!isReady && Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
         {
+            CameraManager.Instance.isLaser = false;
             lineRenderer.SetActive(false);
         }
 

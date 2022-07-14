@@ -23,7 +23,7 @@ public class Tower : MonoBehaviour
     public float fullFuel = 100;
     public float nowPower = 0;
     public float fullPower = 100;
-    public float recoveryPower = 4f;
+    public float recoveryPower = 15f;
     public float height = 0;
     public Text heightText;
     bool isGameStart;
