@@ -57,6 +57,10 @@ public class Tower : MonoBehaviour
     public int fullSkillCount = 5;
     public AudioClip[] clips; // 0 Ï¥ùÏèòÍ∏? 1 ?àÌä∏  2 ?¨Ïû•?? 3 ?§Ïßà??
     public AudioSource audioSource;
+
+    public Text TopscoreText1;
+    public Text TopscoreText2;
+    public Text TopscoreText3;
     void Awake()
     {
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
@@ -243,6 +247,16 @@ public class Tower : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Top3", height);
         }
+
+        float top1, top2, top3;
+
+        top1 = PlayerPrefs.GetFloat("Top1");
+        top2 = PlayerPrefs.GetFloat("Top2");
+        top3 = PlayerPrefs.GetFloat("Top3");
+
+        TopscoreText1.text = ((int)top1).ToString();
+        TopscoreText2.text = ((int)top2).ToString();
+        TopscoreText3.text = ((int)top3).ToString();
     }
 
     public IEnumerator DieDGtween()
