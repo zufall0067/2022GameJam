@@ -8,7 +8,16 @@ public class LaserBall : Skill
     public Transform laserFirePoint;
 
     public float laserDamage;
-
+    public void StopEffect_Laser(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.Stop();
+    }
+    public void PlayEffect_Laser(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.PlayOneShot(clips[num]);
+    }
     public override void Select()
     {
         price = 2;
@@ -23,6 +32,7 @@ public class LaserBall : Skill
     {
         if (isReady && Input.GetMouseButtonDown(0))
         {
+            PlayEffect(0);
             SkillManager.Instance.SkillPanelQuit();
             lineRenderer.SetActive(true);
             CameraManager.Instance.isLaser = true;
@@ -32,7 +42,7 @@ public class LaserBall : Skill
         {
             mousePos = Input.mousePosition;
             mousePos = Camera.ScreenToWorldPoint(mousePos);
-            Vector2 dir = mousePos - new Vector2(0, -1); //*(Vector2)transform.position*/;
+            Vector2 dir = mousePos - (Vector2)tower.transform.position; //*(Vector2)transform.position*/;
             dir.Normalize();
 
             //Vector2 dir = mousePos - (Vector2)transform.position; // /*(Vector2)transform.position*/;
@@ -63,6 +73,7 @@ public class LaserBall : Skill
 
         if (!isReady && Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
         {
+            //StopEffect_Laser(0);
             CameraManager.Instance.isLaser = false;
             lineRenderer.SetActive(false);
         }

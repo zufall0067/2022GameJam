@@ -53,9 +53,11 @@ public class Tower : MonoBehaviour
     private Collider2D col;
     bool isDead;
 
+    bool isReloadSound;
+
     public int nowSkillCount;
     public int fullSkillCount = 5;
-    public AudioClip[] clips; // 0 총쏘�? 1 ?�트  2 ?�장?? 3 ?�질??
+    public AudioClip[] clips; // 0 총쏘�? 1 ?�트  2 ?�장?? 3 ?�질??
     public AudioSource audioSource;
 
     public Text TopscoreText1;
@@ -91,7 +93,7 @@ public class Tower : MonoBehaviour
         //    SceneManager.LoadScene("Start");
         //}
 
-        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
+        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
         // if(Input.GetKeyDown(KeyCode.D))
         // {
@@ -124,7 +126,7 @@ public class Tower : MonoBehaviour
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
 
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
+            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.gameObject.SetActive(true);
             bullet.dir = dir;
             bullet.Shoot();
@@ -136,6 +138,11 @@ public class Tower : MonoBehaviour
         {
             if (!isReloading)
             {
+                if (!isReloadSound)
+                {
+                    PlayEffect(2);
+                    isReloadSound = true;
+                }
                 isReloading = true;
             }
         }
@@ -144,10 +151,11 @@ public class Tower : MonoBehaviour
         {
             reloadCount += Time.deltaTime;
             if (reloadCount >= overReloadCount)
-            { 
+            {
                 bulletCount = 0;
                 reloadCount = 0;
                 isReloading = false;
+                isReloadSound = false;
             }
         }
         //UIManager.Instance.fuelText.text = fuel.ToString();
@@ -293,13 +301,14 @@ public class Tower : MonoBehaviour
     {
         if(collision.transform.CompareTag("ENEMY"))
         {
-            Debug.Log("���ʹ� ��");
+            Debug.Log("���ʹ� ��");
         }
 
     }
 
     private IEnumerator CrashHit()
     {
+        PlayEffect(1);
         fuel -= 25;
         col.enabled = false;
         yield return new WaitForSeconds(1);

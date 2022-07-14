@@ -28,6 +28,8 @@ public class EnergyBall : Skill
 
             if (Input.GetMouseButtonUp(0))
             {
+                PlayEffect(0);
+                Debug.Log("Charge End");
                 SkillManager.Instance.SkillPanelQuit();
                 chargeStart = false;
                 if (ChargeEnegry > 1)
