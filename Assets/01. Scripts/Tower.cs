@@ -34,6 +34,10 @@ public class Tower : MonoBehaviour
 
     bool isDieActionComplete;
 
+    // private float nowDodgeCount = 0;
+    // private float fullDodgeCount = 1f;
+    // private bool isDodge = false;
+
     public int bulletCount = 0;
     public bool isReloading = false;
     public float reloadCount = 0;
@@ -46,20 +50,30 @@ public class Tower : MonoBehaviour
     public GameObject GameOverPanel;
 
     public Image grayPanel;
-
-
+    private Collider2D col;
     bool isDead;
 
     public int nowSkillCount;
     public int fullSkillCount = 5;
+    public AudioClip[] clips; // 0 총쏘기  1 히트  2 재장전  3 뒤질때
+    public AudioSource audioSource;
     void Awake()
     {
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
         skillCountText.text = nowSkillCount.ToString();
     }
 
+    public void PlayEffect(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.PlayOneShot(clips[num]);
+    }
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
+
         TopScore1 = PlayerPrefs.GetFloat("Top1");
         TopScore2 = PlayerPrefs.GetFloat("Top2");
         TopScore3 = PlayerPrefs.GetFloat("Top3");
@@ -108,6 +122,7 @@ public class Tower : MonoBehaviour
             bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
+            PlayEffect(0);
             bulletCount++;
         }
 
@@ -258,6 +273,22 @@ public class Tower : MonoBehaviour
 
 
         Debug.Log("asd");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("ENEMY"))
+        {
+            CrashHit();
+        }
+    }
+
+    private IEnumerator CrashHit()
+    {
+        fuel -= 25;
+        col.enabled = false;
+        yield return new WaitForSeconds(1);
+        col.enabled = true;
     }
 
 }
