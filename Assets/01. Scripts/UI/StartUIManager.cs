@@ -25,9 +25,63 @@ public class StartUIManager : MonoBehaviour
     public Text TopTwoScore;
     public Text TopThreeScore;
 
+    public InputField Coupon;
+    public Text CouponCheckText;
+    public string CouponName;
+    
+
     private void Start()
     {
         
+    }
+
+    public void CouponButtonPush()
+    {
+        CouponName = Coupon.text;
+
+        Debug.Log(CouponName);
+
+        switch (CouponName)
+        {
+            case "미개한사람들":
+                StartCoroutine(TextInOut("김희수님이 말하시길 미개해져라~ 사람들이 미개해졌다."));
+                break;
+
+            case "유정빈":
+                StartCoroutine(TextInOut("목소리 미남"));
+                break;
+
+            case "권준서":
+                StartCoroutine(TextInOut("킹갓제네럴울트라하이퍼초고교급슈퍼노바개발자"));
+                break;
+
+            case "심규영":
+                StartCoroutine(TextInOut("누나들 도망쳐요 aka. 누나킬러"));
+                break;
+
+            case "박서준":
+                StartCoroutine(TextInOut("씹게이새끼"));
+                break;
+
+            case "정정배":
+                StartCoroutine(TextInOut("맹주영꼬"));
+                break;
+
+            default:
+                StartCoroutine(TextInOut("없는 쿠폰 번호입니다."));
+                break;
+        }
+    }
+
+    public IEnumerator TextInOut(string text)
+    {
+        Debug.Log(text);
+
+        CouponCheckText.DOText(text, 1.5f);
+
+        yield return new WaitForSeconds(3f);
+
+        CouponCheckText.text = " ";
     }
 
     public void PutSettingButton()
