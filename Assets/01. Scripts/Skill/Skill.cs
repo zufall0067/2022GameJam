@@ -26,6 +26,19 @@ public class Skill : MonoBehaviour
     public string explain;
 
     public Frame currentSkill;
+    public AudioClip[] clips; // 0 총쏘기  1 히트  2 재장전  3 뒤질때
+    public AudioSource audioSource;
+    public void PlayEffect(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.PlayOneShot(clips[num]);
+    }
+
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        Debug.Log(audioSource);
+    }
 
     public virtual void SetCurrentSkill(Sprite sprite, string text)
     {

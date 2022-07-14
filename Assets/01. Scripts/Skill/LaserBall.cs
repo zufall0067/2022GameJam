@@ -8,7 +8,16 @@ public class LaserBall : Skill
     public Transform laserFirePoint;
 
     public float laserDamage;
-
+    public void StopEffect_Laser(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.Stop();
+    }
+    public void PlayEffect_Laser(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.PlayOneShot(clips[num]);
+    }
     public override void Select()
     {
         price = 2;
@@ -23,6 +32,7 @@ public class LaserBall : Skill
     {
         if (isReady && Input.GetMouseButtonDown(0))
         {
+            PlayEffect(0);
             SkillManager.Instance.SkillPanelQuit();
             lineRenderer.SetActive(true);
             CameraManager.Instance.isLaser = true;
@@ -48,11 +58,11 @@ public class LaserBall : Skill
                 RaycastHit2D hit = hits[i];
                 if (hit.collider.transform.CompareTag("ENEMY"))
                 {
-                    if(hit.collider.GetComponent<Enemy>().isHitted == false)
+                    if (hit.collider.GetComponent<Enemy>().isHitted == false)
                     {
                         hit.collider.GetComponent<Enemy>().isHitted = true;
                     }
-                    
+
                     Debug.Log("레이저 스크립트 에너미 레이캐스트 함");
                     Debug.Log(hit.collider.GetComponent<Enemy>().hp);
                     hit.collider.GetComponent<Enemy>().hp -= 1f;
@@ -63,6 +73,7 @@ public class LaserBall : Skill
 
         if (!isReady && Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
         {
+            //StopEffect_Laser(0);
             CameraManager.Instance.isLaser = false;
             lineRenderer.SetActive(false);
         }
