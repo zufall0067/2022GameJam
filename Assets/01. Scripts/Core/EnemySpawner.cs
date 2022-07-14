@@ -133,7 +133,7 @@ public class EnemySpawner : MonoBehaviour
                 enemy.spriteRenderer.sprite = stage4_NormalEnemy;
             else
                 enemy.spriteRenderer.sprite = stage4_BombEnemy;
-            enemy.hp += 175;
+            enemy.fullhp += 175;
         }
         else
         if (tower.height > gameManager.stageHeight[2])
@@ -142,7 +142,7 @@ public class EnemySpawner : MonoBehaviour
                 enemy.spriteRenderer.sprite = stage4_NormalEnemy;
             else
                 enemy.spriteRenderer.sprite = stage4_BombEnemy;
-            enemy.hp += 150;
+            enemy.fullhp += 150;
         }
         else if (tower.height > gameManager.stageHeight[1])
         {
@@ -151,7 +151,7 @@ public class EnemySpawner : MonoBehaviour
             else
                 enemy.spriteRenderer.sprite = stage3_BombEnemy;
 
-            enemy.hp += 125;
+            enemy.fullhp += 125;
         }
         else if (tower.height > gameManager.stageHeight[0])
         {
@@ -160,7 +160,7 @@ public class EnemySpawner : MonoBehaviour
             else
                 enemy.spriteRenderer.sprite = stage2_BombEnemy;
 
-            enemy.hp += 50;
+            enemy.fullhp += 50;
         }
         else
         {
