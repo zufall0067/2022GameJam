@@ -12,7 +12,7 @@ public class FireballExplosionBullet : MonoBehaviour
     void Start()
     {
         col = GetComponent<Collider2D>();
-        atk = 75;
+        atk = 175;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
