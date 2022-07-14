@@ -6407,7 +6407,7 @@ MonoBehaviour:
   bulletCount: 0
   isReloading: 0
   reloadCount: 0
-  overReloadCount: 0.15
+  overReloadCount: 0.75
   TopScore1: 0
   TopScore2: 0
   TopScore3: 0
@@ -10605,7 +10605,7 @@ MonoBehaviour:
   currentSkill: {fileID: 1387579850}
   lineRenderer: {fileID: 1751774899}
   laserFirePoint: {fileID: 0}
-  laserDamage: 0
+  laserDamage: 35
 --- !u!1 &1856308861
 GameObject:
   m_ObjectHideFlags: 0

@@ -6095,6 +6095,9 @@ MonoBehaviour:
   HighscoreButton: {fileID: 925725482}
   HighscorePanel: {fileID: 1082354217}
   HightscoreQuitButton: {fileID: 1631139183}
+  TopOneScore: {fileID: 0}
+  TopTwoScore: {fileID: 0}
+  TopThreeScore: {fileID: 0}
 --- !u!4 &1368957849
 Transform:
   m_ObjectHideFlags: 0
@@ -9748,7 +9751,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2

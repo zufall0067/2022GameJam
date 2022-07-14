@@ -8,7 +8,7 @@ public class LaserBullet : Bullet
 
     public override void Reset()
     {
-        transform.position = new Vector3(0, -1, 0);//À§Ä¡
+        transform.position = new Vector3(0, -1, 0);//ï¿½ï¿½Ä¡
         rig.velocity = Vector2.zero;
     }
 
@@ -20,7 +20,7 @@ public class LaserBullet : Bullet
 
     public override void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("ºÎµúÄ§");
+        Debug.Log("ï¿½Îµï¿½Ä§");
         if (collision.transform.CompareTag("ENEMY"))
         {
             raserCollision = collision;
@@ -29,7 +29,7 @@ public class LaserBullet : Bullet
 
     public void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("³ª°¬´Ù");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         if (collision.transform.CompareTag("ENEMY"))
         {
             raserCollision = null;
@@ -38,7 +38,7 @@ public class LaserBullet : Bullet
 
     public IEnumerator LaserAtk()
     {
-        while(true)
+        while (true)
         {
             if (raserCollision == null)
             {
