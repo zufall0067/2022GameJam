@@ -79,7 +79,7 @@ namespace DG.Tweening
         public bool isRelative;
         public bool isFrom;
         public bool isIndependentUpdate = false;
-        public bool autoKill = true;
+        public bool autoKill = false;
         public bool autoGenerate = true; // If TRUE automatically creates the tween at startup
 
         public bool isActive = true;
@@ -566,7 +566,7 @@ namespace DG.Tweening
         {
             TargetType newTargetType = TypeToDOTargetType(target.GetType());
             if (newTargetType != targetType) {
-                Debug.LogError("DOTweenAnimation ► SetAnimationTarget: the new target is of a different type from the one set in the Inspector");
+                Debug.LogError("DOTweenAnimation ??SetAnimationTarget: the new target is of a different type from the one set in the Inspector");
                 return;
             }
             target = tweenTarget;
