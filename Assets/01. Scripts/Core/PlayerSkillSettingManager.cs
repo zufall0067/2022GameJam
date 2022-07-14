@@ -50,6 +50,16 @@ public class PlayerSkillSettingManager : MonoBehaviour
         Set();
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.P))
@@ -90,7 +100,7 @@ public class PlayerSkillSettingManager : MonoBehaviour
         return list;
     }
 
-    public void LoadedsceneEvent(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
 
         if(scene.name == "Start")

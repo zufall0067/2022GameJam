@@ -25,6 +25,11 @@ public class StartUIManager : MonoBehaviour
     public Text TopTwoScore;
     public Text TopThreeScore;
 
+    private void Start()
+    {
+        
+    }
+
     public void PutSettingButton()
     {
         SettingPanel.transform.DOMoveY(0, 1f);
