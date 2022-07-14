@@ -8,7 +8,16 @@ public class LaserBall : Skill
     public Transform laserFirePoint;
 
     public float laserDamage;
-
+    public void StopEffect_Laser(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.Stop();
+    }
+    public void PlayEffect_Laser(int num)
+    {
+        audioSource.clip = clips[num];
+        audioSource.PlayOneShot(clips[num]);
+    }
     public override void Select()
     {
         price = 2;
@@ -24,6 +33,7 @@ public class LaserBall : Skill
     {
         if (isReady && Input.GetMouseButtonDown(0))
         {
+            PlayEffect(0);
             SkillManager.Instance.SkillPanelQuit();
             lineRenderer.SetActive(true);
         }
@@ -57,6 +67,7 @@ public class LaserBall : Skill
 
         if (!isReady && Input.GetMouseButton(0) || Input.GetMouseButtonUp(0))
         {
+            StopEffect_Laser(0);
             lineRenderer.SetActive(false);
         }
 

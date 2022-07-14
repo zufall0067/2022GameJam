@@ -82,12 +82,12 @@ public class Tower : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             SceneManager.LoadScene("Start");
         }
 
-        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
+        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
         // if(Input.GetKeyDown(KeyCode.D))
         // {
@@ -119,7 +119,7 @@ public class Tower : MonoBehaviour
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
+            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
             PlayEffect(0);
@@ -284,6 +284,7 @@ public class Tower : MonoBehaviour
 
     private IEnumerator CrashHit()
     {
+        PlayEffect(1);
         fuel -= 25;
         col.enabled = false;
         yield return new WaitForSeconds(1);
