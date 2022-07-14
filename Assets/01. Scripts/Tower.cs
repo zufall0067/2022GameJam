@@ -32,6 +32,10 @@ public class Tower : MonoBehaviour
 
     bool isDieActionComplete;
 
+    // private float nowDodgeCount = 0;
+    // private float fullDodgeCount = 1f;
+    // private bool isDodge = false;
+
     public int bulletCount = 0;
     public bool isReloading = false;
     public float reloadCount = 0;
@@ -44,14 +48,14 @@ public class Tower : MonoBehaviour
     public GameObject GameOverPanel;
 
     public Image grayPanel;
-
-
+    private Collider2D col;
     bool isDead;
 
     public int nowSkillCount;
     public int fullSkillCount = 5;
     void Awake()
     {
+        col = GetComponent<Collider2D>();
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
         skillCountText.text = nowSkillCount.ToString();
     }
@@ -250,6 +254,22 @@ public class Tower : MonoBehaviour
 
 
         Debug.Log("asd");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("ENEMY"))
+        {
+            CrashHit();
+        }
+    }
+
+    private IEnumerator CrashHit()
+    {
+        fuel -= 25;
+        col.enabled = false;
+        yield return new WaitForSeconds(1);
+        col.enabled = true;
     }
 
 }
