@@ -180,6 +180,7 @@ public class Tower : MonoBehaviour
 
     private void FuelDecrease()
     {
+        if (isDieActionComplete) return;
         if (fuel < 0)
         {
             Die();

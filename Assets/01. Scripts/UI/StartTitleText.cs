@@ -32,4 +32,10 @@ public class StartTitleText : MonoBehaviour
     {
         //Destroy(TMPro);
     }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+        TMPro.transform.DOKill();
+    }
 }
