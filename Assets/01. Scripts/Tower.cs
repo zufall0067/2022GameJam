@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour
     public float fullFuel = 100;
     public float nowPower = 0;
     public float fullPower = 100;
-    public float recoveryPower = 2.5f;
+    public float recoveryPower = 4f;
     public float height = 0;
     public Text heightText;
     bool isGameStart;
@@ -65,13 +65,8 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(PlayerPrefs.GetFloat("Top1"));
-        Debug.Log(PlayerPrefs.GetFloat("Top2"));
-        Debug.Log(PlayerPrefs.GetFloat("Top3"));
 
-
-
-        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
+        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
         // if(Input.GetKeyDown(KeyCode.D))
         // {
@@ -91,8 +86,8 @@ public class Tower : MonoBehaviour
         {
             fuel = fullFuel;
         }
+        
         FuelDecrease();
-
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading && !isDead)
         {
             if (SkillManager.Instance.isSkill == true) return;
@@ -103,7 +98,7 @@ public class Tower : MonoBehaviour
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
+            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
             bulletCount++;
@@ -180,12 +175,18 @@ public class Tower : MonoBehaviour
 
     private void FuelDecrease()
     {
-        if (isDieActionComplete) return;
-        if (fuel < 0)
+        if (fuel < 0 && !isDieActionComplete)
         {
             Die();
         }
-        fuel -= Time.deltaTime * 12.5f;
+        if (!isDieActionComplete)
+        {
+            fuel -= Time.deltaTime * 12.5f;
+            return;
+        }
+        
+        
+        
 
 
         //if (fuel < 0) Die();
