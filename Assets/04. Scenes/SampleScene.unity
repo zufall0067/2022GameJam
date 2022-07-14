@@ -6418,6 +6418,9 @@ MonoBehaviour:
   fullSkillCount: 5
   clips:
   - {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
+  - {fileID: 8300000, guid: 22c5e1c4dc3979749a672a60b57564cd, type: 3}
+  - {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
+  - {fileID: 8300000, guid: af66162561d2eed40ad49268cab318bb, type: 3}
   audioSource: {fileID: 0}
 --- !u!61 &588392410
 BoxCollider2D:

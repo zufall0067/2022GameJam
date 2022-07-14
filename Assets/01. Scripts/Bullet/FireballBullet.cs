@@ -19,6 +19,7 @@ public class FireballBullet : Bullet
         if (collision.transform.CompareTag("ENEMY"))
         {
             //collision.transform.GetComponent<Enemy>().hp -= atk;
+            CameraManager.Instance.ShakeVoid(1f, 0.3f);
             GameObject ani = Instantiate(bombAni, transform.position, Quaternion.identity);
             DestroyThis();
         }
