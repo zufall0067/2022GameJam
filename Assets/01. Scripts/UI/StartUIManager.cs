@@ -43,6 +43,10 @@ public class StartUIManager : MonoBehaviour
 
         switch (CouponName)
         {
+            case "좀비연시":
+                StartCoroutine(TextInOut("야... 너 뭔... 그런 게임하냐?"));
+                break;
+
             case "미개한사람들":
                 StartCoroutine(TextInOut("김희수님이 말하시길 미개해져라~ 사람들이 미개해졌다."));
                 break;

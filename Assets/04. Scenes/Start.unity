@@ -2827,11 +2827,14 @@ MonoBehaviour:
   frameParent: {fileID: 1629442672}
   framePanel: {fileID: 633219661}
   ClickToStartText: {fileID: 1398978452}
+  announceText: {fileID: 0}
+  announceObject: {fileID: 0}
   clips:
   - {fileID: 8300000, guid: 844466b1e78d59c4789f8cbbcbf6143f, type: 3}
   - {fileID: 8300000, guid: 47b809fd15f5c5f41bc701cb940572db, type: 3}
   - {fileID: 8300000, guid: 2920fba53fe76407a83bbe9dc7eeeb53, type: 3}
   audioSource: {fileID: 0}
+  backGroundMusic: {fileID: 0}
 --- !u!4 &738998907
 Transform:
   m_ObjectHideFlags: 0
@@ -8886,6 +8889,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ea081255704586a4eac2b7a02f0713f4, type: 3}
   audioSource: {fileID: 0}
   isStopMusic: 0
+  isLoop: 1
 --- !u!82 &1727317184
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9266,6 +9270,7 @@ MonoBehaviour:
   skillList: 000000000100000002000000
   Frame: {fileID: 3779031838684698801, guid: 1fb25cf68b428fa4481da7df76ae97a1, type: 3}
   frameParent: {fileID: 1629442672}
+  isFirstStart: 0
 --- !u!4 &1784622447
 Transform:
   m_ObjectHideFlags: 0
@@ -10269,7 +10274,7 @@ MonoBehaviour:
   m_LineType: 0
   m_HideMobileInput: 0
   m_CharacterValidation: 0
-  m_CharacterLimit: 5
+  m_CharacterLimit: 6
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
