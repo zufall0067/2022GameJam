@@ -30,6 +30,6 @@ public class StartTitleText : MonoBehaviour
 
     public void DestroyText()
     {
-        Destroy(TMPro);
+        //Destroy(TMPro);
     }
 }

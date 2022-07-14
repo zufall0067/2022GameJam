@@ -50,9 +50,6 @@ public class Enemy : PoolableMono
 
         if (isMoving)
         {
-
-            Debug.Log("러프중");
-
             transform.position += dir * speed * Time.deltaTime;
         }
 
@@ -134,11 +131,9 @@ public class Enemy : PoolableMono
         CameraManager.Instance.ShakeVoid(2,0.075f);
         SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
         renderer.color = Color.red;
-        Debug.Log("야하");
+        Debug.Log("?�하");
 
         yield return new WaitForSeconds(0.075f);
-
-        Debug.Log("아이 캔 시 포에버");
 
         renderer.color = Color.white;
     }

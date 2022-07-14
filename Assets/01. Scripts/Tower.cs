@@ -71,7 +71,7 @@ public class Tower : MonoBehaviour
 
 
 
-        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
+        SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
         // if(Input.GetKeyDown(KeyCode.D))
         // {
@@ -103,7 +103,7 @@ public class Tower : MonoBehaviour
             dir.Normalize();
 
             Bullet bullet = PoolManager.Instance.Pop("Bullet") as Bullet;
-            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
+            bullet.transform.position = new Vector2(transform.position.x, transform.position.y - 1); //?�도 ?�는 ?��??�으�?변�?
             bullet.dir = dir;
             bullet.Shoot();
             bulletCount++;
@@ -229,6 +229,7 @@ public class Tower : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(1);
         Sequence seq = DOTween.Sequence();
+
         seq.Append(transform.DOMoveY(-10, 2f)).
             Join(transform.DORotateQuaternion(Quaternion.Euler(0, 0, -100), 2f)).SetUpdate(true);
         //seq.Join(transform.DORotateQuaternion(Quaternion.Euler(0, 0, -150), 0.4f)).
