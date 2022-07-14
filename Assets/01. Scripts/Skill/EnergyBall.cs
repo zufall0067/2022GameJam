@@ -43,11 +43,11 @@ public class EnergyBall : Skill
                 mousePos = Input.mousePosition;
                 mousePos = Camera.ScreenToWorldPoint(mousePos);
 
-                Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
+                Vector2 dir = mousePos - (Vector2)tower.transform.position; //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
                 dir.Normalize();
                 SetCurrentSkill(temp, " ");
                 Bullet bullet = PoolManager.Instance.Pop("EnergyBullet") as Bullet;
-                bullet.transform.position = new Vector2(0, -1);
+                bullet.transform.position = (Vector2)tower.transform.position;
                 bullet.dir = dir;
                 bullet.gameObject.transform.localScale =
 
