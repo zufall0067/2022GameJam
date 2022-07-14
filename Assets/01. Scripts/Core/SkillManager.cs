@@ -92,6 +92,7 @@ public class SkillManager : MonoBehaviour
 
     public void SkillPanelQuit()
     {
+        if (!isSkill) return;
         Time.timeScale = 1f;
         skillPanel.transform.DOMoveY(-2, 0.2f).OnComplete(()=> { isSkill = false; });
         

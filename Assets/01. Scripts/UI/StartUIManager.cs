@@ -54,7 +54,20 @@ public class StartUIManager : MonoBehaviour
 
     public void PutHighscoreButton()
     {
+
         HighscorePanel.transform.DOMoveY(0, 1f);
+        float top1, top2, top3;
+        
+        top1 = PlayerPrefs.GetFloat("Top1");
+        top2 = PlayerPrefs.GetFloat("Top2");
+        top3 = PlayerPrefs.GetFloat("Top3");
+
+        
+
+        TopOneScore.text = ((int)top1).ToString();
+        TopTwoScore.text = ((int)top2).ToString();
+        TopThreeScore.text = ((int)top3).ToString();
+
         SettingButton.gameObject.SetActive(false);
         HighscoreButton.gameObject.SetActive(false);
     }

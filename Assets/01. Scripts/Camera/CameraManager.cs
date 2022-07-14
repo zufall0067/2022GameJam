@@ -35,6 +35,8 @@ public class CameraManager : MonoBehaviour
 
     bool istest;
 
+    public bool isLaser;
+
     void Start()
     {
         originPos = transform.localPosition;
@@ -43,6 +45,10 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
+        if(isLaser && Input.GetMouseButton(0))
+        {
+            transform.localPosition = (Vector3)Random.insideUnitCircle * 0.15f + originPos;
+        }
         
     }
 
@@ -50,14 +56,12 @@ public class CameraManager : MonoBehaviour
 
     public void ShakeVoid(float _amount, float _duration)
     {
-        Debug.Log("카메라 피드백");
         StartCoroutine( Shake(_amount, _duration));
     }
 
     public IEnumerator Shake(float _amount, float _duration)
     {
         float timer = 0;
-        Debug.Log("카메라 코루틴");
         while (timer <= _duration)
         {
             transform.localPosition = (Vector3)Random.insideUnitCircle * _amount + originPos;
@@ -65,8 +69,9 @@ public class CameraManager : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        Debug.Log("카메라 와일 끝");
         transform.localPosition = originPos;
 
     }
+
+
 }

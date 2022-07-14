@@ -23,7 +23,7 @@ public class Tower : MonoBehaviour
     public float fullFuel = 100;
     public float nowPower = 0;
     public float fullPower = 100;
-    public float recoveryPower = 4f;
+    public float recoveryPower = 15f;
     public float height = 0;
     public Text heightText;
     bool isGameStart;
@@ -55,8 +55,12 @@ public class Tower : MonoBehaviour
 
     public int nowSkillCount;
     public int fullSkillCount = 5;
-    public AudioClip[] clips; // 0 총쏘기  1 히트  2 재장전  3 뒤질때
+    public AudioClip[] clips; // 0 총쏘�? 1 ?�트  2 ?�장?? 3 ?�질??
     public AudioSource audioSource;
+
+    public Text TopscoreText1;
+    public Text TopscoreText2;
+    public Text TopscoreText3;
     void Awake()
     {
         sprite.sprite = PlayerSkillSettingManager.Instance.towerSprite;
@@ -130,7 +134,6 @@ public class Tower : MonoBehaviour
         {
             if (!isReloading)
             {
-                Debug.Log("Reload Start");
                 isReloading = true;
             }
         }
@@ -139,8 +142,7 @@ public class Tower : MonoBehaviour
         {
             reloadCount += Time.deltaTime;
             if (reloadCount >= overReloadCount)
-            {
-                Debug.Log("Reload end");
+            { 
                 bulletCount = 0;
                 reloadCount = 0;
                 isReloading = false;
@@ -243,6 +245,16 @@ public class Tower : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Top3", height);
         }
+
+        float top1, top2, top3;
+
+        top1 = PlayerPrefs.GetFloat("Top1");
+        top2 = PlayerPrefs.GetFloat("Top2");
+        top3 = PlayerPrefs.GetFloat("Top3");
+
+        TopscoreText1.text = ((int)top1).ToString();
+        TopscoreText2.text = ((int)top2).ToString();
+        TopscoreText3.text = ((int)top3).ToString();
     }
 
     public IEnumerator DieDGtween()

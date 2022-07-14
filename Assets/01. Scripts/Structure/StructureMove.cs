@@ -16,4 +16,9 @@ public class StructureMove : MonoBehaviour
             this.gameObject.transform.DOMoveX(12f, Random.Range(4f, 8f)).OnComplete(() => { this.gameObject.SetActive(false); });
         }
     }
+
+    private void OnDisable()
+    {
+        this.gameObject.transform.DOKill();
+    }
 }

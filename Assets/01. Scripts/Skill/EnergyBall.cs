@@ -11,7 +11,6 @@ public class EnergyBall : Skill
         price = 1;
         isReady = true;
         SetCurrentSkill(icon, title);
-        Debug.Log("에너르기파~");
     }
 
     public void Update()
@@ -20,7 +19,6 @@ public class EnergyBall : Skill
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("Charge Start");
                 chargeStart = true;
             }
             if (chargeStart)
@@ -36,7 +34,6 @@ public class EnergyBall : Skill
                 chargeStart = false;
                 if (ChargeEnegry > 1)
                 {
-                    Debug.Log("Charge Reset");
                     ChargeEnegry = 1;
                 }
                 ChargeEnegry *= 2.5f;
@@ -44,11 +41,11 @@ public class EnergyBall : Skill
                 mousePos = Input.mousePosition;
                 mousePos = Camera.ScreenToWorldPoint(mousePos);
 
-                Vector2 dir = mousePos - new Vector2(0, -1); //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
+                Vector2 dir = mousePos - (Vector2)tower.transform.position; //�Ѿ� �߻� ��ġ /*(Vector2)transform.position*/;
                 dir.Normalize();
                 SetCurrentSkill(temp, " ");
                 Bullet bullet = PoolManager.Instance.Pop("EnergyBullet") as Bullet;
-                bullet.transform.position = new Vector2(0, -1);
+                bullet.transform.position = (Vector2)tower.transform.position;
                 bullet.dir = dir;
                 bullet.gameObject.transform.localScale =
 
