@@ -61,6 +61,7 @@ public class EnemySpawner : MonoBehaviour
 
                 EnemySetting(enemy0, enemyMode);
                 enemy0.transform.rotation = Quaternion.Euler(0, 180, 0);
+                enemy0.hpBar.transform.rotation = Quaternion.Euler(0, 0, 0);
                 enemy0.Moving(spawnPos[0], Vector2.right);
                 //enemy0.transform.position = spawnPos[0].position;
                 //enemy0.transform.DOMoveY(-8, 7f).OnComplete(() => { PoolManager.Instance.Push(enemy0); });
@@ -75,6 +76,7 @@ public class EnemySpawner : MonoBehaviour
                 //enemy1.transform.DOMoveY(-8, 7f).OnComplete(() => { PoolManager.Instance.Push(enemy1); });
                 EnemySetting(enemy1, enemyMode);
                 enemy1.transform.rotation = Quaternion.Euler(0, 0, 0);
+                enemy1.hpBar.transform.rotation = Quaternion.Euler(0, 180, 0);
                 enemy1.Moving(spawnPos[1], -Vector2.right);
                 break;
 
@@ -87,6 +89,7 @@ public class EnemySpawner : MonoBehaviour
 
                 EnemySetting(enemy2, enemyMode);
                 enemy2.transform.rotation = Quaternion.Euler(0, 180, 0);
+                enemy2.hpBar.transform.rotation = Quaternion.Euler(0, 0, 0);
                 enemy2.Moving(spawnPos[2], -Vector2.up);
 
                 break;//���� �ڵ忡 �ѹ� ���� 
@@ -98,6 +101,7 @@ public class EnemySpawner : MonoBehaviour
 
                 EnemySetting(enemy3, enemyMode);
                 enemy3.transform.rotation = Quaternion.Euler(0, 0, 0);
+                enemy3.hpBar.transform.rotation = Quaternion.Euler(0, 180, 0);
                 enemy3.Moving(spawnPos[3], -Vector2.up);
                 //enemy3.transform.DOMoveX(12, 5f).SetEase(Ease.OutQuad);
                 //enemy3.transform.DOMoveY(10, 5f).SetEase(Ease.InQuad).OnComplete(() => { PoolManager.Instance.Push(enemy3); });
@@ -106,6 +110,7 @@ public class EnemySpawner : MonoBehaviour
             case 4:
                 Enemy enemy4 = PoolManager.Instance.Pop(enemyMode) as Enemy;
                 enemy4.transform.rotation = Quaternion.Euler(0, 180, 0);
+                enemy4.hpBar.transform.rotation = Quaternion.Euler(0, 0, 0);
                 EnemySetting(enemy4, enemyMode);
                 enemy4.Moving(spawnPos[4], Vector2.up);
                 //enemy4.transform.DOMoveX(-12, 5f).SetEase(Ease.OutQuad);
@@ -116,6 +121,7 @@ public class EnemySpawner : MonoBehaviour
                 Enemy enemy5 = PoolManager.Instance.Pop(enemyMode) as Enemy;
                 EnemySetting(enemy5, enemyMode);
                 enemy5.transform.rotation = Quaternion.Euler(0, 0, 0);
+                enemy5.hpBar.transform.rotation = Quaternion.Euler(0, 180, 0);
                 enemy5.Moving(spawnPos[5], Vector2.up);
                 //enemy4.transform.DOMoveX(-12, 5f).SetEase(Ease.OutQuad);
                 //enemy4.transform.DOMoveY(10, 5f).SetEase(Ease.InQuad).OnComplete(() => { PoolManager.Instance.Push(enemy4); });
