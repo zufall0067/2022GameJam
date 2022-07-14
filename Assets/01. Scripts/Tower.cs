@@ -65,11 +65,6 @@ public class Tower : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(PlayerPrefs.GetFloat("Top1"));
-        Debug.Log(PlayerPrefs.GetFloat("Top2"));
-        Debug.Log(PlayerPrefs.GetFloat("Top3"));
-
-
 
         SetFuelGrayPanel(); // 체력 ?�을???�색?�면 ?�는�?관리하???�수
 
