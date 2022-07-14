@@ -55,7 +55,7 @@ public class Tower : MonoBehaviour
 
     public int nowSkillCount;
     public int fullSkillCount = 5;
-    public AudioClip[] clips; // 0 총쏘기  1 히트  2 재장전  3 뒤질때
+    public AudioClip[] clips; // 0 총쏘�? 1 ?�트  2 ?�장?? 3 ?�질??
     public AudioSource audioSource;
     void Awake()
     {
