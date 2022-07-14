@@ -6399,7 +6399,7 @@ MonoBehaviour:
   fullFuel: 100
   nowPower: 0
   fullPower: 100
-  recoveryPower: 2
+  recoveryPower: 4
   height: 0
   heightText: {fileID: 790962043}
   isSkilling: 0

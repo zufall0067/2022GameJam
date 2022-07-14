@@ -90,7 +90,7 @@ public class Tower : MonoBehaviour
         {
             fuel = fullFuel;
         }
-        
+
         FuelDecrease();
         if (Input.GetMouseButtonDown(0) && !isSkilling && !isReloading && !isDead)
         {
@@ -188,9 +188,9 @@ public class Tower : MonoBehaviour
             fuel -= Time.deltaTime * 12.5f;
             return;
         }
-        
-        
-        
+
+
+
 
 
         //if (fuel < 0) Die();
@@ -225,7 +225,6 @@ public class Tower : MonoBehaviour
         {
             PlayerPrefs.SetFloat("Top3", height);
         }
-
     }
 
     public IEnumerator DieDGtween()
