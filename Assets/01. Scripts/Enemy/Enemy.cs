@@ -25,11 +25,11 @@ public class Enemy : PoolableMono
 
     public Color hitColor;
 
-    public UnityEvent BulletHitFeedback;
-
     private Rigidbody2D _rigid;
 
     private Vector3 dir;
+
+    public UnityEvent hitEvent;
 
 
     Transform startTrm;
@@ -111,27 +111,31 @@ public class Enemy : PoolableMono
             PoolManager.Instance.Push(this);
         }
 
-        if (collision.gameObject.transform.CompareTag("ENEMY"))
+        if (collision.transform.CompareTag("BULLET"))
         {
             //collision.transform.GetComponent<Enemy>().hp -= atk;
-            StartCoroutine(ChangeColorFeedback());
+            //Debug.Log("총알 맞음");
+            //StartCoroutine(ChangeColorFeedback());
             //tower.nowPower += tower.recoveryPower;
             //DestroyThis();
         }
     }
 
-
+    public void StartChangeColorCor()
+    {
+        StartCoroutine(ChangeColorFeedback());
+    }
 
     public IEnumerator ChangeColorFeedback()
     {
+        CameraManager.Instance.ShakeVoid(2,0.075f);
         SpriteRenderer renderer = transform.GetComponent<SpriteRenderer>();
         renderer.color = Color.red;
         Debug.Log("?�하");
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.075f);
 
         renderer.color = Color.white;
-
     }
 
 }
