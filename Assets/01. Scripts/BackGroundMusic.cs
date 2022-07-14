@@ -7,6 +7,7 @@ public class BackGroundMusic : MonoBehaviour
     public AudioClip[] clips; // 0 총쏘�? 1 ?�트  2 ?�장?? 3 ?�질??
     public AudioSource audioSource;
     public bool isStopMusic = false;
+    public bool isLoop = true;
     public void PlayEffect(int num)
     {
         audioSource.clip = clips[num];
@@ -23,15 +24,16 @@ public class BackGroundMusic : MonoBehaviour
     {
         float length = audioSource.clip.length;
 
-        while (true)
+        while (isLoop)
         {
             audioSource.Play();
             yield return new WaitForSeconds(length - 3);
         }
     }
-    private void StopMusic()
+    public void StopMusic()
     {
         audioSource.Stop();
+        isLoop = false;
     }
     // Update is called once per frame
     void Update()

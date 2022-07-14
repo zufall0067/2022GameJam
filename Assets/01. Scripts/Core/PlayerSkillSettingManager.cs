@@ -32,6 +32,8 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     public Frame Frame;
     public Transform frameParent;
+
+    public bool isFirstStart;
     void Awake()
     {
         if (null == instance)
@@ -62,11 +64,11 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             SceneManager.LoadScene("SampleScene");
         }
-        if(Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             //StartCoroutine(SetFrame());
         }
@@ -103,11 +105,11 @@ public class PlayerSkillSettingManager : MonoBehaviour
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Time.timeScale = 1f;
-        if(scene.name == "Start")
+        if (scene.name == "Start")
         {
             Set();
         }
-        if(scene.name == "SampleScene")
+        if (scene.name == "SampleScene")
         {
 
         }
@@ -115,8 +117,8 @@ public class PlayerSkillSettingManager : MonoBehaviour
 
     //public IEnumerator SetFrame()
     //{
-        
-    //    Debug.Log("¾Àº¯°æ");
+
+    //    Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
     //}
 
 }
